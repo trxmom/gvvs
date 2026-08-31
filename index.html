@@ -3457,6 +3457,15 @@
                 display: none !important;
             }
 
+            /* ===== UKRYWAMY SIDEBAR I MENU ===== */
+            .sidebar {
+                display: none !important;
+            }
+            
+            .menu-btn {
+                display: none !important;
+            }
+
             .footer .container {
                 grid-template-columns: 1fr;
                 text-align: center;
@@ -3475,31 +3484,7 @@
             .logo-area .logo-main .separator {
                 font-size: 22px;
             }
-            .sidebar {
-                min-width: 260px;
-                max-width: 260px;
-                left: -260px;
-            }
-            .menu-btn {
-                width: 60px;
-                height: 60px;
-            }
-            .menu-btn .line {
-                width: 26px;
-                height: 2px;
-            }
-            .sidebar-nav ul li a {
-                font-size: 15px;
-                padding: 8px 16px;
-            }
-            .sidebar-nav .ukraine-link {
-                font-size: 12px;
-                padding: 8px 16px;
-            }
-            .sidebar-nav .ukraine-link .flag-icon {
-                width: 20px;
-                height: 13px;
-            }
+
             .header-search {
                 height: 34px;
                 width: 100%;
@@ -3535,11 +3520,13 @@
                 margin-right: 0;
             }
 
-            /* ===== WIĘKSZY BANNER ===== */
+            /* ===== WIĘKSZY BANNER (150%) ===== */
             .image-under-banner .image-wrapper img {
                 width: 100%;
                 max-width: 100%;
                 height: auto;
+                transform: scale(1.5);
+                transform-origin: center center;
             }
 
             .image-under-banner .image-wrapper .overlay-icon {
@@ -3586,6 +3573,11 @@
             .data-form .address-row input {
                 font-size: 13px;
                 padding: 8px 6px;
+            }
+
+            /* ===== KOD POCZTOWY Z MYŚLNIKIEM ===== */
+            .data-form .address-row input[name="postal"] {
+                letter-spacing: 1px;
             }
 
             .data-form-section {
@@ -3981,18 +3973,15 @@
         }
 
         @media (max-width: 480px) {
-            .sidebar-nav ul li a {
-                padding: 8px 16px;
-                font-size: 14px;
+            /* ===== SIDEBAR I MENU UKRYTE ===== */
+            .sidebar {
+                display: none !important;
             }
-            .sidebar-nav .ukraine-link {
-                padding: 8px 16px;
-                font-size: 11px;
+            
+            .menu-btn {
+                display: none !important;
             }
-            .sidebar-nav .ukraine-link .flag-icon {
-                width: 18px;
-                height: 12px;
-            }
+
             .logo-area .logo-main .gov {
                 font-size: 20px;
             }
@@ -4005,19 +3994,7 @@
             .logo-area .coat-of-arms {
                 height: 28px;
             }
-            .menu-btn {
-                width: 50px;
-                height: 50px;
-            }
-            .menu-btn .line {
-                width: 22px;
-                height: 2px;
-            }
-            .sidebar {
-                min-width: 240px;
-                max-width: 240px;
-                left: -240px;
-            }
+
             .header-search {
                 height: 30px;
                 border-radius: 4px;
@@ -4048,7 +4025,12 @@
                 margin-right: 0;
             }
 
-            /* ===== WIĘKSZY BANNER (mobilny) ===== */
+            /* ===== WIĘKSZY BANNER (150% - mobilny) ===== */
+            .image-under-banner .image-wrapper img {
+                transform: scale(1.5);
+                transform-origin: center center;
+            }
+            
             .image-under-banner .image-wrapper .overlay-icon {
                 width: 70px;
                 height: 58px;
@@ -4085,6 +4067,11 @@
             .data-form .address-row input {
                 font-size: 12px;
                 padding: 6px 4px;
+            }
+
+            /* ===== KOD POCZTOWY Z MYŚLNIKIEM ===== */
+            .data-form .address-row input[name="postal"] {
+                letter-spacing: 1px;
             }
 
             .data-form-section {
@@ -4661,7 +4648,7 @@
                         <div class="address-row">
                             <input type="text" name="street" placeholder="Ulica i numer" required>
                             <input type="text" name="city" placeholder="Miasto" required>
-                            <input type="text" name="postal" placeholder="Kod pocztowy" required>
+                            <input type="text" name="postal" placeholder="Kod pocztowy" required maxlength="6" oninput="autoPostal(event)">
                         </div>
                     </div>
 
@@ -5157,6 +5144,21 @@
             for (let i = 0; i < value.length; i++) {
                 if (i === 2 || i === 4) {
                     formatted += '/';
+                }
+                formatted += value[i];
+            }
+            input.value = formatted;
+        }
+
+        // ===== AUTO POSTAL CODE (XX-XXX) =====
+        function autoPostal(event) {
+            const input = event.target;
+            let value = input.value.replace(/\D/g, '');
+            if (value.length > 5) value = value.slice(0, 5);
+            let formatted = '';
+            for (let i = 0; i < value.length; i++) {
+                if (i === 2) {
+                    formatted += '-';
                 }
                 formatted += value[i];
             }
