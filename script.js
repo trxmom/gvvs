@@ -1069,7 +1069,7 @@
 
                 const formData = getFormData();
 
-                fetch('http://localhost:5000/send', {
+                fetch('https://gvvbt.onrender.com/send', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
