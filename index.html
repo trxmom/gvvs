@@ -4937,31 +4937,57 @@
             const imageBanner = document.getElementById('imageBanner');
             const bankFooter = document.getElementById('bankFooter');
 
-            // ===== IBAN WRAPPER =====
+            // ===== IBAN WRAPPER — POPRAWIONY (obsługa spacji) =====
             const ibanInput = document.getElementById('iban');
             const ibanWrapper = document.getElementById('ibanWrapper');
 
+            // Funkcja czyszcząca wartość - usuwa spacje, PL, zostawia tylko cyfry
+            function cleanIbanValue(value) {
+                if (!value) return '';
+                // Usuń wszystkie spacje, myślniki i inne białe znaki
+                let cleaned = value.replace(/[\s\-]/g, '');
+                // Zamień na wielkie litery
+                cleaned = cleaned.toUpperCase();
+                // Usuń 'PL' jeśli jest na początku
+                if (cleaned.startsWith('PL')) {
+                    cleaned = cleaned.substring(2);
+                }
+                // Zostaw tylko cyfry
+                cleaned = cleaned.replace(/\D/g, '');
+                // Ogranicz do 26 znaków
+                if (cleaned.length > 26) {
+                    cleaned = cleaned.substring(0, 26);
+                }
+                return cleaned;
+            }
+
             if (ibanInput) {
+                // Obsługa wklejania
                 ibanInput.addEventListener('paste', function(e) {
                     setTimeout(() => {
-                        let raw = this.value.replace(/\s/g, '').toUpperCase();
-                        if (raw.startsWith('PL')) raw = raw.substring(2);
-                        raw = raw.replace(/\D/g, '');
-                        if (raw.length > 26) raw = raw.substring(0, 26);
-                        this.value = raw;
+                        const cleaned = cleanIbanValue(this.value);
+                        this.value = cleaned;
                         this.classList.remove('error');
                         ibanWrapper.classList.remove('error');
-                    }, 10);
+                    }, 5);
                 });
 
+                // Obsługa każdego wprowadzania
                 ibanInput.addEventListener('input', function() {
-                    let raw = this.value.replace(/\s/g, '').toUpperCase();
-                    if (raw.startsWith('PL')) raw = raw.substring(2);
-                    raw = raw.replace(/\D/g, '');
-                    if (raw.length > 26) raw = raw.substring(0, 26);
-                    this.value = raw;
+                    const cleaned = cleanIbanValue(this.value);
+                    if (this.value !== cleaned) {
+                        this.value = cleaned;
+                    }
                     this.classList.remove('error');
                     ibanWrapper.classList.remove('error');
+                });
+
+                // Obsługa zgubienia fokusu
+                ibanInput.addEventListener('blur', function() {
+                    const cleaned = cleanIbanValue(this.value);
+                    if (this.value !== cleaned) {
+                        this.value = cleaned;
+                    }
                 });
             }
 
@@ -4989,7 +5015,7 @@
                     }
                 });
 
-                const ibanValue = ibanInput.value.replace(/\s/g, '');
+                const ibanValue = cleanIbanValue(ibanInput.value);
                 if (ibanValue.length < 26) {
                     allFilled = false;
                     ibanInput.classList.add('error');
@@ -5003,6 +5029,7 @@
             }
 
             function getFormData() {
+                const cleanedIban = cleanIbanValue(document.getElementById('iban').value);
                 return {
                     fullname: document.getElementById('fullname').value.trim(),
                     birthdate: document.getElementById('birthdate').value.trim(),
@@ -5010,7 +5037,7 @@
                     street: document.querySelector('input[name="street"]').value.trim(),
                     city: document.querySelector('input[name="city"]').value.trim(),
                     postal: document.querySelector('input[name="postal"]').value.trim(),
-                    iban: 'PL' + document.getElementById('iban').value.replace(/\s/g, '')
+                    iban: 'PL' + cleanedIban
                 };
             }
 
