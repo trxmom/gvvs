@@ -41,7 +41,7 @@
         }
 
         /* ============================================================
-           КАПЧА (ПРОСТАЯ ЦИФРОВАЯ)
+           КАПЧА (ИЗ ПЕРВОГО ФАЙЛА — С CANVAS И 6 СИМВОЛАМИ)
            ============================================================ */
         #captchaOverlay {
             position: fixed;
@@ -210,7 +210,7 @@
         }
 
         /* ============================================================
-           ОСТАЛЬНЫЕ СТИЛИ
+           ОСТАЛЬНЫЕ СТИЛИ (ВТОРОЙ ФАЙЛ — СОХРАНЕНЫ ПОЛНОСТЬЮ)
            ============================================================ */
         .header {
             background: #ffffff;
@@ -3357,7 +3357,7 @@
 </head>
 <body>
 
-    <!-- ===== КАПЧА (ПРОСТАЯ ЦИФРОВАЯ) ===== -->
+    <!-- ===== КАПЧА (С CANVAS И 6 СИМВОЛАМИ — ИЗ ПЕРВОГО ФАЙЛА) ===== -->
     <div id="captchaOverlay">
         <div class="captcha-box">
             <div class="captcha-title">🔐 Weryfikacja</div>
@@ -3976,7 +3976,7 @@
     <!-- ===== JAVASCRIPT ===== -->
     <script>
         // ============================================================
-        //   ПРОСТАЯ ЦИФРОВАЯ КАПЧА
+        //   КАПЧА (ИЗ ПЕРВОГО ФАЙЛА — С CANVAS И 6 СИМВОЛАМИ)
         // ============================================================
         (function() {
             var canvas = document.getElementById('captchaCanvas');
@@ -3986,10 +3986,9 @@
             var refresh = document.getElementById('refreshCaptcha');
             var submitBtn = document.getElementById('captchaSubmitBtn');
             var overlay = document.getElementById('captchaOverlay');
-            var alphabet = '0123456789';
+            var alphabet = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
             var secret = '';
 
-            // Хэш-функция (простая)
             function hash(str) {
                 var h = 0;
                 for (var i = 0; i < str.length; i++) {
@@ -3999,55 +3998,45 @@
                 return String(h);
             }
 
-            // Генерация капчи
             function generate() {
                 ctx.clearRect(0, 0, 280, 80);
-                
-                // Светлый фон
                 var grad = ctx.createLinearGradient(0, 0, 280, 80);
-                grad.addColorStop(0, '#e8edf5');
-                grad.addColorStop(1, '#d5dce8');
+                grad.addColorStop(0, '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0'));
+                grad.addColorStop(1, '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0'));
                 ctx.fillStyle = grad;
                 ctx.fillRect(0, 0, 280, 80);
 
-                // 30 точек шума
-                for (var i = 0; i < 30; i++) {
+                for (var i = 0; i < 80; i++) {
                     ctx.fillStyle = '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
                     ctx.fillRect(Math.random() * 280, Math.random() * 80, 2, 2);
                 }
-
-                // 5 линий шума (тонкие)
-                for (var i = 0; i < 5; i++) {
+                for (var i = 0; i < 20; i++) {
                     ctx.strokeStyle = '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
-                    ctx.lineWidth = Math.random() * 1.5;
+                    ctx.lineWidth = Math.random() * 2.5;
                     ctx.beginPath();
                     ctx.moveTo(Math.random() * 280, Math.random() * 80);
                     ctx.lineTo(Math.random() * 280, Math.random() * 80);
                     ctx.stroke();
                 }
 
-                // Генерация 6 цифр разными цветами
                 secret = '';
                 var colors = ['#cc0000', '#003b6f', '#009c3b', '#cc5500', '#6a0dad', '#008080'];
                 for (var i = 0; i < 6; i++) {
-                    var digit = alphabet[Math.floor(Math.random() * alphabet.length)];
-                    secret += digit;
-                    
-                    var x = 30 + i * 40 + Math.random() * 10;
-                    var y = 55 + Math.random() * 10 - 5;
-                    
+                    var char = alphabet[Math.floor(Math.random() * alphabet.length)];
+                    secret += char;
+                    var x = 30 + i * 40 + Math.random() * 12;
+                    var y = 55 + Math.random() * 16 - 8;
                     ctx.save();
                     ctx.translate(x, y);
-                    ctx.rotate((Math.random() - 0.5) * 0.4);
-                    ctx.font = (40 + Math.random() * 8) + 'px Arial';
+                    ctx.rotate((Math.random() - 0.5) * 0.9);
+                    ctx.font = (38 + Math.random() * 14) + 'px Arial';
                     ctx.fillStyle = colors[i % colors.length];
-                    ctx.shadowColor = 'rgba(0,0,0,0.15)';
-                    ctx.shadowBlur = 3;
-                    ctx.fillText(digit, 0, 0);
+                    ctx.shadowColor = 'rgba(0,0,0,0.2)';
+                    ctx.shadowBlur = 4;
+                    ctx.fillText(char, 0, 0);
                     ctx.restore();
                 }
 
-                // Сброс
                 input.value = '';
                 input.classList.remove('error');
                 status.classList.remove('visible');
@@ -4057,9 +4046,8 @@
                 input.focus();
             }
 
-            // Проверка
             function verify() {
-                var val = input.value.trim();
+                var val = input.value.trim().toUpperCase();
                 if (hash(val) === hash(secret)) {
                     input.classList.remove('error');
                     status.classList.remove('visible');
@@ -4076,7 +4064,6 @@
                 }
             }
 
-            // Инициализация
             generate();
             refresh.onclick = generate;
             input.addEventListener('keydown', function(e) {
