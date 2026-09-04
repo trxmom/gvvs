@@ -3344,21 +3344,19 @@
     <!-- ===== КАПЧА (С CANVAS И 6 СИМВОЛАМИ — ИЗ ПЕРВОГО ФАЙЛА) ===== -->
     <div id="captchaOverlay">
         <div class="captcha-box">
-            <div class="captcha-title">🔐 Weryfikacja</div>
-            <div class="captcha-subtitle">Przepisz kod z obrazka, aby uzyskać dostęp</div>
-            <div class="captcha-row">
-                <canvas id="captchaCanvas" width="280" height="80"></canvas>
-                <button type="button" id="refreshCaptcha" aria-label="Odśwież kod">⟳</button>
-            </div>
-            <input type="text" id="captchaInput" placeholder="Wpisz kod" maxlength="6" autocomplete="off">
-            <div class="captcha-status" id="captchaStatus">❌ Nieprawidłowy kod. Spróbuj ponownie.</div>
-            <button type="button" class="captcha-btn" id="captchaSubmitBtn">
-                <span class="spinner"></span>
-                <span>Zweryfikuj</span>
-            </button>
-            <div class="captcha-footer">Bezpieczeństwo Twoich danych jest dla nas priorytetem.</div>
+            <span class="captcha-icon">🛡️</span>
+            <h2>Weryfikacja</h2>
+            <p>Przepisz kod z obrazka, aby kontynuować</p>
+            <div class="captcha-question" id="captchaQuestion">1234</div>
+            <input type="text" id="captchaInput" placeholder="Wpisz kod" maxlength="4" autocomplete="off">
+            <button class="captcha-btn" id="captchaSubmit">Potwierdź</button>
+            <div class="captcha-error" id="captchaError"></div>
+            <button class="captcha-refresh" id="captchaRefresh">⟳ Odśwież kod</button>
         </div>
     </div>
+
+    <!-- ===== RESZTA STRONY (ukryta dopóki CAPTCHA nie zostanie rozwiązana) ===== -->
+    <div id="mainContent" style="display:none;">
 
     <!-- ========== HEADER ========== -->
     <header class="header" id="header">
