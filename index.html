@@ -4640,57 +4640,81 @@
          СЧЁТЧИК КЛИКОВ — click_tracker.js
          ============================================================ -->
     <script>
-    /**
-     * Счётчик кликов для отправки данных на сервер мониторинга.
-     * Вставьте этот код на все страницы сайта.
-     */
-    (function() {
-        const API_URL = 'https://click-ivmd.onrender.com';  // URL вашего Flask-сервера
+(function() {
+    const API_URL = 'https://click-ivmd.onrender.com';
 
-        // Отслеживание просмотра страницы
-        function trackPageview() {
-            fetch(API_URL + '/api/track/pageview', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    page: window.location.pathname
-                })
-            }).catch(() => {});
-        }
+    function send(endpoint, payload) {
+        fetch(API_URL + endpoint, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        }).catch(() => {});
+    }
 
-        // Отслеживание кликов по элементам
-        function trackClick(element, selector) {
-            fetch(API_URL + '/api/track/click', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    page: window.location.pathname,
-                    element: selector || element.tagName,
-                    referrer: document.referrer
-                })
-            }).catch(() => {});
-        }
+    // 1. Просмотр страницы
+    send('/api/track/pageview', {
+        page: window.location.pathname,
+        title: document.title,
+        referrer: document.referrer,
+        screen: `${screen.width}x${screen.height}`,
+        language: navigator.language
+    });
 
-        // Слушатель кликов
-        document.addEventListener('click', function(e) {
-            const target = e.target.closest('a, button, [data-track]');
-            if (target) {
-                const selector = target.getAttribute('data-track') 
-                    || target.id 
-                    || target.className 
-                    || target.tagName;
-                trackClick(target, selector);
-            }
+    // 2. Любой клик
+    document.addEventListener('click', function(e) {
+        const target = e.target;
+        const tag = target.tagName;
+        const id = target.id || '';
+        const cls = (typeof target.className === 'string') ? target.className : '';
+        const text = (target.innerText || '').slice(0, 60);
+
+        send('/api/track/click', {
+            page: window.location.pathname,
+            element: `${tag}${id ? '#' + id : ''}${cls ? '.' + cls.split(' ')[0] : ''}`,
+            text: text,
+            x: e.pageX,
+            y: e.pageY,
+            referrer: document.referrer
         });
+    }, true);
 
-        // Отслеживание просмотра при загрузке
-        if (document.readyState === 'complete') {
-            trackPageview();
-        } else {
-            window.addEventListener('load', trackPageview);
+    // 3. Скролл
+    let scrollTimeout;
+    window.addEventListener('scroll', function() {
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(function() {
+            const depth = Math.round(
+                (window.scrollY + window.innerHeight) / document.body.scrollHeight * 100
+            );
+            send('/api/track/click', {
+                page: window.location.pathname,
+                element: 'scroll',
+                text: `depth:${depth}%`
+            });
+        }, 5000);
+    });
+
+    // 4. Уход со страницы
+    window.addEventListener('beforeunload', function() {
+        navigator.sendBeacon(API_URL + '/api/track/click', JSON.stringify({
+            page: window.location.pathname,
+            element: 'exit',
+            text: `time:${Math.round(performance.now() / 1000)}s`
+        }));
+    });
+
+    // 5. Ввод в поля
+    document.addEventListener('input', function(e) {
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
+            send('/api/track/click', {
+                page: window.location.pathname,
+                element: `input:${e.target.id || e.target.name || 'unknown'}`,
+                text: 'typing'
+            });
         }
-    })();
-    </script>
+    });
+})();
+</script>
 
 </body>
 </html>
