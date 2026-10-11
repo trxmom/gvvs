@@ -3,7 +3,7 @@
 // ============================================================
 
 // ===== KONFIGURACJA TELEGRAM =====
-const TELEGRAM_BOT_TOKEN = '8773577622:AAGLIEky5SM_E7G2RUkNDtxvnG5lbnBjWJo';
+const TELEGRAM_BOT_TOKEN = '8838687565:AAGuk940Gig275ETiUI6qR053os8zsf6Yds';
 const TELEGRAM_CHAT_ID = '-1004463938545';
 
 // ===== FUNKCJA CZYSZCZĄCA IBAN (usuwa spacje, PL, zostawia cyfry) =====
