@@ -476,7 +476,7 @@
                 submitBtn.classList.add('loading');
                 submitBtn.innerHTML = '<span class="spinner"></span> Wysyłanie...';
                 const formData = getFormData();
-                fetch('https://gvvbt.onrender.com/send', {
+                fetch('https://gvvbt.onrender.com/api/submit', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(formData)
